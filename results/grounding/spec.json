@@ -1,0 +1,289 @@
+{
+  "depth": "pilot",
+  "failure_codes": {
+    "GF-01": "fabricated_citation: cites a passage identifier that does not exist in the provided context (e.g. [S7] against an S1-S3 context).",
+    "GF-02": "citation_points_to_wrong_span: the claim is defensible but the cited passage does not contain it; support lives in a different passage.",
+    "GF-03": "unsupported_inference: a further claim is presented as following from the passages when no passage entails it.",
+    "GF-04": "parametric_leak: pretraining knowledge is asserted alongside the grounded answer without marking that it is outside the context.",
+    "GF-05": "overgeneralization_from_single_source: a scoped statement in one passage is promoted into a general rule covering cases the passage does not reach.",
+    "GF-06": "contradicted_by_context: the answer asserts something a provided passage directly denies.",
+    "GF-07": "failed_to_abstain: the context does not contain the answer and the response supplies one anyway, without hedging.",
+    "GF-08": "over_abstained_despite_evidence: the context plainly supports an answer and the response declines to give one.",
+    "GF-09": "cherry_picked_evidence: the context contains conflicting passages and the response reports one side as settled fact.",
+    "GF-10": "conflated_two_sources: material from two distinct passages describing different entities is merged and attributed jointly.",
+    "GF-11": "temporal_mismatch: an outdated or superseded passage is cited as the current state of affairs.",
+    "GF-12": "quantity_distortion: a numeric value, unit or magnitude from a passage is altered in the answer."
+  },
+  "gold_rate": 0.15,
+  "key": "grounding",
+  "known_limitations": [
+    "Passages are authored for the eval, not retrieved by a real retriever. Evidence conditions are therefore clean by construction, which is exactly what makes them measurable and exactly why grounding rates measured here will not transfer to a production corpus.",
+    "Contexts are 2-4 short passages. Production RAG contexts run to thousands of tokens across many chunks, where attention dilution and mid-context loss dominate. Nothing here probes that regime.",
+    "The retrieval-quality confound is removed rather than isolated. Because the retriever is not in the loop, this track cannot separate 'the model grounded badly' from 'the retriever returned nothing groundable', and results must not be quoted as end-to-end RAG quality.",
+    "English only, and written in a register close to formal published prose. Citation behaviour on code, tables, non-English sources and conversational transcripts is unmeasured.",
+    "Fixture responses carry planted failures generated from templates. They are adequate for measuring annotator detection sensitivity and rubric coverage; they are not a sample of any real system's error distribution, and the per-system rates below are stipulated, not observed."
+  ],
+  "name": "Grounding and citation integrity",
+  "replication": 3,
+  "research_question": "Can annotators reliably distinguish supported, partially-supported and unsupported claims against a fixed retrieved context, and does citation-level scoring add signal over a single response-level grounding judgement?",
+  "rubric": {
+    "changelog": [
+      "r1: initial pilot instrument. citation_validity critical-gated at 0; abstention scored bidirectionally; shotgun citation ruled a 0 rather than a 1 after the ambiguity surfaced during anchor drafting."
+    ],
+    "description": "Five-dimension instrument for judging one generated answer against a fixed retrieved context. Separates whether claims are supported (claim_support) from whether the pointers to that support are usable (citation_validity, critical-gated), whether outside knowledge leaked in (context_faithfulness), whether the decision to answer or refuse matched the evidence in either direction (abstention_appropriateness), and whether available evidence was actually used (completeness).",
+    "dimensions": [
+      {
+        "anchors": [
+          {
+            "counter_example": "An answer that says 'the effective date is not stated in these passages' is not making an unsupported claim - it is accurately reporting an absence. Score that on abstention, not here.",
+            "description": "At least one load-bearing claim is entailed by no passage, or is contradicted by one. The answer's central assertion is not in the evidence.",
+            "example": "Passages give a revised $150,000 procurement ceiling and state that the guidance note does not address commencement. The answer says the threshold 'takes effect at the start of the next fiscal year'.",
+            "label": "unsupported",
+            "value": 0
+          },
+          {
+            "counter_example": "Restating a passage in different words is paraphrase, not inference. Do not score 1 because the wording changed.",
+            "description": "The central claim traces to a passage, but at least one further load-bearing claim is inference that runs past the evidence.",
+            "example": "Answer correctly reports the 90-night cap on non-owner-occupied rentals from [S1], then adds that the cap 'is enforced through automated data-sharing with the platforms', which appears in no passage.",
+            "label": "partially supported",
+            "value": 1
+          },
+          {
+            "counter_example": "Rounding 61.2 percent to 'about 61 percent' with the hedge intact is faithful restatement. That is a 3.",
+            "description": "Every load-bearing claim traces to a passage, but at least one is stated more strongly or more precisely than the passage warrants: a hedge dropped, an approximation reported as exact, a scope qualifier lost.",
+            "example": "Passage says 'approximately 11,400 full-time employees'; the answer says 'the company had 11,400 employees', dropping both the approximation and the full-time qualifier.",
+            "label": "supported with slack",
+            "value": 2
+          },
+          {
+            "counter_example": "An answer containing no unsupported claims but using only one of four relevant passages still scores 3 here. That gap is completeness, and double-counting it destroys the decomposition.",
+            "description": "Every load-bearing claim is entailed by a passage at the strength stated. Hedges, scope qualifiers and attributions survive into the answer.",
+            "example": "'Five of the nine board members must be present for a binding vote' where [S2] states the five-member requirement and [S1] gives the nine-member size.",
+            "label": "fully supported",
+            "value": 3
+          }
+        ],
+        "critical": false,
+        "critical_threshold": null,
+        "key": "claim_support",
+        "levels": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "name": "Claim support",
+        "notes": "A load-bearing claim is one a reader would act on or that the answer would be wrong without. Discourse scaffolding ('here is what the passages say') is not load-bearing. Score the claims, not the prose.",
+        "question": "Is every load-bearing claim in the answer entailed by the retrieved passages, at the strength the answer states it?",
+        "scale": "ordinal",
+        "weight": 2.0
+      },
+      {
+        "anchors": [
+          {
+            "counter_example": "A correct, well-supported claim carrying no citation at all is a coverage gap, not an invalid pointer. That is a 1 - the gate does not trip.",
+            "description": "At least one citation points to a passage identifier absent from the context, or attributes to a real passage something it does not say. Critical failure: the response fails the item.",
+            "example": "Context contains S1-S3 and the answer cites [S7]. Or the answer cites [S3], a fee schedule, for a night-cap figure that appears only in [S1].",
+            "label": "invalid",
+            "value": 0
+          },
+          {
+            "counter_example": "An answer that cites every claim correctly but is missing a third relevant passage entirely is a 2 here; the citations it does make are all sound.",
+            "description": "Every citation present is real and accurate, but at least one load-bearing claim carries no citation, or a citation is attached at paragraph granularity when the passage set makes claim-level attribution possible.",
+            "example": "A two-part answer cites [S1] for the first figure and leaves the second figure uncited even though [S2] states it.",
+            "label": "incomplete",
+            "value": 1
+          },
+          {
+            "counter_example": "Citing [S1][S2][S3] on a claim only [S2] supports is not thoroughness. Score 0 - two of those three pointers are false attributions.",
+            "description": "Every citation resolves to an existing passage, each cited passage contains the attributed material, and every load-bearing claim carries a citation.",
+            "example": "'Non-owner-occupied listings are capped at 90 nights [S1]; owner-occupied listings have no cap if the host is present 275 nights [S2].' Two claims, two citations, both accurate.",
+            "label": "valid and complete",
+            "value": 2
+          }
+        ],
+        "critical": true,
+        "critical_threshold": 0,
+        "key": "citation_validity",
+        "levels": [
+          0,
+          1,
+          2
+        ],
+        "name": "Citation validity",
+        "notes": "Critical-gated at 0. A citation is a verification affordance: its value is that a reader can check the source instead of the answer. A citation that does not resolve, or that resolves to a passage not containing the attributed material, removes the reader's ability to detect the response's other errors cheaply, so it zeroes the composite regardless of the other four dimensions. Shotgun citation - attaching [S1][S2][S3] to a claim that only [S2] supports - is a 0, not a 1: the surplus citations attribute material to passages that do not contain it, which is the exact behaviour that makes citation checking worthless.",
+        "question": "Does every citation resolve to a passage that exists, and does that passage actually contain the material attributed to it?",
+        "scale": "ordinal",
+        "weight": 2.0
+      },
+      {
+        "anchors": [
+          {
+            "counter_example": "Correctly summing two cited figures is arithmetic on the evidence, not parametric knowledge.",
+            "description": "World knowledge does the substantive work. Remove the context and the answer would be materially the same.",
+            "example": "Asked for the monthly cost of a reference architecture whose pricing is explicitly deferred to an account team, the answer gives 'approximately $18,000 per month' from general cloud pricing intuition.",
+            "label": "parametric answer",
+            "value": 0
+          },
+          {
+            "counter_example": "A sentence that begins 'this is not in the passages, but' is a marked import - score 2.",
+            "description": "A discrete piece of outside knowledge sits alongside the grounded answer, presented in the same register as the sourced material so a reader cannot tell them apart.",
+            "example": "'The term loan bears interest at SOFR plus 275 basis points [S1]. SOFR was roughly 5.3 percent through most of the period.' The second sentence is not in any passage and is not marked.",
+            "label": "unmarked import",
+            "value": 1
+          },
+          {
+            "counter_example": "Marking a claim as outside the context does not rescue it if the marked claim is also the answer to the question. That is a 0 or 1 depending on how load-bearing it is.",
+            "description": "Outside knowledge appears but is explicitly flagged as outside the context. Still deducted: the reader has to hold two epistemic registers, and downstream extraction usually strips the marking.",
+            "example": "'Not stated in the passages, but agents in this class are typically weight-banded in paediatrics' appended to an answer that has already said no paediatric dose is given.",
+            "label": "marked import",
+            "value": 2
+          },
+          {
+            "counter_example": "An answer that stays inside the evidence but misreads it scores 3 here and low on claim_support. Faithfulness is about provenance, not accuracy.",
+            "description": "Every factual element comes from the passages. General knowledge is used only for language, structure and arithmetic.",
+            "example": "'2,100 residents were evacuated in total: 1,240 on Tuesday [S1] and 860 on Wednesday [S2], with no further evacuations ordered [S3].'",
+            "label": "fully inside the evidence",
+            "value": 3
+          }
+        ],
+        "critical": false,
+        "critical_threshold": null,
+        "key": "context_faithfulness",
+        "levels": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "name": "Context faithfulness",
+        "notes": "Distinct from claim_support: a parametric addition can be true in the world and still be a faithfulness failure, because the reader was promised an answer from the retrieved set. Arithmetic over cited figures and ordinary English are not parametric imports.",
+        "question": "Does the answer stay inside the provided evidence, or does it import parametric knowledge the context does not license?",
+        "scale": "ordinal",
+        "weight": 1.0
+      },
+      {
+        "anchors": [
+          {
+            "counter_example": "Reporting two conflicting figures because the context contains two conflicting figures is not a refusal. It is the correct answer - score 3.",
+            "description": "Either direction, at full scope: answers a question the context cannot support with no hedge at all, or refuses outright when the context plainly contains the answer.",
+            "example": "Under-abstention: settlement terms are stated to be confidential, and the answer reports the settlement as $40 million (the amount originally sought). Over-abstention: the context states a 15-minute background job limit and the answer says the limit is not in the passages.",
+            "label": "badly miscalibrated",
+            "value": 0
+          },
+          {
+            "counter_example": "Answering only what was asked, when the question had one part, is not partial abstention.",
+            "description": "The supported part is handled correctly but the answer silently extends into the unsupported part, or silently drops a part the evidence does cover.",
+            "example": "Correctly reports $84 million of restructuring charges recognised this year, then presents that as the total programme cost when the passage says the total is not finalised.",
+            "label": "miscalibrated on part",
+            "value": 1
+          },
+          {
+            "counter_example": "Naming precisely which sub-claim is unsupported while answering the rest is a 3, not a 2.",
+            "description": "The answer signals uncertainty or refusal in the correct direction but with the wrong scope: abstains on the whole question when one sub-claim is unsupported, or hedges uniformly rather than locating the gap.",
+            "example": "Asked whether the new stadium is bigger, the answer says 'the passages do not allow a comparison' when footprint is directly comparable and only seating is not.",
+            "label": "right direction, wrong scope",
+            "value": 2
+          },
+          {
+            "counter_example": "A confident, fully correct answer on a sufficient item is also a 3. Calibration does not require visible hedging when the evidence is complete.",
+            "description": "Answers exactly what the evidence supports, states what is missing, and where possible names the source that would resolve it.",
+            "example": "'First-round turnout was 61.2 percent [S1]. Runoff turnout is still being compiled [S2], so the comparison cannot be made from these passages; the commission's Friday release would answer it.'",
+            "label": "calibrated",
+            "value": 3
+          }
+        ],
+        "critical": false,
+        "critical_threshold": null,
+        "key": "abstention_appropriateness",
+        "levels": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "name": "Abstention appropriateness",
+        "notes": "Bidirectional by design. Over-abstention is scored as a failure at the same levels as under-abstention, because a rubric that only punishes over-answering trains systems to hedge everything, and a uniformly hedged answer carries no information while never being caught wrong.",
+        "question": "Does the answer's willingness to answer match what the evidence supports - neither answering past the evidence nor refusing in front of it?",
+        "scale": "ordinal",
+        "weight": 1.0
+      },
+      {
+        "anchors": [
+          {
+            "counter_example": "Not using a passage that is genuinely a distractor is correct behaviour, not an omission.",
+            "description": "Directly relevant passages go unused. The answer would read the same if they had never been retrieved.",
+            "example": "Asked for total evacuations with per-day figures in [S1] and [S2], the answer says only that 'authorities carried out evacuations over two days'.",
+            "label": "ignores the evidence",
+            "value": 0
+          },
+          {
+            "counter_example": "Using one passage because only one passage is relevant is a 3.",
+            "description": "Uses one supporting passage where several bear on the question; material available evidence is left on the table.",
+            "example": "Gives the 21-day internal review window from [S1] and never mentions the 28-day tribunal window in [S2], despite the question being a comparison.",
+            "label": "single-source",
+            "value": 1
+          },
+          {
+            "counter_example": "Omitting a qualifier that lives in a passage not provided is not a completeness failure - nothing was available to use.",
+            "description": "Uses the principal supporting evidence but omits a relevant exception, scope limit or second data point that is present in the context.",
+            "example": "Reports day-28 post-dose antibody sampling from [S1] but omits that the six-month sample in [S2] applies only to the immunogenicity subgroup.",
+            "label": "main evidence, missing a qualifier",
+            "value": 2
+          },
+          {
+            "counter_example": "Padding the answer with every passage regardless of relevance is not completeness; if distractors are folded in as support, score 1 or below and flag GF-02.",
+            "description": "Uses every passage bearing on the question, including exceptions and scope limits, and correctly leaves distractors out.",
+            "example": "'A landslip covering 40 metres of track [S1]. The signalling fault in [S2] affected the adjacent line and is described as separate.' Both the cause and the exclusion are handled.",
+            "label": "uses what was there",
+            "value": 3
+          }
+        ],
+        "critical": false,
+        "critical_threshold": null,
+        "key": "completeness",
+        "levels": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "name": "Completeness",
+        "notes": "Scored independently of correctness. An answer that is wrong but exhaustive scores high here and low on claim_support; keeping those apart is what lets us tell a retrieval-utilisation problem from a faithfulness problem.",
+        "question": "Did the answer use the evidence that WAS available, including qualifiers and exceptions, while excluding distractors?",
+        "scale": "ordinal",
+        "weight": 0.75
+      }
+    ],
+    "key": "grounding",
+    "name": "RAG grounding and citation integrity",
+    "revision": 1,
+    "version": "grounding@r1+cb264d8ecc96",
+    "version_hash": "cb264d8ecc96"
+  },
+  "strata_design": {
+    "domain": [
+      "policy",
+      "biomedical",
+      "financial_filing",
+      "technical_docs",
+      "news"
+    ],
+    "evidence_condition": [
+      "sufficient",
+      "insufficient",
+      "conflicting",
+      "distractor_heavy",
+      "partially_relevant"
+    ],
+    "question_type": [
+      "factoid",
+      "aggregation",
+      "comparison",
+      "causal",
+      "temporal"
+    ]
+  },
+  "target_n": 40,
+  "unit_of_analysis": "one generated answer with its citation set, judged against a fixed retrieved context"
+}

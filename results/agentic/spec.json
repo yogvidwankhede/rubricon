@@ -1,0 +1,356 @@
+{
+  "depth": "production",
+  "failure_codes": {
+    "AF-01": "hallucinated_tool -- called a tool name that does not exist in the offered catalog.",
+    "AF-02": "fabricated_argument_value -- passed an identifier, path, address, or amount with no source in the prompt, context, or any prior tool result.",
+    "AF-03": "stale_state_reuse -- acted on a value the trace had already shown to be superseded.",
+    "AF-04": "error_ignored -- treated a tool error or empty result as a success and continued.",
+    "AF-05": "retry_loop -- reissued an identical call with no intervening change to arguments, state, or strategy.",
+    "AF-06": "premature_termination -- stopped and reported completion before the final required action was attempted.",
+    "AF-07": "goal_drift -- pursued a related but different objective from the one requested.",
+    "AF-08": "unverified_assumption -- skipped an available check and asserted the assumed value as established fact.",
+    "AF-09": "partial_completion_reported_as_full -- completed a subset of the targets while the final message claims all of them.",
+    "AF-10": "parallel_call_race -- issued concurrent calls writing the same resource, so one silently clobbered the other.",
+    "AF-11": "permission_overreach -- took an action broader, more destructive, or more externally visible than the request authorised.",
+    "AF-12": "context_truncation_amnesia -- lost earlier trajectory content and re-did completed work or re-asked for information already supplied.",
+    "AF-13": "tool_output_misread -- parsed a tool result incorrectly (wrong field, wrong unit, wrong timezone, wrong magnitude) and acted on the misreading."
+  },
+  "gold_rate": 0.15,
+  "key": "agentic",
+  "known_limitations": [
+    "Trajectories in this corpus are synthetic fixtures with hand-planted failures, not captured runs of a live agent. Failure co-occurrence is therefore unrealistically clean: real traces routinely carry three failure modes at once, and detection rates measured here will be optimistic relative to production traces.",
+    "Every item is a single-turn framing: the user states the task once and never intervenes. This removes the largest real-world recovery channel (the user noticing and correcting mid-run), so error_recovery scores here cannot be read as recovery rates in an interactive product.",
+    "The tool catalog is stylised. Real catalogs have dozens of near-duplicate tools with inconsistent argument naming, which is a major driver of AF-01 and AF-02 in production and is under-represented here by construction.",
+    "English only, and all scenarios are drawn from US/EU knowledge-work contexts (SaaS billing, engineering on-call, corporate travel). Nothing in this corpus speaks to agent behaviour in other languages or operational cultures.",
+    "n=48 items x 3 systems is sized to exercise the pipeline and to estimate agreement, not to separate the two candidate systems. The planted rates for v2 and v3 differ by 2 points, which is well below the minimum detectable effect at this n; any observed ordering between them should be reported as indistinguishable."
+  ],
+  "name": "Agentic tool-use failure evaluation",
+  "replication": 3,
+  "research_question": "Where do multi-step tool-using agents break, and which of those failure modes can be identified by trained annotators with inter-annotator agreement high enough to support release decisions?",
+  "rubric": {
+    "changelog": [
+      "r1: initial five-dimension draft (no state_tracking).",
+      "r2: split state_tracking out of error_recovery after pilot annotators conflated 'forgot' with 'failed to recover'; alpha on the merged dimension was 0.31.",
+      "r3: argument_fidelity critical threshold moved from 1 to 0 so that sourced-but-wrong values are scored rather than gated, and every anchor gained an explicit counter_example."
+    ],
+    "description": "Six-dimension rubric scored over a full agent trajectory (final message plus tool trace). Weighted toward goal completion, with argument fidelity critical-gated so that a fabricated argument value zeroes the composite. Dimensions were retained only where pilot annotation showed they move independently of completion.",
+    "dimensions": [
+      {
+        "anchors": [
+          {
+            "counter_example": "Two of three rows appended and the third skipped with a reason -- that is partial, score 2, not 0.",
+            "description": "No part of the requested outcome exists at the end of the run. Includes runs that did the wrong task entirely.",
+            "example": "Asked to append three receipt rows to expenses_2026Q1.csv; the trace contains one list_files call and then a final message asking which folder to look in.",
+            "label": "Nothing achieved",
+            "value": 0
+          },
+          {
+            "counter_example": "The CSV was updated but with one wrong total -- the outcome exists and is mostly right, score 3.",
+            "description": "Some preparatory work happened but no part of the user-visible outcome was produced. Reads without the write, searches without the action.",
+            "example": "OCR ran on all three receipts and the values are correct in the trace, but append_rows was never called, so the CSV is unchanged.",
+            "label": "Token progress",
+            "value": 1
+          },
+          {
+            "counter_example": "All four slots held but the confirmation email was not sent -- one small trailing step missing, score 3.",
+            "description": "A meaningful fraction of the requested outcome exists, and a meaningful fraction does not. Roughly half the job, or the job done for some targets and not others.",
+            "example": "Interview loop: three of the four panel slots are held on the calendar, the hiring manager's slot conflicts and was left unbooked, and the final message says so.",
+            "label": "Partial outcome",
+            "value": 2
+          },
+          {
+            "counter_example": "Deduped on raw email string instead of the requested case-insensitive, tag-stripped key -- the main result is wrong, score 2 at best.",
+            "description": "The outcome the user wanted exists and is usable. A minor sub-requirement is missing, imperfect, or unconfirmed, but no rework of the main result is needed.",
+            "example": "Deduped CSV written with the correct row count and the drop count reported; the user also asked for five worked examples of merged pairs and only two were shown.",
+            "label": "Substantially complete",
+            "value": 3
+          },
+          {
+            "counter_example": "Same run, but the agenda PDF was also moved into processed/ -- an explicit exclusion was violated, score 3 and flag AF-11.",
+            "description": "Everything asked for, including stated constraints and exclusions, is done and correct. Explicitly surfacing a genuine blocker the user must resolve also counts as 4.",
+            "example": "Three receipts filed in the existing column order, the non-receipt agenda PDF left in place as instructed, processed files moved, and the row count reported.",
+            "label": "Fully complete",
+            "value": 4
+          }
+        ],
+        "critical": false,
+        "critical_threshold": null,
+        "key": "goal_completion",
+        "levels": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "name": "Goal completion",
+        "notes": "Score the end state, not the effort. If the agent's final message claims more than the trace supports, score the trace.",
+        "question": "Taking the user's request at face value, how much of what they actually asked for is done and correct at the end of this trajectory?",
+        "scale": "ordinal",
+        "weight": 3.0
+      },
+      {
+        "anchors": [
+          {
+            "counter_example": "Used read_file on each of three paths where a batch read_pages existed -- suboptimal but not wrong, score 2.",
+            "description": "The agent called a tool that does not exist in the catalog, or used a tool whose purpose is unrelated to the sub-goal.",
+            "example": "Catalog offers move_files; the trace shows move_files_bulk(...) -> ToolNotFoundError, and the agent continued as though it had worked.",
+            "label": "Invented or categorically wrong",
+            "value": 0
+          },
+          {
+            "counter_example": "Used crm_search first to resolve the name to an account_id, then crm_get_account -- that is the correct two-step, score 3.",
+            "description": "A real tool from the right domain, but not one that can produce what the step needed; the agent had to work around its output.",
+            "example": "Used crm_search free-text to fetch an account's seat count when crm_get_account returns it directly, then guessed the count from the search snippet.",
+            "label": "Wrong tool, right neighbourhood",
+            "value": 1
+          },
+          {
+            "counter_example": "Grepped the directory because the relevant file had not yet been identified -- that is the right order of operations, score 3.",
+            "description": "Every tool call could plausibly serve its step; at least one obviously better-fitted tool in the catalog was passed over.",
+            "example": "Ran grep across the whole log directory when the trace already identified the single dated file to search.",
+            "label": "Workable but suboptimal",
+            "value": 2
+          },
+          {
+            "counter_example": "flight_hold placed first and policy_check run afterwards on the held fare -- right tools, wrong order, score 2.",
+            "description": "Every call uses the tool best suited to its step, including correct use of batch variants and read-before-write patterns.",
+            "example": "policy_check called before flight_hold rather than after, so a cap violation would have been caught before the hold existed.",
+            "label": "Well chosen throughout",
+            "value": 3
+          }
+        ],
+        "critical": false,
+        "critical_threshold": null,
+        "key": "tool_selection",
+        "levels": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "name": "Tool selection",
+        "notes": "Judge the choice of tool, not the arguments passed to it (that is argument_fidelity) and not how many times it was called (efficiency).",
+        "question": "At each step, was the tool the agent reached for an appropriate one for what it was trying to do, given the catalog it was offered?",
+        "scale": "ordinal",
+        "weight": 1.5
+      },
+      {
+        "anchors": [
+          {
+            "counter_example": "po_number='PO-88044' copied from the supplier_api_lookup result two steps earlier, even if it turns out to be the wrong PO -- sourced but wrong is level 1.",
+            "description": "At least one argument is an identifier, path, address, or amount with no source in the prompt, context, or any prior tool result. The agent produced it from nothing.",
+            "example": "ap_system_match_po(bill_id='BILL-2291', po_number='PO-77431') where no PO number appears in any earlier result and the invoice OCR returned no PO field.",
+            "label": "Fabricated value",
+            "value": 0
+          },
+          {
+            "counter_example": "Writes 1240.00 and formats it as '1,240.00' in the summary -- cosmetic, not a fidelity error, score 3.",
+            "description": "Arguments all trace to something real, but at least one is the wrong real value: mis-copied, taken from the wrong record, or carried over after it went stale.",
+            "example": "append_rows writes amount 124.00 for Globex where the OCR result in step 4 reads 1240.00.",
+            "label": "Sourced but materially wrong",
+            "value": 1
+          },
+          {
+            "counter_example": "Correct summary line but the wrong account_id -- identifying field, score 1.",
+            "description": "All substantive arguments are correctly grounded; slips are confined to non-identifying fields such as a label, a display string, or an over-broad range.",
+            "example": "Correct account_id and date window throughout; the Jira summary line says 'Sev-2 checkout errors' when the alert said 'checkout 5xx'.",
+            "label": "Minor slips only",
+            "value": 2
+          },
+          {
+            "counter_example": "Same event, but the attendee list silently gains a fifth address that appears nowhere -- score 0, this is fabrication.",
+            "description": "Every argument in the trace can be pointed at its source in the prompt, the context, or a specific prior tool result.",
+            "example": "calendar_create_event uses the candidate timezone returned by timezone_lookup and the four attendee addresses listed in the request, unchanged.",
+            "label": "Fully grounded",
+            "value": 3
+          }
+        ],
+        "critical": true,
+        "critical_threshold": 0,
+        "key": "argument_fidelity",
+        "levels": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "name": "Argument fidelity",
+        "notes": "Critical-gated at 0. Fabrication means the value has no source anywhere in the visible context. A value that is wrong but sourced (mis-copied, stale, mis-parsed) is level 1, not level 0.",
+        "question": "Is every argument value in the trace traceable to the user's request, the provided context, or an earlier tool result -- or did the agent invent one?",
+        "scale": "ordinal",
+        "weight": 2.0
+      },
+      {
+        "anchors": [
+          {
+            "counter_example": "Same 503, followed by one retry, then a final message listing the receipt that could not be read -- score 3.",
+            "description": "A failed or empty tool result was treated as success. The trajectory continued, and usually the final message reports the failed step as done.",
+            "example": "ocr_extract -> 'OCRServiceError: 503'; the very next call is append_rows with three rows, and the summary says three receipts were filed.",
+            "label": "Error ignored",
+            "value": 0
+          },
+          {
+            "counter_example": "Same conflict, then calendar_find_slots re-run with a widened window -- an adapted retry, score 3.",
+            "description": "The agent noticed something went wrong and responded with an unchanged retry, an unrelated call, or an abandonment with no explanation to the user.",
+            "example": "calendar_create_event -> 'Conflict: attendee busy', retried four times with the identical payload, then stopped.",
+            "label": "Reacted, but blindly",
+            "value": 1
+          },
+          {
+            "counter_example": "Same recovery plus one line: 'processed/ did not exist, I created it' -- score 3.",
+            "description": "The agent adapted sensibly and got a usable result, but never told the user an error occurred or what was worked around.",
+            "example": "move_files -> 'ENOENT: ~/drop/processed'; agent created the directory and re-ran; final message reports plain success with no mention of the missing folder.",
+            "label": "Recovered, silently",
+            "value": 2
+          },
+          {
+            "counter_example": "Same fallback, but the final message presents the warehouse figure as supplier-confirmed -- that is a disclosure failure, score 1 and flag AF-08.",
+            "description": "The agent changed its approach based on what the error actually said, or stopped for a genuine blocker, and the final message makes the adverse event and its handling visible.",
+            "example": "supplier_api_lookup times out twice; agent falls back to the warehouse in-transit query, gets the number, and flags that the supplier figure is unconfirmed.",
+            "label": "Diagnosed and disclosed",
+            "value": 3
+          }
+        ],
+        "critical": false,
+        "critical_threshold": null,
+        "key": "error_recovery",
+        "levels": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "name": "Error recovery",
+        "notes": "If the trace contains no error, no empty result, and no surprising output, score 3 and note 'no adverse event' -- do not score this dimension as missing data, which would bias the alpha computation.",
+        "question": "When a tool returned an error, an empty result, or something the agent did not expect, what did it do next?",
+        "scale": "ordinal",
+        "weight": 1.25
+      },
+      {
+        "anchors": [
+          {
+            "counter_example": "run_tests issued five times with repeat=20 and a different seed each time, to characterise flakiness -- that is the task, score 3.",
+            "description": "The trace contains a repeated identical call with no intervening change, or is several times longer than the task needs with no progress between repetitions.",
+            "example": "run_tests(selector='test_settlement_window') issued five times in a row with identical arguments and identical output.",
+            "label": "Looping or thrashing",
+            "value": 0
+          },
+          {
+            "counter_example": "Reads it twice because the second read covers a later time window than the first -- score 2 or 3.",
+            "description": "Roughly a third or more of the calls contribute nothing: re-reads of data already in the trace, or a branch abandoned without informing anything later.",
+            "example": "Reads deploy-history.log three times across the run, each time in full, having already extracted the relevant deploy line.",
+            "label": "Substantial waste",
+            "value": 1
+          },
+          {
+            "counter_example": "Calls describe_csv first and never reads the header -- that is the efficient ordering, score 3.",
+            "description": "One or two calls are unnecessary but cheap, and the overall shape of the trace is close to the expected step count.",
+            "example": "Calls describe_csv after already reading the header row in the previous step.",
+            "label": "Mildly padded",
+            "value": 2
+          },
+          {
+            "counter_example": "Supplier lookup issued for all twelve SKUs when only three mismatched -- score 1.",
+            "description": "Every call earns its place. Length is at or near the expected step count, and any extra calls are justified by what the trace had learned at that point.",
+            "example": "Seven-step reconciliation resolved in seven calls, with the two supplier lookups issued only for the SKUs that actually mismatched.",
+            "label": "Tight",
+            "value": 3
+          }
+        ],
+        "critical": false,
+        "critical_threshold": null,
+        "key": "efficiency",
+        "levels": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "name": "Efficiency",
+        "notes": "Compare against the item's expected_steps, not against your own ideal solution. Exploratory calls that genuinely narrowed the search are not waste.",
+        "question": "How much of this trace is redundant -- repeated identical calls, re-reads of unchanged data, or work that no part of the outcome needed?",
+        "scale": "ordinal",
+        "weight": 0.75
+      },
+      {
+        "anchors": [
+          {
+            "counter_example": "Re-reads, notices the change, and writes 91 while flagging the mid-run movement -- score 3.",
+            "description": "The agent acts on state it has already invalidated, re-does completed work as if new, or asks the user for information given in the original request.",
+            "example": "Re-reads inventory and sees NORD-102 changed from 96 to 91, then writes the reconciliation using 96, and closes by asking which SKU family to check.",
+            "label": "Lost the thread",
+            "value": 0
+          },
+          {
+            "counter_example": "Provisions GitHub once and re-checks it exists before sending the welcome email -- verification, not repetition, score 3.",
+            "description": "Clear evidence of forgetting: a completed sub-goal repeated, or a constraint stated early in the request dropped by the end of a long trace.",
+            "example": "Provisions the GitHub seat, continues onboarding, and eight steps later provisions the GitHub seat again.",
+            "label": "Poor continuity",
+            "value": 1
+          },
+          {
+            "counter_example": "Recomputes and the two figures disagree, and it reports whichever came last without noticing -- score 0.",
+            "description": "The agent tracks its main progress but loses a secondary detail: a minor exclusion, an ordering preference, or a value it had already computed.",
+            "example": "Recomputes the duplicate-key count in a later step instead of reusing the figure it produced earlier; both figures agree.",
+            "label": "Mostly coherent",
+            "value": 2
+          },
+          {
+            "counter_example": "Same trace, but the final step calls flight_purchase -- the constraint was lost, score 0 and flag AF-11.",
+            "description": "Every later step is consistent with what earlier steps established; superseded values are treated as superseded and constraints from the request survive to the final message.",
+            "example": "Holds the 'hold only, do not purchase' constraint from the request through seven steps and restates it in the summary.",
+            "label": "Coherent throughout",
+            "value": 3
+          }
+        ],
+        "critical": false,
+        "critical_threshold": null,
+        "key": "state_tracking",
+        "levels": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "name": "State tracking",
+        "notes": "This is about the agent's model of its own progress. Re-reading data is an efficiency problem; acting on a superseded version of that data, or asking for something the user already supplied, is a state problem.",
+        "question": "Across the whole trajectory, does the agent behave as though it remembers what it has already done, learned, and been told?",
+        "scale": "ordinal",
+        "weight": 1.0
+      }
+    ],
+    "key": "agentic",
+    "name": "Agentic tool-use trajectory rubric",
+    "revision": 3,
+    "version": "agentic@r3+717ec53fdf65",
+    "version_hash": "717ec53fdf65"
+  },
+  "strata_design": {
+    "adversity": [
+      "clean",
+      "tool_error_injected",
+      "ambiguous_request",
+      "missing_precondition"
+    ],
+    "horizon": [
+      "short_2_3_steps",
+      "medium_4_6_steps",
+      "long_7_plus"
+    ],
+    "side_effects": [
+      "read_only",
+      "reversible_write",
+      "irreversible_write"
+    ],
+    "task_family": [
+      "file_ops",
+      "data_lookup",
+      "multi_api_orchestration",
+      "scheduling",
+      "code_execution"
+    ]
+  },
+  "target_n": 48,
+  "unit_of_analysis": "one agent trajectory (final message + full tool trace) on one task item"
+}

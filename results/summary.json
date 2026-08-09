@@ -1,0 +1,108 @@
+{
+  "alpha_by_track": {
+    "agentic": 0.5841,
+    "grounding": 0.4791,
+    "reasoning": 0.5589,
+    "refusal": 0.3548
+  },
+  "annotator_pool": {
+    "annotators": [
+      {
+        "annotator_id": "A1-senior",
+        "bias": 0.03,
+        "competence": 0.93,
+        "fatigue_rate": 0.004,
+        "speed_factor": 1.3,
+        "value_position": -0.75
+      },
+      {
+        "annotator_id": "A2-senior",
+        "bias": -0.06,
+        "competence": 0.9,
+        "fatigue_rate": 0.005,
+        "speed_factor": 1.2,
+        "value_position": 0.8
+      },
+      {
+        "annotator_id": "A3-core",
+        "bias": 0.11,
+        "competence": 0.84,
+        "fatigue_rate": 0.007,
+        "speed_factor": 1.0,
+        "value_position": -0.35
+      },
+      {
+        "annotator_id": "A4-core",
+        "bias": -0.14,
+        "competence": 0.81,
+        "fatigue_rate": 0.008,
+        "speed_factor": 1.0,
+        "value_position": 0.45
+      },
+      {
+        "annotator_id": "A5-fast",
+        "bias": 0.42,
+        "competence": 0.72,
+        "fatigue_rate": 0.011,
+        "speed_factor": 4.0,
+        "value_position": 0.15
+      },
+      {
+        "annotator_id": "A6-untrained",
+        "bias": -0.31,
+        "competence": 0.58,
+        "fatigue_rate": 0.016,
+        "speed_factor": 0.75,
+        "value_position": -0.2
+      }
+    ],
+    "n_annotators": 6,
+    "notice": "SIMULATED ANNOTATORS. No human labels were collected. Agreement statistics characterise the generative annotator model in rubricon.annotation.pool, not real annotator behaviour. The measurement machinery is real; the findings are demonstrations, not empirical claims about language models.",
+    "trait_definitions": {
+      "bias": "Persistent leniency (+) or harshness (-) offset in rubric points.",
+      "competence": "Scales down judgement noise; 1.0 would be a perfect reader of the rubric.",
+      "fatigue_rate": "Noise inflation per item completed within a session.",
+      "speed_factor": "Relative annotation speed; <1 is slower than the reference pace.",
+      "value_position": "Stable stance applied ONLY to dimensions marked contested. This is the variance component that replication cannot reduce."
+    }
+  },
+  "blind_spots_by_track": {
+    "agentic": [],
+    "grounding": [
+      "GF-12",
+      "GF-02"
+    ],
+    "reasoning": [],
+    "refusal": []
+  },
+  "block_rate": 0.511,
+  "claims_blocked": 23,
+  "claims_submitted": 45,
+  "gold_accuracy_by_track": {
+    "agentic": 0.7932,
+    "grounding": 0.8669,
+    "reasoning": 0.7694,
+    "refusal": 0.7842
+  },
+  "n_annotations": 1512,
+  "n_dimensions": 21,
+  "n_failure_codes": 50,
+  "n_items": 168,
+  "n_responses": 504,
+  "n_tracks": 4,
+  "recommendations": {
+    "agentic": "invest",
+    "grounding": "iterate",
+    "reasoning": "iterate",
+    "refusal": "stop"
+  },
+  "redteam_failures_by_track": {
+    "agentic": [
+      "position_bias_fragility"
+    ],
+    "grounding": [],
+    "reasoning": [],
+    "refusal": []
+  },
+  "simulation_notice": "SIMULATED ANNOTATORS. No human labels were collected. Agreement statistics characterise the generative annotator model in rubricon.annotation.pool, not real annotator behaviour. The measurement machinery is real; the findings are demonstrations, not empirical claims about language models."
+}

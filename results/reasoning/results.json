@@ -1,0 +1,3160 @@
+{
+  "agreement": {
+    "answer_correctness": {
+      "ci": {
+        "hi": 0.6736,
+        "level": 0.95,
+        "lo": 0.4611,
+        "method": "cluster_bootstrap_percentile",
+        "n_boot": 600,
+        "n_clusters": 132,
+        "point": 0.5715,
+        "width": 0.2124
+      },
+      "fleiss_kappa": {
+        "coefficient": "fleiss_kappa",
+        "detail": {
+          "P_expected": 0.5062,
+          "P_observed": 0.7879,
+          "category_prevalence": {
+            "0": 0.4444,
+            "1": 0.5556
+          }
+        },
+        "metric": "",
+        "n_annotators": 6,
+        "n_pairable": 132,
+        "n_units": 132,
+        "value": 0.5705
+      },
+      "gwet_ac1": {
+        "coefficient": "gwet_ac1",
+        "detail": {
+          "P_expected": 0.4938,
+          "P_observed": 0.7879,
+          "max_prevalence": 0.5556
+        },
+        "metric": "",
+        "n_annotators": 6,
+        "n_pairable": 132,
+        "n_units": 132,
+        "value": 0.5809
+      },
+      "interpretation": "fair",
+      "kappa_paradox_detected": false,
+      "krippendorff_alpha": {
+        "coefficient": "krippendorff_alpha",
+        "detail": {
+          "D_expected": 0.495077,
+          "D_observed": 0.212121
+        },
+        "metric": "binary",
+        "n_annotators": 6,
+        "n_pairable": 132,
+        "n_units": 132,
+        "value": 0.5715
+      },
+      "paradox_note": "",
+      "percent_agreement": {
+        "coefficient": "percent_agreement",
+        "detail": {},
+        "metric": "",
+        "n_annotators": 6,
+        "n_pairable": 132,
+        "n_units": 132,
+        "value": 0.7879
+      },
+      "scale": "binary"
+    },
+    "explanation_faithfulness": {
+      "ci": {
+        "hi": 0.3357,
+        "level": 0.95,
+        "lo": 0.1172,
+        "method": "cluster_bootstrap_percentile",
+        "n_boot": 600,
+        "n_clusters": 132,
+        "point": 0.2414,
+        "width": 0.2185
+      },
+      "fleiss_kappa": {
+        "coefficient": "fleiss_kappa",
+        "detail": {
+          "P_expected": 0.2647,
+          "P_observed": 0.3157,
+          "category_prevalence": {
+            "0": 0.1742,
+            "1": 0.2247,
+            "2": 0.2601,
+            "3": 0.3409
+          }
+        },
+        "metric": "",
+        "n_annotators": 6,
+        "n_pairable": 132,
+        "n_units": 132,
+        "value": 0.0692
+      },
+      "gwet_ac1": {
+        "coefficient": "gwet_ac1",
+        "detail": {
+          "P_expected": 0.2451,
+          "P_observed": 0.3157,
+          "max_prevalence": 0.3409
+        },
+        "metric": "",
+        "n_annotators": 6,
+        "n_pairable": 132,
+        "n_units": 132,
+        "value": 0.0935
+      },
+      "interpretation": "slight",
+      "kappa_paradox_detected": false,
+      "krippendorff_alpha": {
+        "coefficient": "krippendorff_alpha",
+        "detail": {
+          "D_expected": 24266.901266,
+          "D_observed": 18409.247475
+        },
+        "metric": "ordinal",
+        "n_annotators": 6,
+        "n_pairable": 132,
+        "n_units": 132,
+        "value": 0.2414
+      },
+      "paradox_note": "",
+      "percent_agreement": {
+        "coefficient": "percent_agreement",
+        "detail": {},
+        "metric": "",
+        "n_annotators": 6,
+        "n_pairable": 132,
+        "n_units": 132,
+        "value": 0.3157
+      },
+      "scale": "ordinal"
+    },
+    "premise_fidelity": {
+      "ci": {
+        "hi": 0.6557,
+        "level": 0.95,
+        "lo": 0.4471,
+        "method": "cluster_bootstrap_percentile",
+        "n_boot": 600,
+        "n_clusters": 132,
+        "point": 0.5578,
+        "width": 0.2086
+      },
+      "fleiss_kappa": {
+        "coefficient": "fleiss_kappa",
+        "detail": {
+          "P_expected": 0.3068,
+          "P_observed": 0.5455,
+          "category_prevalence": {
+            "0": 0.0884,
+            "1": 0.202,
+            "2": 0.4116,
+            "3": 0.298
+          }
+        },
+        "metric": "",
+        "n_annotators": 6,
+        "n_pairable": 132,
+        "n_units": 132,
+        "value": 0.3442
+      },
+      "gwet_ac1": {
+        "coefficient": "gwet_ac1",
+        "detail": {
+          "P_expected": 0.2311,
+          "P_observed": 0.5455,
+          "max_prevalence": 0.4116
+        },
+        "metric": "",
+        "n_annotators": 6,
+        "n_pairable": 132,
+        "n_units": 132,
+        "value": 0.4089
+      },
+      "interpretation": "fair",
+      "kappa_paradox_detected": false,
+      "krippendorff_alpha": {
+        "coefficient": "krippendorff_alpha",
+        "detail": {
+          "D_expected": 23447.460759,
+          "D_observed": 10368.203283
+        },
+        "metric": "ordinal",
+        "n_annotators": 6,
+        "n_pairable": 132,
+        "n_units": 132,
+        "value": 0.5578
+      },
+      "paradox_note": "",
+      "percent_agreement": {
+        "coefficient": "percent_agreement",
+        "detail": {},
+        "metric": "",
+        "n_annotators": 6,
+        "n_pairable": 132,
+        "n_units": 132,
+        "value": 0.5455
+      },
+      "scale": "ordinal"
+    },
+    "step_validity": {
+      "ci": {
+        "hi": 0.8028,
+        "level": 0.95,
+        "lo": 0.6673,
+        "method": "cluster_bootstrap_percentile",
+        "n_boot": 600,
+        "n_clusters": 132,
+        "point": 0.7433,
+        "width": 0.1355
+      },
+      "fleiss_kappa": {
+        "coefficient": "fleiss_kappa",
+        "detail": {
+          "P_expected": 0.2553,
+          "P_observed": 0.5606,
+          "category_prevalence": {
+            "0": 0.2121,
+            "1": 0.2172,
+            "2": 0.298,
+            "3": 0.2727
+          }
+        },
+        "metric": "",
+        "n_annotators": 6,
+        "n_pairable": 132,
+        "n_units": 132,
+        "value": 0.4099
+      },
+      "gwet_ac1": {
+        "coefficient": "gwet_ac1",
+        "detail": {
+          "P_expected": 0.2482,
+          "P_observed": 0.5606,
+          "max_prevalence": 0.298
+        },
+        "metric": "",
+        "n_annotators": 6,
+        "n_pairable": 132,
+        "n_units": 132,
+        "value": 0.4155
+      },
+      "interpretation": "tentative (Krippendorff's minimum for cautious conclusions)",
+      "kappa_paradox_detected": false,
+      "krippendorff_alpha": {
+        "coefficient": "krippendorff_alpha",
+        "detail": {
+          "D_expected": 24458.916456,
+          "D_observed": 6279.661616
+        },
+        "metric": "ordinal",
+        "n_annotators": 6,
+        "n_pairable": 132,
+        "n_units": 132,
+        "value": 0.7433
+      },
+      "paradox_note": "",
+      "percent_agreement": {
+        "coefficient": "percent_agreement",
+        "detail": {},
+        "metric": "",
+        "n_annotators": 6,
+        "n_pairable": 132,
+        "n_units": 132,
+        "value": 0.5606
+      },
+      "scale": "ordinal"
+    },
+    "verification_behavior": {
+      "ci": {
+        "hi": 0.7504,
+        "level": 0.95,
+        "lo": 0.5932,
+        "method": "cluster_bootstrap_percentile",
+        "n_boot": 600,
+        "n_clusters": 132,
+        "point": 0.6804,
+        "width": 0.1571
+      },
+      "fleiss_kappa": {
+        "coefficient": "fleiss_kappa",
+        "detail": {
+          "P_expected": 0.2605,
+          "P_observed": 0.548,
+          "category_prevalence": {
+            "0": 0.1768,
+            "1": 0.2424,
+            "2": 0.3207,
+            "3": 0.2601
+          }
+        },
+        "metric": "",
+        "n_annotators": 6,
+        "n_pairable": 132,
+        "n_units": 132,
+        "value": 0.3887
+      },
+      "gwet_ac1": {
+        "coefficient": "gwet_ac1",
+        "detail": {
+          "P_expected": 0.2465,
+          "P_observed": 0.548,
+          "max_prevalence": 0.3207
+        },
+        "metric": "",
+        "n_annotators": 6,
+        "n_pairable": 132,
+        "n_units": 132,
+        "value": 0.4001
+      },
+      "interpretation": "tentative (Krippendorff's minimum for cautious conclusions)",
+      "kappa_paradox_detected": false,
+      "krippendorff_alpha": {
+        "coefficient": "krippendorff_alpha",
+        "detail": {
+          "D_expected": 24358.772152,
+          "D_observed": 7784.512626
+        },
+        "metric": "ordinal",
+        "n_annotators": 6,
+        "n_pairable": 132,
+        "n_units": 132,
+        "value": 0.6804
+      },
+      "paradox_note": "",
+      "percent_agreement": {
+        "coefficient": "percent_agreement",
+        "detail": {},
+        "metric": "",
+        "n_annotators": 6,
+        "n_pairable": 132,
+        "n_units": 132,
+        "value": 0.548
+      },
+      "scale": "ordinal"
+    }
+  },
+  "alpha_mean": 0.5589,
+  "alpha_min": 0.2414,
+  "annotator_pool": {
+    "annotators": [
+      {
+        "annotator_id": "A1-senior",
+        "bias_vs_pool": -0.1318,
+        "bias_vs_pool_uncontested": 0.0612,
+        "contested_position": -0.9653,
+        "flags": [],
+        "gold_exact": 0.8615,
+        "gold_n": 65,
+        "gold_signed_error": 0.1077,
+        "gold_within_one": 1.0,
+        "mean_duration_s": 98.7106,
+        "mean_score": 1.3758,
+        "n_annotations": 66,
+        "positions": [
+          "contested_position:-0.97"
+        ],
+        "sd_score": 0.599
+      },
+      {
+        "annotator_id": "A2-senior",
+        "bias_vs_pool": 0.0742,
+        "bias_vs_pool_uncontested": -0.0903,
+        "contested_position": 0.8226,
+        "flags": [],
+        "gold_exact": 0.8833,
+        "gold_n": 60,
+        "gold_signed_error": -0.0833,
+        "gold_within_one": 1.0,
+        "mean_duration_s": 107.2152,
+        "mean_score": 1.5818,
+        "n_annotations": 66,
+        "positions": [
+          "contested_position:+0.82"
+        ],
+        "sd_score": 0.5577
+      },
+      {
+        "annotator_id": "A3-core",
+        "bias_vs_pool": -0.0439,
+        "bias_vs_pool_uncontested": 0.0461,
+        "contested_position": -0.4501,
+        "flags": [],
+        "gold_exact": 0.8,
+        "gold_n": 50,
+        "gold_signed_error": 0.04,
+        "gold_within_one": 1.0,
+        "mean_duration_s": 126.1788,
+        "mean_score": 1.4636,
+        "n_annotations": 66,
+        "positions": [
+          "contested_position:-0.45"
+        ],
+        "sd_score": 0.5241
+      },
+      {
+        "annotator_id": "A4-core",
+        "bias_vs_pool": -0.0106,
+        "bias_vs_pool_uncontested": -0.1395,
+        "contested_position": 0.6446,
+        "flags": [],
+        "gold_exact": 0.775,
+        "gold_n": 40,
+        "gold_signed_error": -0.175,
+        "gold_within_one": 1.0,
+        "mean_duration_s": 125.8773,
+        "mean_score": 1.497,
+        "n_annotations": 66,
+        "positions": [
+          "contested_position:+0.64"
+        ],
+        "sd_score": 0.6079
+      },
+      {
+        "annotator_id": "A5-fast",
+        "bias_vs_pool": 0.3561,
+        "bias_vs_pool_uncontested": 0.3264,
+        "contested_position": 0.1484,
+        "flags": [
+          "suspiciously_fast:32.6s"
+        ],
+        "gold_exact": 0.7333,
+        "gold_n": 45,
+        "gold_signed_error": 0.2,
+        "gold_within_one": 0.9778,
+        "mean_duration_s": 32.6076,
+        "mean_score": 1.8636,
+        "n_annotations": 66,
+        "positions": [],
+        "sd_score": 0.5691
+      },
+      {
+        "annotator_id": "A6-untrained",
+        "bias_vs_pool": -0.2439,
+        "bias_vs_pool_uncontested": -0.2039,
+        "contested_position": -0.2001,
+        "flags": [
+          "gold_accuracy_below_floor:0.56<0.7"
+        ],
+        "gold_exact": 0.5636,
+        "gold_n": 55,
+        "gold_signed_error": -0.1818,
+        "gold_within_one": 1.0,
+        "mean_duration_s": 166.1939,
+        "mean_score": 1.2636,
+        "n_annotations": 66,
+        "positions": [],
+        "sd_score": 0.5626
+      }
+    ],
+    "contested_dimensions": [
+      "explanation_faithfulness"
+    ],
+    "divergent_on_contested": [
+      "A1-senior",
+      "A2-senior",
+      "A3-core",
+      "A4-core"
+    ],
+    "divergent_on_contested_fraction": 0.667,
+    "flagged_annotators": [
+      "A5-fast",
+      "A6-untrained"
+    ],
+    "flagged_fraction": 0.333,
+    "n_annotators": 6,
+    "pool_mean": 1.5076,
+    "position_note": "``contested_position`` is an annotator's offset on the contested dimensions net of their leniency offset. It is a value position, not a quality defect: it does not count toward the flagged fraction and it is not remediable by retraining. ``systematic_bias`` is computed over the NON-contested dimensions only, so it measures leniency and nothing else."
+  },
+  "client_provenance": {
+    "sut-baseline-v1": {
+      "client": "FixtureClient",
+      "is_live": false,
+      "n_fixtures": 44,
+      "note": "Authored fixture corpus, not live model output.",
+      "system_id": "sut-baseline-v1"
+    },
+    "sut-candidate-v2": {
+      "client": "FixtureClient",
+      "is_live": false,
+      "n_fixtures": 44,
+      "note": "Authored fixture corpus, not live model output.",
+      "system_id": "sut-candidate-v2"
+    },
+    "sut-candidate-v3": {
+      "client": "FixtureClient",
+      "is_live": false,
+      "n_fixtures": 44,
+      "note": "Authored fixture corpus, not live model output.",
+      "system_id": "sut-candidate-v3"
+    }
+  },
+  "comparison": {
+    "comparisons": {
+      "sut-candidate-v2_vs_sut-baseline-v1": {
+        "ci": {
+          "hi": 0.1519,
+          "level": 0.95,
+          "lo": -0.048,
+          "method": "cluster_bootstrap_percentile",
+          "n_boot": 2000,
+          "n_clusters": 44,
+          "point": 0.0497,
+          "width": 0.1999
+        },
+        "exceeds_mde": false,
+        "mean_difference": 0.0497,
+        "n_paired_items": 44,
+        "permutation_test": {
+          "n": 44,
+          "n_perm": 10000,
+          "observed": 0.04967,
+          "p_value": 0.33717
+        },
+        "power": {
+          "alpha_level": 0.05,
+          "convention": "observed_scale: MDE computed at plain n against the observed SD; n_effective and mde_true_scale reported separately, never compounded",
+          "mde_absolute": 0.1404,
+          "mde_observed_scale": 0.1404,
+          "mde_relative": 0.2661,
+          "mde_true_scale": 0.1494,
+          "n": 44,
+          "n_effective": 38.9,
+          "n_required_for_target": 348,
+          "notes": [
+            "Reliability tax (interpretive): n=44 at rho=0.88 carries the information of n_eff=39 perfectly-reliable items (12% precision loss).",
+            "MDE is reported on the OBSERVED scale (0.1404) at plain n, because the supplied SD already contains measurement error; applying n_eff on top would charge that error twice. True-score-scale MDE is 0.1494 (= observed / sqrt(rho)).",
+            "To detect a 0.05 observed difference you need n>=348; you have 44. Shortfall 304."
+          ],
+          "paired": true,
+          "power": 0.8,
+          "reliability": 0.8841,
+          "sd": 0.3325,
+          "target_effect": 0.05
+        },
+        "reference": "sut-baseline-v1",
+        "sd_difference": 0.3325,
+        "significant_bonferroni": false,
+        "significant_uncorrected": false,
+        "system": "sut-candidate-v2"
+      },
+      "sut-candidate-v2_vs_sut-candidate-v3": {
+        "ci": {
+          "hi": 0.1288,
+          "level": 0.95,
+          "lo": -0.0454,
+          "method": "cluster_bootstrap_percentile",
+          "n_boot": 2000,
+          "n_clusters": 44,
+          "point": 0.0385,
+          "width": 0.1742
+        },
+        "exceeds_mde": false,
+        "mean_difference": 0.0385,
+        "n_paired_items": 44,
+        "permutation_test": {
+          "n": 44,
+          "n_perm": 10000,
+          "observed": 0.03852,
+          "p_value": 0.39456
+        },
+        "power": {
+          "alpha_level": 0.05,
+          "convention": "observed_scale: MDE computed at plain n against the observed SD; n_effective and mde_true_scale reported separately, never compounded",
+          "mde_absolute": 0.1271,
+          "mde_observed_scale": 0.1271,
+          "mde_relative": 0.2358,
+          "mde_true_scale": 0.1351,
+          "n": 44,
+          "n_effective": 38.9,
+          "n_required_for_target": 285,
+          "notes": [
+            "Reliability tax (interpretive): n=44 at rho=0.88 carries the information of n_eff=39 perfectly-reliable items (12% precision loss).",
+            "MDE is reported on the OBSERVED scale (0.1271) at plain n, because the supplied SD already contains measurement error; applying n_eff on top would charge that error twice. True-score-scale MDE is 0.1351 (= observed / sqrt(rho)).",
+            "To detect a 0.05 observed difference you need n>=285; you have 44. Shortfall 241."
+          ],
+          "paired": true,
+          "power": 0.8,
+          "reliability": 0.8841,
+          "sd": 0.3008,
+          "target_effect": 0.05
+        },
+        "reference": "sut-candidate-v3",
+        "sd_difference": 0.3008,
+        "significant_bonferroni": false,
+        "significant_uncorrected": false,
+        "system": "sut-candidate-v2"
+      },
+      "sut-candidate-v3_vs_sut-baseline-v1": {
+        "ci": {
+          "hi": 0.0985,
+          "level": 0.95,
+          "lo": -0.0737,
+          "method": "cluster_bootstrap_percentile",
+          "n_boot": 2000,
+          "n_clusters": 44,
+          "point": 0.0112,
+          "width": 0.1722
+        },
+        "exceeds_mde": false,
+        "mean_difference": 0.0112,
+        "n_paired_items": 44,
+        "permutation_test": {
+          "n": 44,
+          "n_perm": 10000,
+          "observed": 0.01116,
+          "p_value": 0.80222
+        },
+        "power": {
+          "alpha_level": 0.05,
+          "convention": "observed_scale: MDE computed at plain n against the observed SD; n_effective and mde_true_scale reported separately, never compounded",
+          "mde_absolute": 0.1267,
+          "mde_observed_scale": 0.1267,
+          "mde_relative": 0.24,
+          "mde_true_scale": 0.1347,
+          "n": 44,
+          "n_effective": 38.9,
+          "n_required_for_target": 283,
+          "notes": [
+            "Reliability tax (interpretive): n=44 at rho=0.88 carries the information of n_eff=39 perfectly-reliable items (12% precision loss).",
+            "MDE is reported on the OBSERVED scale (0.1267) at plain n, because the supplied SD already contains measurement error; applying n_eff on top would charge that error twice. True-score-scale MDE is 0.1347 (= observed / sqrt(rho)).",
+            "To detect a 0.05 observed difference you need n>=283; you have 44. Shortfall 239."
+          ],
+          "paired": true,
+          "power": 0.8,
+          "reliability": 0.8841,
+          "sd": 0.2999,
+          "target_effect": 0.05
+        },
+        "reference": "sut-baseline-v1",
+        "sd_difference": 0.2999,
+        "significant_bonferroni": false,
+        "significant_uncorrected": false,
+        "system": "sut-candidate-v3"
+      }
+    },
+    "multiplicity": {
+      "bh_largest_threshold": 0.05,
+      "bh_smallest_threshold": 0.016666666666666666,
+      "bonferroni": 0.016666666666666666,
+      "expected_false_positives_uncorrected": 0.15,
+      "n_tests": 3,
+      "uncorrected": 0.05
+    }
+  },
+  "composite_reliability": {
+    "ci_rho_1": {
+      "hi": 0.7961,
+      "level": 0.95,
+      "lo": 0.6276,
+      "method": "cluster_bootstrap_percentile",
+      "n_boot": 600,
+      "n_clusters": 132,
+      "point": 0.7177,
+      "width": 0.1686
+    },
+    "ci_rho_k": {
+      "hi": 0.9213,
+      "level": 0.95,
+      "lo": 0.8349,
+      "method": "cluster_bootstrap_percentile",
+      "n_boot": 600,
+      "n_clusters": 132,
+      "point": 0.8841,
+      "width": 0.0864
+    },
+    "k_raters": 3,
+    "method": "Krippendorff interval alpha of the per-annotator composite (unit=response), stepped up to the k-rater mean by Spearman-Brown.",
+    "metric": "interval",
+    "n_annotators": 6,
+    "n_pairable": 132,
+    "n_units": 132,
+    "note": "This -- not the mean of the per-dimension single-rater alphas -- is the reliability of the quantity the system comparisons are computed on, and it is what the power calculation consumes.",
+    "rho_1": 0.7177,
+    "rho_k": 0.8841,
+    "unit": "response_id",
+    "value": "weighted rubric composite in [0,1]"
+  },
+  "contested_dimensions": [
+    "explanation_faithfulness"
+  ],
+  "coverage": {
+    "absent_levels": [],
+    "adequate_levels": 17,
+    "balance_ratio_by_factor": {
+      "answer_type": 0.057,
+      "difficulty": 0.765,
+      "problem_domain": 0.857,
+      "trap_type": 0.2
+    },
+    "cell_counts": {
+      "algebra|easy|none|numeric": 1,
+      "algebra|easy|plausible_wrong_path|numeric": 1,
+      "algebra|hard|none|numeric": 1,
+      "algebra|hard|plausible_wrong_path|categorical": 1,
+      "algebra|medium|ambiguous_wording|numeric": 1,
+      "algebra|medium|none|numeric": 1,
+      "algebra|medium|requires_case_split|symbolic": 1,
+      "arithmetic_word|easy|extraneous_information|numeric": 1,
+      "arithmetic_word|easy|none|numeric": 1,
+      "arithmetic_word|hard|extraneous_information|numeric": 1,
+      "arithmetic_word|hard|none|numeric": 1,
+      "arithmetic_word|medium|ambiguous_wording|numeric": 1,
+      "arithmetic_word|medium|none|numeric": 1,
+      "arithmetic_word|medium|plausible_wrong_path|numeric": 1,
+      "code_trace|easy|none|numeric": 1,
+      "code_trace|easy|plausible_wrong_path|numeric": 1,
+      "code_trace|hard|none|numeric": 1,
+      "code_trace|medium|extraneous_information|symbolic": 1,
+      "code_trace|medium|none|numeric": 1,
+      "code_trace|medium|plausible_wrong_path|numeric": 1,
+      "combinatorics|easy|none|numeric": 2,
+      "combinatorics|hard|extraneous_information|numeric": 1,
+      "combinatorics|hard|none|numeric": 1,
+      "combinatorics|medium|plausible_wrong_path|numeric": 1,
+      "combinatorics|medium|requires_case_split|numeric": 1,
+      "logic_puzzle|easy|none|categorical": 2,
+      "logic_puzzle|hard|extraneous_information|categorical": 1,
+      "logic_puzzle|hard|requires_case_split|categorical": 1,
+      "logic_puzzle|medium|ambiguous_wording|categorical": 1,
+      "logic_puzzle|medium|plausible_wrong_path|categorical": 1,
+      "probability|easy|none|numeric": 2,
+      "probability|hard|extraneous_information|numeric": 1,
+      "probability|hard|none|numeric": 1,
+      "probability|medium|plausible_wrong_path|numeric": 1,
+      "probability|medium|requires_case_split|numeric": 1,
+      "unit_conversion|easy|extraneous_information|numeric": 1,
+      "unit_conversion|easy|none|numeric": 1,
+      "unit_conversion|hard|ambiguous_wording|numeric": 1,
+      "unit_conversion|hard|none|numeric": 1,
+      "unit_conversion|medium|none|numeric": 1,
+      "unit_conversion|medium|plausible_wrong_path|numeric": 1
+    },
+    "designed_cells": 315,
+    "empty_cell_fraction": 0.8698,
+    "empty_cells": 274,
+    "factors": {
+      "answer_type": 3,
+      "difficulty": 3,
+      "problem_domain": 7,
+      "trap_type": 5
+    },
+    "failure_rate_by_stratum": {
+      "answer_type": {
+        "categorical": 0.381,
+        "numeric": 0.381,
+        "symbolic": 0.333
+      },
+      "difficulty": {
+        "easy": 0.357,
+        "hard": 0.385,
+        "medium": 0.392
+      },
+      "problem_domain": {
+        "algebra": 0.333,
+        "arithmetic_word": 0.429,
+        "code_trace": 0.333,
+        "combinatorics": 0.389,
+        "logic_puzzle": 0.389,
+        "probability": 0.389,
+        "unit_conversion": 0.389
+      },
+      "trap_type": {
+        "ambiguous_wording": 0.417,
+        "extraneous_information": 0.429,
+        "none": 0.35,
+        "plausible_wrong_path": 0.37,
+        "requires_case_split": 0.417
+      }
+    },
+    "interpretation": "41/315 full-factorial cells are populated (87% empty), which is expected and not by itself a defect: full-factorial coverage grows multiplicatively and is not the operative target. The governing figure is marginal coverage: 17/18 declared strata levels reach n>=4 (6% short), with a worst-factor balance ratio of 0.06. Absent levels are excluded from every aggregate silently, so they are listed above.",
+    "marginal_gap_fraction": 0.0556,
+    "marginals": {
+      "answer_type": {
+        "categorical": 7,
+        "numeric": 35,
+        "symbolic": 2
+      },
+      "difficulty": {
+        "easy": 14,
+        "hard": 13,
+        "medium": 17
+      },
+      "problem_domain": {
+        "algebra": 7,
+        "arithmetic_word": 7,
+        "code_trace": 6,
+        "combinatorics": 6,
+        "logic_puzzle": 6,
+        "probability": 6,
+        "unit_conversion": 6
+      },
+      "trap_type": {
+        "ambiguous_wording": 4,
+        "extraneous_information": 7,
+        "none": 20,
+        "plausible_wrong_path": 9,
+        "requires_case_split": 4
+      }
+    },
+    "n_items": 44,
+    "populated_cells": 41,
+    "populated_levels": 18,
+    "thin_levels": [
+      "answer_type=symbolic (n=2)"
+    ],
+    "total_declared_levels": 18,
+    "worst_balance_ratio": 0.057
+  },
+  "decision": {
+    "headline": "Drop or rebuild the failing dimension(s) of 'reasoning'; keep the rest.",
+    "irreducible_share": 0.477,
+    "next_actions": [
+      "Remove explanation_faithfulness from the reported composite immediately -- including them imports their noise into every downstream number.",
+      "Report the composite over answer_correctness, step_validity, premise_fidelity, verification_behavior only, and say so explicitly.",
+      "Decide separately whether explanation_faithfulness is worth rebuilding: if the judgement it encodes is genuinely contested, no anchor set will converge it.",
+      "Re-run agreement on the reduced composite before quoting any system delta."
+    ],
+    "projected_cost_to_fix_usd": 102.0,
+    "rationale": [
+      "Mean alpha across dimensions 0.559 (worst dimension 0.241); gold accuracy 77%.",
+      "95% CI half-width 0.076; MDE 0.127; largest observed between-system effect 0.050.",
+      "Reliability is not uniform: 4 dimension(s) reach usable agreement while 1 sit below 0.40 (explanation_faithfulness=0.24). This is a dimension-level defect, not a failure of the construct."
+    ],
+    "recommendation": "iterate",
+    "stop_criteria": [
+      "Retire explanation_faithfulness permanently if a rebuilt version does not clear 0.50 on a 40-item bridge sample."
+    ],
+    "track": "reasoning"
+  },
+  "depth": "pilot",
+  "depth_contract": "May report measurements with intervals and an explicit MDE. May report system deltas ONLY when the interval excludes zero and the delta exceeds the MDE. May not be used as a release gate.",
+  "drift": {
+    "alpha_level": 0.05,
+    "assumption": "Valid only if item difficulty mix is constant across batches. Rubricon assigns responses to batches by serpentine difficulty-stratified dealing within each system; do not reuse this statistic on convenience-ordered batches.",
+    "batches": [
+      {
+        "batch": 0,
+        "mean": 1.4633,
+        "n": 79,
+        "sd": 0.6305
+      },
+      {
+        "batch": 1,
+        "mean": 1.4692,
+        "n": 78,
+        "sd": 0.5791
+      },
+      {
+        "batch": 2,
+        "mean": 1.5291,
+        "n": 79,
+        "sd": 0.5906
+      },
+      {
+        "batch": 3,
+        "mean": 1.51,
+        "n": 80,
+        "sd": 0.5683
+      },
+      {
+        "batch": 4,
+        "mean": 1.565,
+        "n": 80,
+        "sd": 0.625
+      }
+    ],
+    "drift_detected": false,
+    "first_to_last_delta": 0.1017,
+    "implication": "",
+    "materially_large": false,
+    "min_effect": 0.2,
+    "n_permutations": 2000,
+    "p_value": 0.8281,
+    "slope_per_batch": 0.0244,
+    "span": 0.1017,
+    "statistically_significant": false,
+    "verdict": "No drift: range 0.102, p=0.8281."
+  },
+  "gate": {
+    "claims": [
+      {
+        "blocking_reasons": [],
+        "checks": [
+          {
+            "message": "Track depth 'pilot' permits a 'descriptive' claim.",
+            "name": "depth_contract",
+            "observed": "pilot",
+            "remedy": "",
+            "threshold": "descriptive",
+            "verdict": "pass"
+          },
+          {
+            "message": "alpha=0.572 is below Krippendorff's tentative-conclusion threshold of 0.667. UNCERTAINTY: the 95% bootstrap interval for alpha [0.461, 0.674] does not exclude 0.667, so which side of that threshold this dimension falls on is NOT established by these data; the classification is a point estimate, not a finding.",
+            "name": "reliability:answer_correctness",
+            "observed": 0.5715,
+            "remedy": "Report with the interval and an explicit reliability caveat; do not use for ranking.",
+            "threshold": 0.667,
+            "verdict": "warn"
+          },
+          {
+            "message": "Mean annotations per response 3.00 meets the minimum of 2.",
+            "name": "replication",
+            "observed": 3.0,
+            "remedy": "",
+            "threshold": 2,
+            "verdict": "pass"
+          }
+        ],
+        "claim_id": "reasoning.dim.answer_correctness",
+        "evidence": {
+          "alpha": 0.5715,
+          "alpha_ci": {
+            "hi": 0.6736,
+            "level": 0.95,
+            "lo": 0.4611,
+            "method": "cluster_bootstrap_percentile",
+            "n_boot": 600,
+            "n_clusters": 132,
+            "point": 0.5715,
+            "width": 0.2124
+          },
+          "kappa_paradox": false,
+          "percent_agreement": 0.7879,
+          "scale": "binary"
+        },
+        "kind": "descriptive",
+        "text": "Dimension 'answer_correctness' of the Reasoning process quality rubric produces reliable measurements.",
+        "track": "reasoning",
+        "verdict": "warn",
+        "warnings": [
+          "alpha=0.572 is below Krippendorff's tentative-conclusion threshold of 0.667. UNCERTAINTY: the 95% bootstrap interval for alpha [0.461, 0.674] does not exclude 0.667, so which side of that threshold this dimension falls on is NOT established by these data; the classification is a point estimate, not a finding."
+        ]
+      },
+      {
+        "blocking_reasons": [
+          "alpha=0.241 is below the blocking floor of 0.500. Annotators are not measuring the same construct."
+        ],
+        "checks": [
+          {
+            "message": "Track depth 'pilot' permits a 'descriptive' claim.",
+            "name": "depth_contract",
+            "observed": "pilot",
+            "remedy": "",
+            "threshold": "descriptive",
+            "verdict": "pass"
+          },
+          {
+            "message": "alpha=0.241 is below the blocking floor of 0.500. Annotators are not measuring the same construct.",
+            "name": "reliability:explanation_faithfulness",
+            "observed": 0.2414,
+            "remedy": "Do not report this number. Revise the rubric definition or split the dimension; more data will not fix a definition problem.",
+            "threshold": 0.5,
+            "verdict": "block"
+          },
+          {
+            "message": "Mean annotations per response 3.00 meets the minimum of 2.",
+            "name": "replication",
+            "observed": 3.0,
+            "remedy": "",
+            "threshold": 2,
+            "verdict": "pass"
+          }
+        ],
+        "claim_id": "reasoning.dim.explanation_faithfulness",
+        "evidence": {
+          "alpha": 0.2414,
+          "alpha_ci": {
+            "hi": 0.3357,
+            "level": 0.95,
+            "lo": 0.1172,
+            "method": "cluster_bootstrap_percentile",
+            "n_boot": 600,
+            "n_clusters": 132,
+            "point": 0.2414,
+            "width": 0.2185
+          },
+          "kappa_paradox": false,
+          "percent_agreement": 0.3157,
+          "scale": "ordinal"
+        },
+        "kind": "descriptive",
+        "text": "Dimension 'explanation_faithfulness' of the Reasoning process quality rubric produces reliable measurements.",
+        "track": "reasoning",
+        "verdict": "block",
+        "warnings": []
+      },
+      {
+        "blocking_reasons": [],
+        "checks": [
+          {
+            "message": "Track depth 'pilot' permits a 'descriptive' claim.",
+            "name": "depth_contract",
+            "observed": "pilot",
+            "remedy": "",
+            "threshold": "descriptive",
+            "verdict": "pass"
+          },
+          {
+            "message": "alpha=0.558 is below Krippendorff's tentative-conclusion threshold of 0.667. UNCERTAINTY: the 95% bootstrap interval for alpha [0.447, 0.656] does not exclude 0.500, so which side of that threshold this dimension falls on is NOT established by these data; the classification is a point estimate, not a finding.",
+            "name": "reliability:premise_fidelity",
+            "observed": 0.5578,
+            "remedy": "Report with the interval and an explicit reliability caveat; do not use for ranking.",
+            "threshold": 0.667,
+            "verdict": "warn"
+          },
+          {
+            "message": "Mean annotations per response 3.00 meets the minimum of 2.",
+            "name": "replication",
+            "observed": 3.0,
+            "remedy": "",
+            "threshold": 2,
+            "verdict": "pass"
+          }
+        ],
+        "claim_id": "reasoning.dim.premise_fidelity",
+        "evidence": {
+          "alpha": 0.5578,
+          "alpha_ci": {
+            "hi": 0.6557,
+            "level": 0.95,
+            "lo": 0.4471,
+            "method": "cluster_bootstrap_percentile",
+            "n_boot": 600,
+            "n_clusters": 132,
+            "point": 0.5578,
+            "width": 0.2086
+          },
+          "kappa_paradox": false,
+          "percent_agreement": 0.5455,
+          "scale": "ordinal"
+        },
+        "kind": "descriptive",
+        "text": "Dimension 'premise_fidelity' of the Reasoning process quality rubric produces reliable measurements.",
+        "track": "reasoning",
+        "verdict": "warn",
+        "warnings": [
+          "alpha=0.558 is below Krippendorff's tentative-conclusion threshold of 0.667. UNCERTAINTY: the 95% bootstrap interval for alpha [0.447, 0.656] does not exclude 0.500, so which side of that threshold this dimension falls on is NOT established by these data; the classification is a point estimate, not a finding."
+        ]
+      },
+      {
+        "blocking_reasons": [],
+        "checks": [
+          {
+            "message": "Track depth 'pilot' permits a 'descriptive' claim.",
+            "name": "depth_contract",
+            "observed": "pilot",
+            "remedy": "",
+            "threshold": "descriptive",
+            "verdict": "pass"
+          },
+          {
+            "message": "alpha=0.743 supports tentative conclusions (firm conclusions want >= 0.800). UNCERTAINTY: the 95% bootstrap interval for alpha [0.667, 0.803] does not exclude 0.800, so which side of that threshold this dimension falls on is NOT established by these data; the classification is a point estimate, not a finding.",
+            "name": "reliability:step_validity",
+            "observed": 0.7433,
+            "remedy": "",
+            "threshold": 0.8,
+            "verdict": "pass"
+          },
+          {
+            "message": "Mean annotations per response 3.00 meets the minimum of 2.",
+            "name": "replication",
+            "observed": 3.0,
+            "remedy": "",
+            "threshold": 2,
+            "verdict": "pass"
+          }
+        ],
+        "claim_id": "reasoning.dim.step_validity",
+        "evidence": {
+          "alpha": 0.7433,
+          "alpha_ci": {
+            "hi": 0.8028,
+            "level": 0.95,
+            "lo": 0.6673,
+            "method": "cluster_bootstrap_percentile",
+            "n_boot": 600,
+            "n_clusters": 132,
+            "point": 0.7433,
+            "width": 0.1355
+          },
+          "kappa_paradox": false,
+          "percent_agreement": 0.5606,
+          "scale": "ordinal"
+        },
+        "kind": "descriptive",
+        "text": "Dimension 'step_validity' of the Reasoning process quality rubric produces reliable measurements.",
+        "track": "reasoning",
+        "verdict": "pass",
+        "warnings": []
+      },
+      {
+        "blocking_reasons": [],
+        "checks": [
+          {
+            "message": "Track depth 'pilot' permits a 'descriptive' claim.",
+            "name": "depth_contract",
+            "observed": "pilot",
+            "remedy": "",
+            "threshold": "descriptive",
+            "verdict": "pass"
+          },
+          {
+            "message": "alpha=0.680 supports tentative conclusions (firm conclusions want >= 0.800). UNCERTAINTY: the 95% bootstrap interval for alpha [0.593, 0.750] does not exclude 0.667, so which side of that threshold this dimension falls on is NOT established by these data; the classification is a point estimate, not a finding.",
+            "name": "reliability:verification_behavior",
+            "observed": 0.6804,
+            "remedy": "",
+            "threshold": 0.8,
+            "verdict": "pass"
+          },
+          {
+            "message": "Mean annotations per response 3.00 meets the minimum of 2.",
+            "name": "replication",
+            "observed": 3.0,
+            "remedy": "",
+            "threshold": 2,
+            "verdict": "pass"
+          }
+        ],
+        "claim_id": "reasoning.dim.verification_behavior",
+        "evidence": {
+          "alpha": 0.6804,
+          "alpha_ci": {
+            "hi": 0.7504,
+            "level": 0.95,
+            "lo": 0.5932,
+            "method": "cluster_bootstrap_percentile",
+            "n_boot": 600,
+            "n_clusters": 132,
+            "point": 0.6804,
+            "width": 0.1571
+          },
+          "kappa_paradox": false,
+          "percent_agreement": 0.548,
+          "scale": "ordinal"
+        },
+        "kind": "descriptive",
+        "text": "Dimension 'verification_behavior' of the Reasoning process quality rubric produces reliable measurements.",
+        "track": "reasoning",
+        "verdict": "pass",
+        "warnings": []
+      },
+      {
+        "blocking_reasons": [],
+        "checks": [
+          {
+            "message": "Track depth 'pilot' permits a 'measurement' claim.",
+            "name": "depth_contract",
+            "observed": "pilot",
+            "remedy": "",
+            "threshold": "measurement",
+            "verdict": "pass"
+          },
+          {
+            "message": "alpha=0.559 is below Krippendorff's tentative-conclusion threshold of 0.667.",
+            "name": "reliability",
+            "observed": 0.5589,
+            "remedy": "Report with the interval and an explicit reliability caveat; do not use for ranking.",
+            "threshold": 0.667,
+            "verdict": "warn"
+          },
+          {
+            "message": "95% CI half-width 0.076 EXCEEDS the 0.075 budget.",
+            "name": "precision",
+            "observed": 0.0756,
+            "remedy": "Increase n or reduce measurement noise before quoting a point estimate.",
+            "threshold": 0.075,
+            "verdict": "warn"
+          },
+          {
+            "message": "Worst-factor balance ratio 0.06: one level is sampled at least four times more heavily than another in the same factor.",
+            "name": "coverage",
+            "observed": 0.057,
+            "remedy": "Unweighted aggregates over an unbalanced design are dominated by the over-sampled level. Report weighted means or rebalance.",
+            "threshold": 0.25,
+            "verdict": "warn"
+          },
+          {
+            "message": "Mean annotations per response 3.00 meets the minimum of 2.",
+            "name": "replication",
+            "observed": 3.0,
+            "remedy": "",
+            "threshold": 2,
+            "verdict": "pass"
+          },
+          {
+            "message": "33% of annotators carry quality flags (budget 34%, block above 68%) -- within budget.",
+            "name": "annotator_pool",
+            "observed": 0.333,
+            "remedy": "",
+            "threshold": 0.34,
+            "verdict": "pass"
+          },
+          {
+            "message": "No batch-level drift detected.",
+            "name": "drift",
+            "observed": false,
+            "remedy": "",
+            "threshold": false,
+            "verdict": "pass"
+          },
+          {
+            "message": "5% of adjudications were attributed to rubric ambiguity rather than annotator error (budget 15%).",
+            "name": "rubric_specification",
+            "observed": 0.047,
+            "remedy": "",
+            "threshold": 0.15,
+            "verdict": "pass"
+          },
+          {
+            "message": "Worst annotator gold accuracy 56% is below the 70% floor.",
+            "name": "gold_calibration",
+            "observed": 0.564,
+            "remedy": "Retrain or remove the annotator, then re-annotate their assignments.",
+            "threshold": 0.7,
+            "verdict": "warn"
+          }
+        ],
+        "claim_id": "reasoning.score.sut-baseline-v1",
+        "evidence": {
+          "ci": {
+            "hi": 0.6014,
+            "level": 0.95,
+            "lo": 0.4503,
+            "method": "cluster_bootstrap_percentile",
+            "n_boot": 2000,
+            "n_clusters": 44,
+            "point": 0.5278,
+            "width": 0.1511
+          },
+          "mean": 0.5278,
+          "n_items": 44
+        },
+        "kind": "measurement",
+        "text": "sut-baseline-v1 scores 0.528 [0.450, 0.601] on Reasoning process quality.",
+        "track": "reasoning",
+        "verdict": "warn",
+        "warnings": [
+          "alpha=0.559 is below Krippendorff's tentative-conclusion threshold of 0.667.",
+          "95% CI half-width 0.076 EXCEEDS the 0.075 budget.",
+          "Worst-factor balance ratio 0.06: one level is sampled at least four times more heavily than another in the same factor.",
+          "Worst annotator gold accuracy 56% is below the 70% floor."
+        ]
+      },
+      {
+        "blocking_reasons": [],
+        "checks": [
+          {
+            "message": "Track depth 'pilot' permits a 'measurement' claim.",
+            "name": "depth_contract",
+            "observed": "pilot",
+            "remedy": "",
+            "threshold": "measurement",
+            "verdict": "pass"
+          },
+          {
+            "message": "alpha=0.559 is below Krippendorff's tentative-conclusion threshold of 0.667.",
+            "name": "reliability",
+            "observed": 0.5589,
+            "remedy": "Report with the interval and an explicit reliability caveat; do not use for ranking.",
+            "threshold": 0.667,
+            "verdict": "warn"
+          },
+          {
+            "message": "95% CI half-width 0.075 EXCEEDS the 0.075 budget.",
+            "name": "precision",
+            "observed": 0.0752,
+            "remedy": "Increase n or reduce measurement noise before quoting a point estimate.",
+            "threshold": 0.075,
+            "verdict": "warn"
+          },
+          {
+            "message": "Worst-factor balance ratio 0.06: one level is sampled at least four times more heavily than another in the same factor.",
+            "name": "coverage",
+            "observed": 0.057,
+            "remedy": "Unweighted aggregates over an unbalanced design are dominated by the over-sampled level. Report weighted means or rebalance.",
+            "threshold": 0.25,
+            "verdict": "warn"
+          },
+          {
+            "message": "Mean annotations per response 3.00 meets the minimum of 2.",
+            "name": "replication",
+            "observed": 3.0,
+            "remedy": "",
+            "threshold": 2,
+            "verdict": "pass"
+          },
+          {
+            "message": "33% of annotators carry quality flags (budget 34%, block above 68%) -- within budget.",
+            "name": "annotator_pool",
+            "observed": 0.333,
+            "remedy": "",
+            "threshold": 0.34,
+            "verdict": "pass"
+          },
+          {
+            "message": "No batch-level drift detected.",
+            "name": "drift",
+            "observed": false,
+            "remedy": "",
+            "threshold": false,
+            "verdict": "pass"
+          },
+          {
+            "message": "5% of adjudications were attributed to rubric ambiguity rather than annotator error (budget 15%).",
+            "name": "rubric_specification",
+            "observed": 0.047,
+            "remedy": "",
+            "threshold": 0.15,
+            "verdict": "pass"
+          },
+          {
+            "message": "Worst annotator gold accuracy 56% is below the 70% floor.",
+            "name": "gold_calibration",
+            "observed": 0.564,
+            "remedy": "Retrain or remove the annotator, then re-annotate their assignments.",
+            "threshold": 0.7,
+            "verdict": "warn"
+          }
+        ],
+        "claim_id": "reasoning.score.sut-candidate-v2",
+        "evidence": {
+          "ci": {
+            "hi": 0.6524,
+            "level": 0.95,
+            "lo": 0.5019,
+            "method": "cluster_bootstrap_percentile",
+            "n_boot": 2000,
+            "n_clusters": 44,
+            "point": 0.5774,
+            "width": 0.1505
+          },
+          "mean": 0.5774,
+          "n_items": 44
+        },
+        "kind": "measurement",
+        "text": "sut-candidate-v2 scores 0.577 [0.502, 0.652] on Reasoning process quality.",
+        "track": "reasoning",
+        "verdict": "warn",
+        "warnings": [
+          "alpha=0.559 is below Krippendorff's tentative-conclusion threshold of 0.667.",
+          "95% CI half-width 0.075 EXCEEDS the 0.075 budget.",
+          "Worst-factor balance ratio 0.06: one level is sampled at least four times more heavily than another in the same factor.",
+          "Worst annotator gold accuracy 56% is below the 70% floor."
+        ]
+      },
+      {
+        "blocking_reasons": [],
+        "checks": [
+          {
+            "message": "Track depth 'pilot' permits a 'measurement' claim.",
+            "name": "depth_contract",
+            "observed": "pilot",
+            "remedy": "",
+            "threshold": "measurement",
+            "verdict": "pass"
+          },
+          {
+            "message": "alpha=0.559 is below Krippendorff's tentative-conclusion threshold of 0.667.",
+            "name": "reliability",
+            "observed": 0.5589,
+            "remedy": "Report with the interval and an explicit reliability caveat; do not use for ranking.",
+            "threshold": 0.667,
+            "verdict": "warn"
+          },
+          {
+            "message": "95% CI half-width 0.077 EXCEEDS the 0.075 budget.",
+            "name": "precision",
+            "observed": 0.0766,
+            "remedy": "Increase n or reduce measurement noise before quoting a point estimate.",
+            "threshold": 0.075,
+            "verdict": "warn"
+          },
+          {
+            "message": "Worst-factor balance ratio 0.06: one level is sampled at least four times more heavily than another in the same factor.",
+            "name": "coverage",
+            "observed": 0.057,
+            "remedy": "Unweighted aggregates over an unbalanced design are dominated by the over-sampled level. Report weighted means or rebalance.",
+            "threshold": 0.25,
+            "verdict": "warn"
+          },
+          {
+            "message": "Mean annotations per response 3.00 meets the minimum of 2.",
+            "name": "replication",
+            "observed": 3.0,
+            "remedy": "",
+            "threshold": 2,
+            "verdict": "pass"
+          },
+          {
+            "message": "33% of annotators carry quality flags (budget 34%, block above 68%) -- within budget.",
+            "name": "annotator_pool",
+            "observed": 0.333,
+            "remedy": "",
+            "threshold": 0.34,
+            "verdict": "pass"
+          },
+          {
+            "message": "No batch-level drift detected.",
+            "name": "drift",
+            "observed": false,
+            "remedy": "",
+            "threshold": false,
+            "verdict": "pass"
+          },
+          {
+            "message": "5% of adjudications were attributed to rubric ambiguity rather than annotator error (budget 15%).",
+            "name": "rubric_specification",
+            "observed": 0.047,
+            "remedy": "",
+            "threshold": 0.15,
+            "verdict": "pass"
+          },
+          {
+            "message": "Worst annotator gold accuracy 56% is below the 70% floor.",
+            "name": "gold_calibration",
+            "observed": 0.564,
+            "remedy": "Retrain or remove the annotator, then re-annotate their assignments.",
+            "threshold": 0.7,
+            "verdict": "warn"
+          }
+        ],
+        "claim_id": "reasoning.score.sut-candidate-v3",
+        "evidence": {
+          "ci": {
+            "hi": 0.613,
+            "level": 0.95,
+            "lo": 0.4598,
+            "method": "cluster_bootstrap_percentile",
+            "n_boot": 2000,
+            "n_clusters": 44,
+            "point": 0.5389,
+            "width": 0.1532
+          },
+          "mean": 0.5389,
+          "n_items": 44
+        },
+        "kind": "measurement",
+        "text": "sut-candidate-v3 scores 0.539 [0.460, 0.613] on Reasoning process quality.",
+        "track": "reasoning",
+        "verdict": "warn",
+        "warnings": [
+          "alpha=0.559 is below Krippendorff's tentative-conclusion threshold of 0.667.",
+          "95% CI half-width 0.077 EXCEEDS the 0.075 budget.",
+          "Worst-factor balance ratio 0.06: one level is sampled at least four times more heavily than another in the same factor.",
+          "Worst annotator gold accuracy 56% is below the 70% floor."
+        ]
+      },
+      {
+        "blocking_reasons": [
+          "Track depth 'pilot' does NOT permit a 'ranking' claim.",
+          "Observed effect 0.0497 is BELOW the minimum detectable effect 0.1404.",
+          "95% CI [-0.0480, 0.1519] CONTAINS zero."
+        ],
+        "checks": [
+          {
+            "message": "Track depth 'pilot' does NOT permit a 'ranking' claim.",
+            "name": "depth_contract",
+            "observed": "pilot",
+            "remedy": "Either reframe the claim as descriptive, or promote the track. Contract for 'pilot': May report measurements with intervals and an explicit MDE. May report system deltas ONLY when the interval excludes zero and the delta exceeds the MDE. May not be used as a release gate.",
+            "threshold": "ranking",
+            "verdict": "block"
+          },
+          {
+            "message": "alpha=0.559 is below Krippendorff's tentative-conclusion threshold of 0.667.",
+            "name": "reliability",
+            "observed": 0.5589,
+            "remedy": "Report with the interval and an explicit reliability caveat; do not use for ranking.",
+            "threshold": 0.667,
+            "verdict": "warn"
+          },
+          {
+            "message": "Observed effect 0.0497 is BELOW the minimum detectable effect 0.1404.",
+            "name": "effect_vs_mde",
+            "observed": 0.0497,
+            "remedy": "This difference is inside the noise floor of the design. Reporting it as a real difference is not supportable. Either power the study for this effect size or report 'no detectable difference (MDE=0.140)'.",
+            "threshold": 0.1404,
+            "verdict": "block"
+          },
+          {
+            "message": "95% CI [-0.0480, 0.1519] CONTAINS zero.",
+            "name": "interval_excludes_zero",
+            "observed": [
+              -0.048,
+              0.1519
+            ],
+            "remedy": "Direction of the difference is not established. State it as a tie.",
+            "threshold": 0.0,
+            "verdict": "block"
+          },
+          {
+            "message": "Worst-factor balance ratio 0.06: one level is sampled at least four times more heavily than another in the same factor.",
+            "name": "coverage",
+            "observed": 0.057,
+            "remedy": "Unweighted aggregates over an unbalanced design are dominated by the over-sampled level. Report weighted means or rebalance.",
+            "threshold": 0.25,
+            "verdict": "warn"
+          },
+          {
+            "message": "Mean annotations per response 3.00 meets the minimum of 2.",
+            "name": "replication",
+            "observed": 3.0,
+            "remedy": "",
+            "threshold": 2,
+            "verdict": "pass"
+          },
+          {
+            "message": "33% of annotators carry quality flags (budget 34%, block above 68%) -- within budget.",
+            "name": "annotator_pool",
+            "observed": 0.333,
+            "remedy": "",
+            "threshold": 0.34,
+            "verdict": "pass"
+          },
+          {
+            "message": "No batch-level drift detected.",
+            "name": "drift",
+            "observed": false,
+            "remedy": "",
+            "threshold": false,
+            "verdict": "pass"
+          },
+          {
+            "message": "5% of adjudications were attributed to rubric ambiguity rather than annotator error (budget 15%).",
+            "name": "rubric_specification",
+            "observed": 0.047,
+            "remedy": "",
+            "threshold": 0.15,
+            "verdict": "pass"
+          },
+          {
+            "message": "Worst annotator gold accuracy 56% is below the 70% floor.",
+            "name": "gold_calibration",
+            "observed": 0.564,
+            "remedy": "Retrain or remove the annotator, then re-annotate their assignments.",
+            "threshold": 0.7,
+            "verdict": "warn"
+          }
+        ],
+        "claim_id": "reasoning.rank.sut-candidate-v2_vs_sut-baseline-v1",
+        "evidence": {
+          "ci": {
+            "hi": 0.1519,
+            "level": 0.95,
+            "lo": -0.048,
+            "method": "cluster_bootstrap_percentile",
+            "n_boot": 2000,
+            "n_clusters": 44,
+            "point": 0.0497,
+            "width": 0.1999
+          },
+          "composite_reliability_rho_k": 0.8841,
+          "effect": 0.0497,
+          "mde": 0.1404,
+          "mde_convention": "observed_scale: MDE computed at plain n against the observed SD; n_effective and mde_true_scale reported separately, never compounded",
+          "mde_observed_scale": 0.1404,
+          "mde_true_scale": 0.1494,
+          "n_effective": 38.9,
+          "p_value": 0.33717
+        },
+        "kind": "ranking",
+        "text": "sut-candidate-v2 outperforms sut-baseline-v1 on Reasoning process quality by 0.050 composite points.",
+        "track": "reasoning",
+        "verdict": "block",
+        "warnings": [
+          "alpha=0.559 is below Krippendorff's tentative-conclusion threshold of 0.667.",
+          "Worst-factor balance ratio 0.06: one level is sampled at least four times more heavily than another in the same factor.",
+          "Worst annotator gold accuracy 56% is below the 70% floor."
+        ]
+      },
+      {
+        "blocking_reasons": [
+          "Track depth 'pilot' does NOT permit a 'ranking' claim.",
+          "Observed effect 0.0385 is BELOW the minimum detectable effect 0.1271.",
+          "95% CI [-0.0454, 0.1288] CONTAINS zero."
+        ],
+        "checks": [
+          {
+            "message": "Track depth 'pilot' does NOT permit a 'ranking' claim.",
+            "name": "depth_contract",
+            "observed": "pilot",
+            "remedy": "Either reframe the claim as descriptive, or promote the track. Contract for 'pilot': May report measurements with intervals and an explicit MDE. May report system deltas ONLY when the interval excludes zero and the delta exceeds the MDE. May not be used as a release gate.",
+            "threshold": "ranking",
+            "verdict": "block"
+          },
+          {
+            "message": "alpha=0.559 is below Krippendorff's tentative-conclusion threshold of 0.667.",
+            "name": "reliability",
+            "observed": 0.5589,
+            "remedy": "Report with the interval and an explicit reliability caveat; do not use for ranking.",
+            "threshold": 0.667,
+            "verdict": "warn"
+          },
+          {
+            "message": "Observed effect 0.0385 is BELOW the minimum detectable effect 0.1271.",
+            "name": "effect_vs_mde",
+            "observed": 0.0385,
+            "remedy": "This difference is inside the noise floor of the design. Reporting it as a real difference is not supportable. Either power the study for this effect size or report 'no detectable difference (MDE=0.127)'.",
+            "threshold": 0.1271,
+            "verdict": "block"
+          },
+          {
+            "message": "95% CI [-0.0454, 0.1288] CONTAINS zero.",
+            "name": "interval_excludes_zero",
+            "observed": [
+              -0.0454,
+              0.1288
+            ],
+            "remedy": "Direction of the difference is not established. State it as a tie.",
+            "threshold": 0.0,
+            "verdict": "block"
+          },
+          {
+            "message": "Worst-factor balance ratio 0.06: one level is sampled at least four times more heavily than another in the same factor.",
+            "name": "coverage",
+            "observed": 0.057,
+            "remedy": "Unweighted aggregates over an unbalanced design are dominated by the over-sampled level. Report weighted means or rebalance.",
+            "threshold": 0.25,
+            "verdict": "warn"
+          },
+          {
+            "message": "Mean annotations per response 3.00 meets the minimum of 2.",
+            "name": "replication",
+            "observed": 3.0,
+            "remedy": "",
+            "threshold": 2,
+            "verdict": "pass"
+          },
+          {
+            "message": "33% of annotators carry quality flags (budget 34%, block above 68%) -- within budget.",
+            "name": "annotator_pool",
+            "observed": 0.333,
+            "remedy": "",
+            "threshold": 0.34,
+            "verdict": "pass"
+          },
+          {
+            "message": "No batch-level drift detected.",
+            "name": "drift",
+            "observed": false,
+            "remedy": "",
+            "threshold": false,
+            "verdict": "pass"
+          },
+          {
+            "message": "5% of adjudications were attributed to rubric ambiguity rather than annotator error (budget 15%).",
+            "name": "rubric_specification",
+            "observed": 0.047,
+            "remedy": "",
+            "threshold": 0.15,
+            "verdict": "pass"
+          },
+          {
+            "message": "Worst annotator gold accuracy 56% is below the 70% floor.",
+            "name": "gold_calibration",
+            "observed": 0.564,
+            "remedy": "Retrain or remove the annotator, then re-annotate their assignments.",
+            "threshold": 0.7,
+            "verdict": "warn"
+          }
+        ],
+        "claim_id": "reasoning.rank.sut-candidate-v2_vs_sut-candidate-v3",
+        "evidence": {
+          "ci": {
+            "hi": 0.1288,
+            "level": 0.95,
+            "lo": -0.0454,
+            "method": "cluster_bootstrap_percentile",
+            "n_boot": 2000,
+            "n_clusters": 44,
+            "point": 0.0385,
+            "width": 0.1742
+          },
+          "composite_reliability_rho_k": 0.8841,
+          "effect": 0.0385,
+          "mde": 0.1271,
+          "mde_convention": "observed_scale: MDE computed at plain n against the observed SD; n_effective and mde_true_scale reported separately, never compounded",
+          "mde_observed_scale": 0.1271,
+          "mde_true_scale": 0.1351,
+          "n_effective": 38.9,
+          "p_value": 0.39456
+        },
+        "kind": "ranking",
+        "text": "sut-candidate-v2 outperforms sut-candidate-v3 on Reasoning process quality by 0.038 composite points.",
+        "track": "reasoning",
+        "verdict": "block",
+        "warnings": [
+          "alpha=0.559 is below Krippendorff's tentative-conclusion threshold of 0.667.",
+          "Worst-factor balance ratio 0.06: one level is sampled at least four times more heavily than another in the same factor.",
+          "Worst annotator gold accuracy 56% is below the 70% floor."
+        ]
+      },
+      {
+        "blocking_reasons": [
+          "Track depth 'pilot' does NOT permit a 'ranking' claim.",
+          "Observed effect 0.0112 is BELOW the minimum detectable effect 0.1267.",
+          "95% CI [-0.0737, 0.0985] CONTAINS zero."
+        ],
+        "checks": [
+          {
+            "message": "Track depth 'pilot' does NOT permit a 'ranking' claim.",
+            "name": "depth_contract",
+            "observed": "pilot",
+            "remedy": "Either reframe the claim as descriptive, or promote the track. Contract for 'pilot': May report measurements with intervals and an explicit MDE. May report system deltas ONLY when the interval excludes zero and the delta exceeds the MDE. May not be used as a release gate.",
+            "threshold": "ranking",
+            "verdict": "block"
+          },
+          {
+            "message": "alpha=0.559 is below Krippendorff's tentative-conclusion threshold of 0.667.",
+            "name": "reliability",
+            "observed": 0.5589,
+            "remedy": "Report with the interval and an explicit reliability caveat; do not use for ranking.",
+            "threshold": 0.667,
+            "verdict": "warn"
+          },
+          {
+            "message": "Observed effect 0.0112 is BELOW the minimum detectable effect 0.1267.",
+            "name": "effect_vs_mde",
+            "observed": 0.0112,
+            "remedy": "This difference is inside the noise floor of the design. Reporting it as a real difference is not supportable. Either power the study for this effect size or report 'no detectable difference (MDE=0.127)'.",
+            "threshold": 0.1267,
+            "verdict": "block"
+          },
+          {
+            "message": "95% CI [-0.0737, 0.0985] CONTAINS zero.",
+            "name": "interval_excludes_zero",
+            "observed": [
+              -0.0737,
+              0.0985
+            ],
+            "remedy": "Direction of the difference is not established. State it as a tie.",
+            "threshold": 0.0,
+            "verdict": "block"
+          },
+          {
+            "message": "Worst-factor balance ratio 0.06: one level is sampled at least four times more heavily than another in the same factor.",
+            "name": "coverage",
+            "observed": 0.057,
+            "remedy": "Unweighted aggregates over an unbalanced design are dominated by the over-sampled level. Report weighted means or rebalance.",
+            "threshold": 0.25,
+            "verdict": "warn"
+          },
+          {
+            "message": "Mean annotations per response 3.00 meets the minimum of 2.",
+            "name": "replication",
+            "observed": 3.0,
+            "remedy": "",
+            "threshold": 2,
+            "verdict": "pass"
+          },
+          {
+            "message": "33% of annotators carry quality flags (budget 34%, block above 68%) -- within budget.",
+            "name": "annotator_pool",
+            "observed": 0.333,
+            "remedy": "",
+            "threshold": 0.34,
+            "verdict": "pass"
+          },
+          {
+            "message": "No batch-level drift detected.",
+            "name": "drift",
+            "observed": false,
+            "remedy": "",
+            "threshold": false,
+            "verdict": "pass"
+          },
+          {
+            "message": "5% of adjudications were attributed to rubric ambiguity rather than annotator error (budget 15%).",
+            "name": "rubric_specification",
+            "observed": 0.047,
+            "remedy": "",
+            "threshold": 0.15,
+            "verdict": "pass"
+          },
+          {
+            "message": "Worst annotator gold accuracy 56% is below the 70% floor.",
+            "name": "gold_calibration",
+            "observed": 0.564,
+            "remedy": "Retrain or remove the annotator, then re-annotate their assignments.",
+            "threshold": 0.7,
+            "verdict": "warn"
+          }
+        ],
+        "claim_id": "reasoning.rank.sut-candidate-v3_vs_sut-baseline-v1",
+        "evidence": {
+          "ci": {
+            "hi": 0.0985,
+            "level": 0.95,
+            "lo": -0.0737,
+            "method": "cluster_bootstrap_percentile",
+            "n_boot": 2000,
+            "n_clusters": 44,
+            "point": 0.0112,
+            "width": 0.1722
+          },
+          "composite_reliability_rho_k": 0.8841,
+          "effect": 0.0112,
+          "mde": 0.1267,
+          "mde_convention": "observed_scale: MDE computed at plain n against the observed SD; n_effective and mde_true_scale reported separately, never compounded",
+          "mde_observed_scale": 0.1267,
+          "mde_true_scale": 0.1347,
+          "n_effective": 38.9,
+          "p_value": 0.80222
+        },
+        "kind": "ranking",
+        "text": "sut-candidate-v3 outperforms sut-baseline-v1 on Reasoning process quality by 0.011 composite points.",
+        "track": "reasoning",
+        "verdict": "block",
+        "warnings": [
+          "alpha=0.559 is below Krippendorff's tentative-conclusion threshold of 0.667.",
+          "Worst-factor balance ratio 0.06: one level is sampled at least four times more heavily than another in the same factor.",
+          "Worst annotator gold accuracy 56% is below the 70% floor."
+        ]
+      }
+    ],
+    "policy": {
+      "alpha_block_below": 0.5,
+      "alpha_firm_at": 0.8,
+      "alpha_warn_below": 0.667,
+      "block_on_drift": true,
+      "correct_for_multiplicity": true,
+      "flagged_annotator_block_multiple": 2.0,
+      "max_ci_half_width": 0.075,
+      "max_empty_cell_fraction": 0.2,
+      "max_flagged_annotator_fraction": 0.34,
+      "max_rubric_gap_rate": 0.15,
+      "mde_safety_margin": 1.0,
+      "min_gold_accuracy": 0.7,
+      "min_n_per_cell": 5,
+      "min_replication": 2,
+      "require_effect_exceeds_mde": true
+    },
+    "summary": {
+      "block_rate": 0.364,
+      "by_verdict": {
+        "block": 4,
+        "pass": 2,
+        "warn": 5
+      },
+      "n_claims": 11
+    }
+  },
+  "gold_accuracy": 0.7694,
+  "investment": [
+    "COLLECT: answer_type=symbolic (n=2) is too thin to report separately; oversample to n>=8.",
+    "COLLECT: only 1 instances of RF-12; sensitivity is not estimable.",
+    "COLLECT: only 2 instances of RF-06; sensitivity is not estimable.",
+    "COLLECT: only 2 instances of RF-07; sensitivity is not estimable.",
+    "COLLECT: only 3 instances of RF-13; sensitivity is not estimable.",
+    "COLLECT: only 3 instances of RF-09; sensitivity is not estimable.",
+    "COLLECT: only 2 instances of RF-02; sensitivity is not estimable.",
+    "COLLECT: only 3 instances of RF-04; sensitivity is not estimable.",
+    "COLLECT: only 2 instances of RF-05; sensitivity is not estimable.",
+    "COLLECT: only 2 instances of RF-08; sensitivity is not estimable."
+  ],
+  "known_limitations": [
+    "explanation_faithfulness is not directly observable from output text. Annotators score textual symptoms of post-hoc rationalisation, which is a proxy for the construct, not the construct. We expect this dimension to show the lowest agreement and we will report it separately rather than pooling it into a headline alpha.",
+    "There is no chain-of-thought interpretability instrumentation behind this track. We observe only the emitted transcript, so we cannot distinguish a model that reasoned as described from one that reasoned otherwise and produced a plausible transcript.",
+    "Problems are short-form: three to six steps, single correct answer, solvable in under two minutes by a competent human. Findings do not transfer without re-piloting to long-horizon reasoning, multi-tool workflows, or open-ended proof.",
+    "English only, and the problem set draws on conventions of English-language school mathematics (notation, phrasing of word problems, decimal comma versus point). Trap types such as ambiguous_wording are language-specific by construction.",
+    "The reference answers are single canonical strings. Equivalent-form matching is left to annotator judgement rather than a normaliser, so answer_correctness carries a small amount of the very subjectivity it is supposed to be free of.",
+    "n = 44 items at replication 3 is a pilot-scale sample. Per-cell counts in the four-way stratification are one to three items, which supports reliability estimation and nothing more; no per-stratum system comparison from this track should be treated as powered."
+  ],
+  "mean_replication": 3.0,
+  "n_annotations": 396,
+  "n_items": 44,
+  "n_responses": 132,
+  "name": "Reasoning process quality",
+  "redteam": {
+    "failed_probes": [],
+    "n_failed": 0,
+    "n_probes": 5,
+    "probes": [
+      {
+        "detail": {
+          "n_all": 132,
+          "n_clean": 82,
+          "rho_all": 0.1368,
+          "rho_clean_only": -0.2476
+        },
+        "failed": false,
+        "interpretation": "Within clean responses (quality approximately held constant), Spearman rho between length and composite is -0.248. Below tolerance; length does not appear to be driving the score.",
+        "probe": "length_bias",
+        "statistic": -0.2476,
+        "threshold": 0.3
+      },
+      {
+        "detail": {
+          "per_dimension": {
+            "answer_correctness": {
+              "entropy_bits": 0.991,
+              "marginal_draw_match_rate": 0.4874,
+              "modal_label": 1,
+              "modal_match_rate": 0.5556,
+              "n": 396
+            },
+            "explanation_faithfulness": {
+              "entropy_bits": 1.958,
+              "marginal_draw_match_rate": 0.2576,
+              "modal_label": 3,
+              "modal_match_rate": 0.3409,
+              "n": 396
+            },
+            "premise_fidelity": {
+              "entropy_bits": 1.823,
+              "marginal_draw_match_rate": 0.2626,
+              "modal_label": 2,
+              "modal_match_rate": 0.4116,
+              "n": 396
+            },
+            "step_validity": {
+              "entropy_bits": 1.985,
+              "marginal_draw_match_rate": 0.2222,
+              "modal_label": 2,
+              "modal_match_rate": 0.298,
+              "n": 396
+            },
+            "verification_behavior": {
+              "entropy_bits": 1.969,
+              "marginal_draw_match_rate": 0.2778,
+              "modal_label": 2,
+              "modal_match_rate": 0.3207,
+              "n": 396
+            }
+          }
+        },
+        "failed": false,
+        "interpretation": "Dimension 'answer_correctness' is matched 56% of the time by always answering 1 without reading the response. Below the 75% tolerance, so annotators are doing work a constant cannot do.",
+        "probe": "lazy_baseline",
+        "statistic": 0.5556,
+        "threshold": 0.75
+      },
+      {
+        "detail": {
+          "corpus_caveat": "Fixture responses are generated from a single latent quality factor, so inter-dimension correlation on this corpus partly reflects the generative model rather than the rubric.",
+          "correlation_to_composite_part_whole": {
+            "answer_correctness": 0.7109,
+            "explanation_faithfulness": 0.4154,
+            "premise_fidelity": 0.8068,
+            "step_validity": 0.7003,
+            "verification_behavior": 0.4757
+          },
+          "correlation_to_loo_composite": {
+            "answer_correctness": 0.5511,
+            "explanation_faithfulness": 0.3066,
+            "premise_fidelity": 0.6805,
+            "step_validity": 0.5189,
+            "verification_behavior": 0.3455
+          },
+          "degenerate_remainder_dimensions": [],
+          "inter_dimension_matrix": {
+            "answer_correctness": {
+              "explanation_faithfulness": 0.149,
+              "premise_fidelity": 0.565,
+              "step_validity": 0.419,
+              "verification_behavior": 0.297
+            },
+            "explanation_faithfulness": {
+              "answer_correctness": 0.149,
+              "premise_fidelity": 0.084,
+              "step_validity": 0.491,
+              "verification_behavior": 0.397
+            },
+            "premise_fidelity": {
+              "answer_correctness": 0.565,
+              "explanation_faithfulness": 0.084,
+              "step_validity": 0.315,
+              "verification_behavior": 0.183
+            },
+            "step_validity": {
+              "answer_correctness": 0.419,
+              "explanation_faithfulness": 0.491,
+              "premise_fidelity": 0.315,
+              "verification_behavior": 0.418
+            },
+            "verification_behavior": {
+              "answer_correctness": 0.297,
+              "explanation_faithfulness": 0.397,
+              "premise_fidelity": 0.183,
+              "step_validity": 0.418
+            }
+          },
+          "part_whole_inflation": {
+            "answer_correctness": 0.1598,
+            "explanation_faithfulness": 0.1088,
+            "premise_fidelity": 0.1263,
+            "step_validity": 0.1814,
+            "verification_behavior": 0.1302
+          },
+          "primary_statistic": "leave_one_out",
+          "redundant_pairs": []
+        },
+        "failed": false,
+        "interpretation": "'premise_fidelity' alone correlates r=0.680 with the LEAVE-ONE-OUT composite (the composite recomputed with 'premise_fidelity' removed). The part-whole figure, against a composite that includes 'premise_fidelity' itself, is r=0.807; the gap between the two is arithmetic, not evidence, which is why the leave-one-out value is the one gated on. No single dimension reconstructs the rest of the composite, so the multi-dimensional structure is carrying real information. CORPUS CAVEAT: the responses in this repository are generated from a single latent quality factor per response, so the dimensions are correlated by construction. The inter-dimension correlations below therefore partly measure the generative fixture model, not the rubric. On real data this probe is diagnostic of rubric redundancy; here it is a demonstration that the probe runs and reports, and its magnitudes should not be read as a finding about rubric design.",
+        "probe": "rubric_shortcut",
+        "statistic": 0.6805,
+        "threshold": 0.93
+      },
+      {
+        "detail": {
+          "baseline_noise_flip_rate": 0.2273,
+          "critical_excess_order_effect": 0.1574,
+          "judge_sigma": 0.1174,
+          "method": "Sensitivity analysis, not a measurement. No pairwise judging was run; this solves for the artifact magnitude that would matter, measured as EXCESS flips above the noise floor rather than absolute flips.",
+          "n_pairs": 132,
+          "reference_real_effect": 0.0497
+        },
+        "failed": false,
+        "interpretation": "Judgement noise alone (sigma=0.117) already reverses 23% of 132 pairwise comparisons. An order advantage of 0.157 composite points would add a further 10 percentage points of flips on top of that floor. The largest real between-system difference is 0.050, so an order artifact would have to exceed the real effect before it mattered. Counterbalancing is still cheap insurance.",
+        "probe": "position_bias_fragility",
+        "statistic": 0.1574,
+        "threshold": 0.0497
+      },
+      {
+        "detail": {
+          "baseline_mean": 0.548,
+          "delta_by_annotator": {
+            "A1-senior": 0.0017,
+            "A2-senior": -0.0053,
+            "A3-core": -0.0038,
+            "A4-core": 0.0051,
+            "A5-fast": -0.0245,
+            "A6-untrained": 0.0268
+          },
+          "tolerance_source": "reported CI half-width"
+        },
+        "failed": false,
+        "interpretation": "Removing 'A6-untrained' moves the track mean by +0.0268, against a reported CI half-width of 0.0758. Single-annotator sensitivity sits inside the published interval.",
+        "probe": "annotator_leave_one_out",
+        "statistic": 0.0268,
+        "threshold": 0.0758
+      }
+    ],
+    "verdict": "Rubric shows no measured gameability on these probes."
+  },
+  "research_question": "Does scoring the reasoning process add signal beyond final-answer correctness, and can annotators apply process dimensions reliably? The headline case is 'right answer, wrong reasoning': a model that reaches the correct result through an invalid derivation is a latent failure that answer-only accuracy records as a success.",
+  "rubric_gaps": {
+    "action": "",
+    "instrument_underspecified": false,
+    "n_adjudicated": 64,
+    "n_rubric_gaps": 3,
+    "rubric_gap_rate": 0.0469,
+    "threshold": 0.15
+  },
+  "rubric_version": "reasoning@r1+fad866327821",
+  "scores": {
+    "sut-baseline-v1": {
+      "ci": {
+        "hi": 0.6014,
+        "level": 0.95,
+        "lo": 0.4503,
+        "method": "cluster_bootstrap_percentile",
+        "n_boot": 2000,
+        "n_clusters": 44,
+        "point": 0.5278,
+        "width": 0.1511
+      },
+      "mean_composite": 0.5278,
+      "n_annotations": 132,
+      "n_items": 44,
+      "per_item_mean": {
+        "reasoning-0001": 0.3796,
+        "reasoning-0002": 0.0,
+        "reasoning-0003": 0.463,
+        "reasoning-0004": 0.787,
+        "reasoning-0005": 0.9815,
+        "reasoning-0006": 0.3241,
+        "reasoning-0007": 0.3056,
+        "reasoning-0008": 0.6759,
+        "reasoning-0009": 0.5093,
+        "reasoning-0010": 0.4074,
+        "reasoning-0011": 0.6296,
+        "reasoning-0012": 0.1852,
+        "reasoning-0013": 0.9722,
+        "reasoning-0014": 0.1389,
+        "reasoning-0015": 0.7222,
+        "reasoning-0016": 0.8611,
+        "reasoning-0017": 0.4444,
+        "reasoning-0018": 0.4074,
+        "reasoning-0019": 0.4815,
+        "reasoning-0020": 0.713,
+        "reasoning-0021": 0.9444,
+        "reasoning-0022": 0.9537,
+        "reasoning-0023": 0.6481,
+        "reasoning-0024": 0.3519,
+        "reasoning-0025": 0.5648,
+        "reasoning-0026": 0.5278,
+        "reasoning-0027": 0.5648,
+        "reasoning-0028": 0.5741,
+        "reasoning-0029": 0.9444,
+        "reasoning-0030": 0.7593,
+        "reasoning-0031": 0.4444,
+        "reasoning-0032": 0.5185,
+        "reasoning-0033": 0.287,
+        "reasoning-0034": 0.8519,
+        "reasoning-0035": 0.2685,
+        "reasoning-0036": 0.6481,
+        "reasoning-0037": 0.7407,
+        "reasoning-0038": 0.5926,
+        "reasoning-0039": 0.1574,
+        "reasoning-0040": 0.4259,
+        "reasoning-0041": 0.4074,
+        "reasoning-0042": 0.1852,
+        "reasoning-0043": 0.1667,
+        "reasoning-0044": 0.3056
+      },
+      "sd": 0.2721
+    },
+    "sut-candidate-v2": {
+      "ci": {
+        "hi": 0.6524,
+        "level": 0.95,
+        "lo": 0.5019,
+        "method": "cluster_bootstrap_percentile",
+        "n_boot": 2000,
+        "n_clusters": 44,
+        "point": 0.5774,
+        "width": 0.1505
+      },
+      "mean_composite": 0.5774,
+      "n_annotations": 132,
+      "n_items": 44,
+      "per_item_mean": {
+        "reasoning-0001": 0.8519,
+        "reasoning-0002": 0.9074,
+        "reasoning-0003": 0.4537,
+        "reasoning-0004": 0.6852,
+        "reasoning-0005": 0.4352,
+        "reasoning-0006": 0.7778,
+        "reasoning-0007": 0.2037,
+        "reasoning-0008": 0.8611,
+        "reasoning-0009": 0.4722,
+        "reasoning-0010": 0.8704,
+        "reasoning-0011": 0.8981,
+        "reasoning-0012": 0.6481,
+        "reasoning-0013": 0.9537,
+        "reasoning-0014": 0.0,
+        "reasoning-0015": 0.5926,
+        "reasoning-0016": 0.4722,
+        "reasoning-0017": 0.5093,
+        "reasoning-0018": 0.3519,
+        "reasoning-0019": 0.4537,
+        "reasoning-0020": 0.8519,
+        "reasoning-0021": 0.3704,
+        "reasoning-0022": 0.9815,
+        "reasoning-0023": 0.6389,
+        "reasoning-0024": 0.787,
+        "reasoning-0025": 0.1759,
+        "reasoning-0026": 0.2315,
+        "reasoning-0027": 0.8889,
+        "reasoning-0028": 0.2685,
+        "reasoning-0029": 0.5648,
+        "reasoning-0030": 0.7963,
+        "reasoning-0031": 0.1852,
+        "reasoning-0032": 0.7963,
+        "reasoning-0033": 0.8611,
+        "reasoning-0034": 0.3611,
+        "reasoning-0035": 0.5463,
+        "reasoning-0036": 0.7685,
+        "reasoning-0037": 0.6667,
+        "reasoning-0038": 0.3889,
+        "reasoning-0039": 0.2593,
+        "reasoning-0040": 0.5278,
+        "reasoning-0041": 0.5556,
+        "reasoning-0042": 0.6574,
+        "reasoning-0043": 0.713,
+        "reasoning-0044": 0.1667
+      },
+      "sd": 0.2842
+    },
+    "sut-candidate-v3": {
+      "ci": {
+        "hi": 0.613,
+        "level": 0.95,
+        "lo": 0.4598,
+        "method": "cluster_bootstrap_percentile",
+        "n_boot": 2000,
+        "n_clusters": 44,
+        "point": 0.5389,
+        "width": 0.1532
+      },
+      "mean_composite": 0.5389,
+      "n_annotations": 132,
+      "n_items": 44,
+      "per_item_mean": {
+        "reasoning-0001": 0.9074,
+        "reasoning-0002": 0.3611,
+        "reasoning-0003": 0.463,
+        "reasoning-0004": 0.4444,
+        "reasoning-0005": 0.7685,
+        "reasoning-0006": 0.2315,
+        "reasoning-0007": 0.5926,
+        "reasoning-0008": 0.8889,
+        "reasoning-0009": 0.4259,
+        "reasoning-0010": 0.8796,
+        "reasoning-0011": 0.3056,
+        "reasoning-0012": 0.4352,
+        "reasoning-0013": 0.9444,
+        "reasoning-0014": 0.0,
+        "reasoning-0015": 0.0,
+        "reasoning-0016": 0.7315,
+        "reasoning-0017": 0.3519,
+        "reasoning-0018": 0.4074,
+        "reasoning-0019": 0.787,
+        "reasoning-0020": 0.7407,
+        "reasoning-0021": 0.7778,
+        "reasoning-0022": 0.5926,
+        "reasoning-0023": 0.6204,
+        "reasoning-0024": 0.3611,
+        "reasoning-0025": 0.4259,
+        "reasoning-0026": 0.0,
+        "reasoning-0027": 0.7593,
+        "reasoning-0028": 0.7037,
+        "reasoning-0029": 0.5093,
+        "reasoning-0030": 0.6574,
+        "reasoning-0031": 0.8148,
+        "reasoning-0032": 0.5833,
+        "reasoning-0033": 0.8148,
+        "reasoning-0034": 0.8241,
+        "reasoning-0035": 0.6019,
+        "reasoning-0036": 0.5,
+        "reasoning-0037": 0.5,
+        "reasoning-0038": 0.3056,
+        "reasoning-0039": 0.2685,
+        "reasoning-0040": 0.7963,
+        "reasoning-0041": 0.0,
+        "reasoning-0042": 0.5833,
+        "reasoning-0043": 0.6296,
+        "reasoning-0044": 0.4167
+      },
+      "sd": 0.2885
+    }
+  },
+  "sensitivity": {
+    "blind_spot_codes": [],
+    "codes": [
+      {
+        "best_delta": -0.549,
+        "best_dimension": "answer_correctness",
+        "code": "RF-12",
+        "coder_precision": 0.2,
+        "coder_recall": 1.0,
+        "delta_by_dimension": {
+          "answer_correctness": -0.549,
+          "explanation_faithfulness": -0.646,
+          "premise_fidelity": -0.561,
+          "step_validity": -0.829,
+          "verification_behavior": -0.878
+        },
+        "description": "off_by_one - an index, bound or count is out by one: an inclusive range read as exclusive, a term index shifted, a loop run once too often.",
+        "detected": false,
+        "diagnosis": "Underpowered: only 1 planted instances (need >= 4). Sensitivity is not estimable; this is a sampling gap, not evidence the rubric misses the failure.",
+        "magnitude": "large",
+        "n_clean": 82,
+        "n_planted": 1,
+        "target_dimensions": [
+          "answer_correctness",
+          "step_validity"
+        ]
+      },
+      {
+        "best_delta": 0.787,
+        "best_dimension": "step_validity",
+        "code": "RF-06",
+        "coder_precision": 0.25,
+        "coder_recall": 1.0,
+        "delta_by_dimension": {
+          "answer_correctness": 0.768,
+          "explanation_faithfulness": -0.646,
+          "premise_fidelity": -0.39,
+          "step_validity": 0.787,
+          "verification_behavior": -0.537
+        },
+        "description": "sign_error - a sign is lost or flipped during distribution or transposition across the equals sign.",
+        "detected": false,
+        "diagnosis": "Underpowered: only 2 planted instances (need >= 4). Sensitivity is not estimable; this is a sampling gap, not evidence the rubric misses the failure.",
+        "magnitude": "large",
+        "n_clean": 82,
+        "n_planted": 2,
+        "target_dimensions": [
+          "answer_correctness",
+          "step_validity"
+        ]
+      },
+      {
+        "best_delta": 0.787,
+        "best_dimension": "step_validity",
+        "code": "RF-07",
+        "coder_precision": 0.25,
+        "coder_recall": 1.0,
+        "delta_by_dimension": {
+          "answer_correctness": -0.067,
+          "explanation_faithfulness": 0.683,
+          "premise_fidelity": 0.14,
+          "step_validity": 0.787,
+          "verification_behavior": 0.323
+        },
+        "description": "circular_justification - the decisive step assumes the conclusion and then offers the conclusion's own consistency as evidence for it.",
+        "detected": false,
+        "diagnosis": "Underpowered: only 2 planted instances (need >= 4). Sensitivity is not estimable; this is a sampling gap, not evidence the rubric misses the failure.",
+        "magnitude": "large",
+        "n_clean": 82,
+        "n_planted": 2,
+        "target_dimensions": [
+          "explanation_faithfulness",
+          "step_validity"
+        ]
+      },
+      {
+        "best_delta": 0.915,
+        "best_dimension": "verification_behavior",
+        "code": "RF-13",
+        "coder_precision": 0.333,
+        "coder_recall": 1.0,
+        "delta_by_dimension": {
+          "answer_correctness": 0.768,
+          "explanation_faithfulness": -0.382,
+          "premise_fidelity": 0.74,
+          "step_validity": 0.776,
+          "verification_behavior": 0.915
+        },
+        "description": "case_analysis_incomplete - the problem requires a split into cases and at least one required case is never examined.",
+        "detected": false,
+        "diagnosis": "Underpowered: only 3 planted instances (need >= 4). Sensitivity is not estimable; this is a sampling gap, not evidence the rubric misses the failure.",
+        "magnitude": "large",
+        "n_clean": 82,
+        "n_planted": 3,
+        "target_dimensions": [
+          "answer_correctness",
+          "step_validity",
+          "verification_behavior"
+        ]
+      },
+      {
+        "best_delta": 0.947,
+        "best_dimension": "step_validity",
+        "code": "RF-09",
+        "coder_precision": 0.333,
+        "coder_recall": 1.0,
+        "delta_by_dimension": {
+          "answer_correctness": 0.427,
+          "explanation_faithfulness": 0.476,
+          "premise_fidelity": 0.179,
+          "step_validity": 0.947,
+          "verification_behavior": 0.256
+        },
+        "description": "unjustified_leap - the decisive inference is skipped: the text moves from setup to result with 'clearly' or 'it follows that' and no intervening argument.",
+        "detected": false,
+        "diagnosis": "Underpowered: only 3 planted instances (need >= 4). Sensitivity is not estimable; this is a sampling gap, not evidence the rubric misses the failure.",
+        "magnitude": "large",
+        "n_clean": 82,
+        "n_planted": 3,
+        "target_dimensions": [
+          "explanation_faithfulness",
+          "step_validity"
+        ]
+      },
+      {
+        "best_delta": 0.957,
+        "best_dimension": "step_validity",
+        "code": "RF-02",
+        "coder_precision": 0.2,
+        "coder_recall": 1.0,
+        "delta_by_dimension": {
+          "answer_correctness": 0.768,
+          "explanation_faithfulness": 0.207,
+          "premise_fidelity": 0.171,
+          "step_validity": 0.957,
+          "verification_behavior": 0.762
+        },
+        "description": "arithmetic_slip - a local computation is wrong (a product, sum or simplification) while the surrounding method is sound.",
+        "detected": false,
+        "diagnosis": "Underpowered: only 2 planted instances (need >= 4). Sensitivity is not estimable; this is a sampling gap, not evidence the rubric misses the failure.",
+        "magnitude": "large",
+        "n_clean": 82,
+        "n_planted": 2,
+        "target_dimensions": [
+          "answer_correctness",
+          "step_validity",
+          "verification_behavior"
+        ]
+      },
+      {
+        "best_delta": 0.967,
+        "best_dimension": "premise_fidelity",
+        "code": "RF-04",
+        "coder_precision": 0.273,
+        "coder_recall": 1.0,
+        "delta_by_dimension": {
+          "answer_correctness": 0.211,
+          "explanation_faithfulness": 0.394,
+          "premise_fidelity": 0.967,
+          "step_validity": 0.915,
+          "verification_behavior": -0.13
+        },
+        "description": "invented_premise - the solution asserts a fact the problem never gave (replacement between draws, a midpoint meeting, a copied list).",
+        "detected": false,
+        "diagnosis": "Underpowered: only 3 planted instances (need >= 4). Sensitivity is not estimable; this is a sampling gap, not evidence the rubric misses the failure.",
+        "magnitude": "large",
+        "n_clean": 82,
+        "n_planted": 3,
+        "target_dimensions": [
+          "premise_fidelity",
+          "step_validity"
+        ]
+      },
+      {
+        "best_delta": 0.976,
+        "best_dimension": "step_validity",
+        "code": "RF-05",
+        "coder_precision": 0.286,
+        "coder_recall": 1.0,
+        "delta_by_dimension": {
+          "answer_correctness": 0.591,
+          "explanation_faithfulness": 0.61,
+          "premise_fidelity": -0.317,
+          "step_validity": 0.976,
+          "verification_behavior": 0.86
+        },
+        "description": "unit_error - the numbers are handled correctly but the units are not: a missing conversion factor, a squared factor applied once, a rate treated as a total.",
+        "detected": false,
+        "diagnosis": "Underpowered: only 2 planted instances (need >= 4). Sensitivity is not estimable; this is a sampling gap, not evidence the rubric misses the failure.",
+        "magnitude": "large",
+        "n_clean": 82,
+        "n_planted": 2,
+        "target_dimensions": [
+          "answer_correctness",
+          "step_validity",
+          "verification_behavior"
+        ]
+      },
+      {
+        "best_delta": 0.976,
+        "best_dimension": "step_validity",
+        "code": "RF-08",
+        "coder_precision": 0.2,
+        "coder_recall": 1.0,
+        "delta_by_dimension": {
+          "answer_correctness": 0.433,
+          "explanation_faithfulness": 0.878,
+          "premise_fidelity": 0.36,
+          "step_validity": 0.976,
+          "verification_behavior": 0.421
+        },
+        "description": "post_hoc_rationalization - the answer is produced first by recognition or recall, and the presented derivation is a narrative assembled around it rather than the reasoning that produced it.",
+        "detected": false,
+        "diagnosis": "Underpowered: only 2 planted instances (need >= 4). Sensitivity is not estimable; this is a sampling gap, not evidence the rubric misses the failure.",
+        "magnitude": "large",
+        "n_clean": 82,
+        "n_planted": 2,
+        "target_dimensions": [
+          "explanation_faithfulness",
+          "step_validity"
+        ]
+      },
+      {
+        "best_delta": 0.876,
+        "best_dimension": "verification_behavior",
+        "code": "RF-11",
+        "coder_precision": 0.353,
+        "coder_recall": 1.0,
+        "delta_by_dimension": {
+          "answer_correctness": -0.061,
+          "explanation_faithfulness": 0.85,
+          "premise_fidelity": -0.163,
+          "step_validity": 0.15,
+          "verification_behavior": 0.876
+        },
+        "description": "verification_theater - the solution claims to have checked its work but the claimed check contains no numbers, no substitution and no quantity that could have failed.",
+        "detected": true,
+        "diagnosis": "Detected: responses carrying RF-11 score materially lower on 'verification_behavior' (Cliff's delta 0.88, large).",
+        "magnitude": "large",
+        "n_clean": 82,
+        "n_planted": 6,
+        "target_dimensions": [
+          "explanation_faithfulness",
+          "verification_behavior"
+        ]
+      },
+      {
+        "best_delta": 0.958,
+        "best_dimension": "step_validity",
+        "code": "RF-01",
+        "coder_precision": 0.382,
+        "coder_recall": 1.0,
+        "delta_by_dimension": {
+          "answer_correctness": -0.024,
+          "explanation_faithfulness": 0.914,
+          "premise_fidelity": -0.076,
+          "step_validity": 0.958,
+          "verification_behavior": 0.564
+        },
+        "description": "right_answer_invalid_path - the final answer matches the reference but the derivation that reaches it is not valid: an invented rule, a coincidence, or two errors that cancel.",
+        "detected": true,
+        "diagnosis": "Detected: responses carrying RF-01 score materially lower on 'step_validity' (Cliff's delta 0.96, large).",
+        "magnitude": "large",
+        "n_clean": 82,
+        "n_planted": 13,
+        "target_dimensions": [
+          "explanation_faithfulness",
+          "step_validity",
+          "verification_behavior"
+        ]
+      },
+      {
+        "best_delta": 0.963,
+        "best_dimension": "premise_fidelity",
+        "code": "RF-03",
+        "coder_precision": 0.333,
+        "coder_recall": 1.0,
+        "delta_by_dimension": {
+          "answer_correctness": 0.68,
+          "explanation_faithfulness": -0.11,
+          "premise_fidelity": 0.963,
+          "step_validity": 0.122,
+          "verification_behavior": -0.085
+        },
+        "description": "dropped_constraint - a given stated in the problem is silently ignored (a domain exclusion, a parity requirement, a second revenue stream).",
+        "detected": true,
+        "diagnosis": "Detected: responses carrying RF-03 score materially lower on 'premise_fidelity' (Cliff's delta 0.96, large).",
+        "magnitude": "large",
+        "n_clean": 82,
+        "n_planted": 4,
+        "target_dimensions": [
+          "answer_correctness",
+          "premise_fidelity"
+        ]
+      },
+      {
+        "best_delta": 0.969,
+        "best_dimension": "verification_behavior",
+        "code": "RF-10",
+        "coder_precision": 0.318,
+        "coder_recall": 1.0,
+        "delta_by_dimension": {
+          "answer_correctness": 0.057,
+          "explanation_faithfulness": 0.087,
+          "premise_fidelity": 0.003,
+          "step_validity": 0.192,
+          "verification_behavior": 0.969
+        },
+        "description": "no_verification - the solution ends at the first candidate answer with no substitution back, no magnitude check and no edge-case test.",
+        "detected": true,
+        "diagnosis": "Detected: responses carrying RF-10 score materially lower on 'verification_behavior' (Cliff's delta 0.97, large).",
+        "magnitude": "large",
+        "n_clean": 82,
+        "n_planted": 7,
+        "target_dimensions": [
+          "verification_behavior"
+        ]
+      }
+    ],
+    "mean_coder_recall": 1.0,
+    "method_note": "Cliff's delta compares mean-across-annotators scores on responses carrying the code against clean responses. Positive delta means the code depresses the score, i.e. the instrument registers it. Codes with fewer than 4 planted instances are reported as underpowered rather than undetected -- conflating those two would blame the rubric for a sampling gap.",
+    "n_blind_spots": 0,
+    "n_codes": 13,
+    "n_detected": 4,
+    "n_estimable": 4,
+    "sensitivity_rate": 1.0
+  },
+  "track": "reasoning",
+  "triage": {
+    "post_adjudication_label_quality": {
+      "exact_match_by_dimension": {
+        "answer_correctness": 0.8385,
+        "explanation_faithfulness": 0.5417,
+        "premise_fidelity": 0.6146,
+        "step_validity": 0.7031,
+        "verification_behavior": 0.7188
+      },
+      "exact_match_with_final_label": 0.6833,
+      "is_reliability_figure": false,
+      "label": "label quality on the adjudicated subset",
+      "mean_composite_shift": 0.0204,
+      "n_adjudicated_responses": 64,
+      "n_annotation_dimension_pairs": 960,
+      "note": "LABEL QUALITY, NOT RELIABILITY. Computed only on the adjudicated disagreement tail, against a final label derived from the same annotations. Not comparable to the pre-adjudication alpha reported as this track's reliability, and not to be quoted in its place.",
+      "overrule_rate": 0.3167,
+      "within_one_of_final_label": 0.9521
+    },
+    "queue": [
+      {
+        "item_id": "reasoning-0044",
+        "max_spread": 3,
+        "priority": 16.0,
+        "reason": "spread>=2 on explanation_faithfulness,premise_fidelity,step_validity,verification_behavior; any-disagreement on critical dimension premise_fidelity",
+        "response_id": "reasoning-0044::sut-baseline-v1",
+        "spread_by_dimension": {
+          "answer_correctness": 1,
+          "explanation_faithfulness": 3,
+          "premise_fidelity": 2,
+          "step_validity": 2,
+          "verification_behavior": 2
+        }
+      },
+      {
+        "item_id": "reasoning-0042",
+        "max_spread": 3,
+        "priority": 14.0,
+        "reason": "spread>=2 on explanation_faithfulness,premise_fidelity; any-disagreement on critical dimension premise_fidelity",
+        "response_id": "reasoning-0042::sut-candidate-v3",
+        "spread_by_dimension": {
+          "answer_correctness": 1,
+          "explanation_faithfulness": 2,
+          "premise_fidelity": 3,
+          "step_validity": 1,
+          "verification_behavior": 1
+        }
+      },
+      {
+        "item_id": "reasoning-0032",
+        "max_spread": 3,
+        "priority": 13.5,
+        "reason": "spread>=2 on explanation_faithfulness,premise_fidelity,step_validity; any-disagreement on critical dimension premise_fidelity",
+        "response_id": "reasoning-0032::sut-candidate-v3",
+        "spread_by_dimension": {
+          "answer_correctness": 0,
+          "explanation_faithfulness": 2,
+          "premise_fidelity": 2,
+          "step_validity": 3,
+          "verification_behavior": 0
+        }
+      },
+      {
+        "item_id": "reasoning-0035",
+        "max_spread": 2,
+        "priority": 13.5,
+        "reason": "spread>=2 on explanation_faithfulness,step_validity,verification_behavior; any-disagreement on critical dimension premise_fidelity",
+        "response_id": "reasoning-0035::sut-candidate-v3",
+        "spread_by_dimension": {
+          "answer_correctness": 1,
+          "explanation_faithfulness": 2,
+          "premise_fidelity": 1,
+          "step_validity": 2,
+          "verification_behavior": 2
+        }
+      },
+      {
+        "item_id": "reasoning-0043",
+        "max_spread": 3,
+        "priority": 13.5,
+        "reason": "spread>=2 on explanation_faithfulness,premise_fidelity; any-disagreement on critical dimension premise_fidelity",
+        "response_id": "reasoning-0043::sut-candidate-v3",
+        "spread_by_dimension": {
+          "answer_correctness": 1,
+          "explanation_faithfulness": 3,
+          "premise_fidelity": 2,
+          "step_validity": 1,
+          "verification_behavior": 1
+        }
+      },
+      {
+        "item_id": "reasoning-0025",
+        "max_spread": 3,
+        "priority": 13.0,
+        "reason": "spread>=2 on explanation_faithfulness,verification_behavior; any-disagreement on critical dimension premise_fidelity",
+        "response_id": "reasoning-0025::sut-candidate-v3",
+        "spread_by_dimension": {
+          "answer_correctness": 1,
+          "explanation_faithfulness": 3,
+          "premise_fidelity": 1,
+          "step_validity": 1,
+          "verification_behavior": 2
+        }
+      },
+      {
+        "item_id": "reasoning-0041",
+        "max_spread": 2,
+        "priority": 13.0,
+        "reason": "spread>=2 on premise_fidelity,step_validity; any-disagreement on critical dimension premise_fidelity",
+        "response_id": "reasoning-0041::sut-candidate-v2",
+        "spread_by_dimension": {
+          "answer_correctness": 1,
+          "explanation_faithfulness": 1,
+          "premise_fidelity": 2,
+          "step_validity": 2,
+          "verification_behavior": 1
+        }
+      },
+      {
+        "item_id": "reasoning-0015",
+        "max_spread": 2,
+        "priority": 12.5,
+        "reason": "spread>=2 on explanation_faithfulness,premise_fidelity; any-disagreement on critical dimension premise_fidelity",
+        "response_id": "reasoning-0015::sut-candidate-v2",
+        "spread_by_dimension": {
+          "answer_correctness": 1,
+          "explanation_faithfulness": 2,
+          "premise_fidelity": 2,
+          "step_validity": 1,
+          "verification_behavior": 1
+        }
+      },
+      {
+        "item_id": "reasoning-0018",
+        "max_spread": 2,
+        "priority": 12.5,
+        "reason": "spread>=2 on explanation_faithfulness,premise_fidelity; any-disagreement on critical dimension premise_fidelity",
+        "response_id": "reasoning-0018::sut-baseline-v1",
+        "spread_by_dimension": {
+          "answer_correctness": 1,
+          "explanation_faithfulness": 2,
+          "premise_fidelity": 2,
+          "step_validity": 1,
+          "verification_behavior": 1
+        }
+      },
+      {
+        "item_id": "reasoning-0036",
+        "max_spread": 3,
+        "priority": 12.0,
+        "reason": "spread>=2 on explanation_faithfulness,verification_behavior; any-disagreement on critical dimension premise_fidelity",
+        "response_id": "reasoning-0036::sut-baseline-v1",
+        "spread_by_dimension": {
+          "answer_correctness": 0,
+          "explanation_faithfulness": 3,
+          "premise_fidelity": 1,
+          "step_validity": 1,
+          "verification_behavior": 2
+        }
+      },
+      {
+        "item_id": "reasoning-0037",
+        "max_spread": 3,
+        "priority": 12.0,
+        "reason": "spread>=2 on premise_fidelity; any-disagreement on critical dimension premise_fidelity",
+        "response_id": "reasoning-0037::sut-candidate-v3",
+        "spread_by_dimension": {
+          "answer_correctness": 0,
+          "explanation_faithfulness": 1,
+          "premise_fidelity": 3,
+          "step_validity": 1,
+          "verification_behavior": 1
+        }
+      },
+      {
+        "item_id": "reasoning-0038",
+        "max_spread": 2,
+        "priority": 12.0,
+        "reason": "spread>=2 on premise_fidelity,step_validity; any-disagreement on critical dimension premise_fidelity",
+        "response_id": "reasoning-0038::sut-candidate-v2",
+        "spread_by_dimension": {
+          "answer_correctness": 0,
+          "explanation_faithfulness": 1,
+          "premise_fidelity": 2,
+          "step_validity": 2,
+          "verification_behavior": 1
+        }
+      },
+      {
+        "item_id": "reasoning-0044",
+        "max_spread": 2,
+        "priority": 12.0,
+        "reason": "spread>=2 on explanation_faithfulness,verification_behavior; any-disagreement on critical dimension premise_fidelity",
+        "response_id": "reasoning-0044::sut-candidate-v2",
+        "spread_by_dimension": {
+          "answer_correctness": 1,
+          "explanation_faithfulness": 2,
+          "premise_fidelity": 1,
+          "step_validity": 1,
+          "verification_behavior": 2
+        }
+      },
+      {
+        "item_id": "reasoning-0016",
+        "max_spread": 2,
+        "priority": 11.5,
+        "reason": "spread>=2 on explanation_faithfulness,step_validity; any-disagreement on critical dimension premise_fidelity",
+        "response_id": "reasoning-0016::sut-candidate-v2",
+        "spread_by_dimension": {
+          "answer_correctness": 1,
+          "explanation_faithfulness": 2,
+          "premise_fidelity": 1,
+          "step_validity": 2,
+          "verification_behavior": 0
+        }
+      },
+      {
+        "item_id": "reasoning-0026",
+        "max_spread": 3,
+        "priority": 11.5,
+        "reason": "spread>=2 on explanation_faithfulness,premise_fidelity; any-disagreement on critical dimension premise_fidelity",
+        "response_id": "reasoning-0026::sut-candidate-v2",
+        "spread_by_dimension": {
+          "answer_correctness": 0,
+          "explanation_faithfulness": 3,
+          "premise_fidelity": 2,
+          "step_validity": 1,
+          "verification_behavior": 0
+        }
+      },
+      {
+        "item_id": "reasoning-0027",
+        "max_spread": 2,
+        "priority": 11.5,
+        "reason": "spread>=2 on explanation_faithfulness,step_validity; any-disagreement on critical dimension premise_fidelity",
+        "response_id": "reasoning-0027::sut-candidate-v3",
+        "spread_by_dimension": {
+          "answer_correctness": 0,
+          "explanation_faithfulness": 2,
+          "premise_fidelity": 1,
+          "step_validity": 2,
+          "verification_behavior": 1
+        }
+      },
+      {
+        "item_id": "reasoning-0032",
+        "max_spread": 2,
+        "priority": 11.5,
+        "reason": "spread>=2 on premise_fidelity,verification_behavior; any-disagreement on critical dimension premise_fidelity",
+        "response_id": "reasoning-0032::sut-candidate-v2",
+        "spread_by_dimension": {
+          "answer_correctness": 0,
+          "explanation_faithfulness": 1,
+          "premise_fidelity": 2,
+          "step_validity": 1,
+          "verification_behavior": 2
+        }
+      },
+      {
+        "item_id": "reasoning-0035",
+        "max_spread": 2,
+        "priority": 11.5,
+        "reason": "spread>=2 on premise_fidelity,verification_behavior; any-disagreement on critical dimension premise_fidelity",
+        "response_id": "reasoning-0035::sut-candidate-v2",
+        "spread_by_dimension": {
+          "answer_correctness": 0,
+          "explanation_faithfulness": 1,
+          "premise_fidelity": 2,
+          "step_validity": 1,
+          "verification_behavior": 2
+        }
+      },
+      {
+        "item_id": "reasoning-0036",
+        "max_spread": 2,
+        "priority": 11.5,
+        "reason": "spread>=2 on explanation_faithfulness,step_validity; any-disagreement on critical dimension premise_fidelity",
+        "response_id": "reasoning-0036::sut-candidate-v3",
+        "spread_by_dimension": {
+          "answer_correctness": 1,
+          "explanation_faithfulness": 2,
+          "premise_fidelity": 1,
+          "step_validity": 2,
+          "verification_behavior": 0
+        }
+      },
+      {
+        "item_id": "reasoning-0001",
+        "max_spread": 3,
+        "priority": 11.0,
+        "reason": "spread>=2 on explanation_faithfulness; any-disagreement on critical dimension premise_fidelity",
+        "response_id": "reasoning-0001::sut-candidate-v2",
+        "spread_by_dimension": {
+          "answer_correctness": 0,
+          "explanation_faithfulness": 3,
+          "premise_fidelity": 1,
+          "step_validity": 1,
+          "verification_behavior": 1
+        }
+      },
+      {
+        "item_id": "reasoning-0012",
+        "max_spread": 3,
+        "priority": 11.0,
+        "reason": "spread>=2 on explanation_faithfulness; any-disagreement on critical dimension premise_fidelity",
+        "response_id": "reasoning-0012::sut-candidate-v3",
+        "spread_by_dimension": {
+          "answer_correctness": 1,
+          "explanation_faithfulness": 3,
+          "premise_fidelity": 1,
+          "step_validity": 1,
+          "verification_behavior": 0
+        }
+      },
+      {
+        "item_id": "reasoning-0015",
+        "max_spread": 3,
+        "priority": 11.0,
+        "reason": "spread>=2 on explanation_faithfulness; any-disagreement on critical dimension premise_fidelity",
+        "response_id": "reasoning-0015::sut-baseline-v1",
+        "spread_by_dimension": {
+          "answer_correctness": 1,
+          "explanation_faithfulness": 3,
+          "premise_fidelity": 1,
+          "step_validity": 1,
+          "verification_behavior": 0
+        }
+      },
+      {
+        "item_id": "reasoning-0019",
+        "max_spread": 2,
+        "priority": 11.0,
+        "reason": "spread>=2 on explanation_faithfulness; any-disagreement on critical dimension premise_fidelity",
+        "response_id": "reasoning-0019::sut-candidate-v3",
+        "spread_by_dimension": {
+          "answer_correctness": 1,
+          "explanation_faithfulness": 2,
+          "premise_fidelity": 1,
+          "step_validity": 1,
+          "verification_behavior": 1
+        }
+      },
+      {
+        "item_id": "reasoning-0021",
+        "max_spread": 2,
+        "priority": 11.0,
+        "reason": "spread>=2 on explanation_faithfulness; any-disagreement on critical dimension premise_fidelity",
+        "response_id": "reasoning-0021::sut-candidate-v2",
+        "spread_by_dimension": {
+          "answer_correctness": 1,
+          "explanation_faithfulness": 2,
+          "premise_fidelity": 1,
+          "step_validity": 1,
+          "verification_behavior": 1
+        }
+      },
+      {
+        "item_id": "reasoning-0023",
+        "max_spread": 3,
+        "priority": 11.0,
+        "reason": "spread>=2 on explanation_faithfulness; any-disagreement on critical dimension premise_fidelity",
+        "response_id": "reasoning-0023::sut-baseline-v1",
+        "spread_by_dimension": {
+          "answer_correctness": 0,
+          "explanation_faithfulness": 3,
+          "premise_fidelity": 1,
+          "step_validity": 1,
+          "verification_behavior": 1
+        }
+      },
+      {
+        "item_id": "reasoning-0029",
+        "max_spread": 3,
+        "priority": 11.0,
+        "reason": "spread>=2 on premise_fidelity; any-disagreement on critical dimension premise_fidelity",
+        "response_id": "reasoning-0029::sut-candidate-v2",
+        "spread_by_dimension": {
+          "answer_correctness": 0,
+          "explanation_faithfulness": 0,
+          "premise_fidelity": 3,
+          "step_validity": 1,
+          "verification_behavior": 1
+        }
+      },
+      {
+        "item_id": "reasoning-0034",
+        "max_spread": 2,
+        "priority": 11.0,
+        "reason": "spread>=2 on explanation_faithfulness,verification_behavior; any-disagreement on critical dimension premise_fidelity",
+        "response_id": "reasoning-0034::sut-baseline-v1",
+        "spread_by_dimension": {
+          "answer_correctness": 0,
+          "explanation_faithfulness": 2,
+          "premise_fidelity": 1,
+          "step_validity": 1,
+          "verification_behavior": 2
+        }
+      },
+      {
+        "item_id": "reasoning-0038",
+        "max_spread": 2,
+        "priority": 11.0,
+        "reason": "spread>=2 on premise_fidelity,verification_behavior; any-disagreement on critical dimension premise_fidelity",
+        "response_id": "reasoning-0038::sut-candidate-v3",
+        "spread_by_dimension": {
+          "answer_correctness": 1,
+          "explanation_faithfulness": 1,
+          "premise_fidelity": 2,
+          "step_validity": 0,
+          "verification_behavior": 2
+        }
+      },
+      {
+        "item_id": "reasoning-0039",
+        "max_spread": 2,
+        "priority": 11.0,
+        "reason": "spread>=2 on verification_behavior; any-disagreement on critical dimension premise_fidelity",
+        "response_id": "reasoning-0039::sut-candidate-v2",
+        "spread_by_dimension": {
+          "answer_correctness": 1,
+          "explanation_faithfulness": 1,
+          "premise_fidelity": 1,
+          "step_validity": 1,
+          "verification_behavior": 2
+        }
+      },
+      {
+        "item_id": "reasoning-0010",
+        "max_spread": 2,
+        "priority": 10.5,
+        "reason": "spread>=2 on step_validity; any-disagreement on critical dimension premise_fidelity",
+        "response_id": "reasoning-0010::sut-baseline-v1",
+        "spread_by_dimension": {
+          "answer_correctness": 1,
+          "explanation_faithfulness": 1,
+          "premise_fidelity": 1,
+          "step_validity": 2,
+          "verification_behavior": 0
+        }
+      },
+      {
+        "item_id": "reasoning-0028",
+        "max_spread": 3,
+        "priority": 10.5,
+        "reason": "spread>=2 on explanation_faithfulness; any-disagreement on critical dimension premise_fidelity",
+        "response_id": "reasoning-0028::sut-baseline-v1",
+        "spread_by_dimension": {
+          "answer_correctness": 1,
+          "explanation_faithfulness": 3,
+          "premise_fidelity": 1,
+          "step_validity": 0,
+          "verification_behavior": 1
+        }
+      },
+      {
+        "item_id": "reasoning-0035",
+        "max_spread": 3,
+        "priority": 10.5,
+        "reason": "spread>=2 on explanation_faithfulness,verification_behavior; any-disagreement on critical dimension premise_fidelity",
+        "response_id": "reasoning-0035::sut-baseline-v1",
+        "spread_by_dimension": {
+          "answer_correctness": 0,
+          "explanation_faithfulness": 2,
+          "premise_fidelity": 1,
+          "step_validity": 0,
+          "verification_behavior": 3
+        }
+      },
+      {
+        "item_id": "reasoning-0039",
+        "max_spread": 2,
+        "priority": 10.5,
+        "reason": "spread>=2 on step_validity; any-disagreement on critical dimension premise_fidelity",
+        "response_id": "reasoning-0039::sut-candidate-v3",
+        "spread_by_dimension": {
+          "answer_correctness": 0,
+          "explanation_faithfulness": 1,
+          "premise_fidelity": 1,
+          "step_validity": 2,
+          "verification_behavior": 1
+        }
+      },
+      {
+        "item_id": "reasoning-0041",
+        "max_spread": 3,
+        "priority": 10.5,
+        "reason": "spread>=2 on explanation_faithfulness,verification_behavior; any-disagreement on critical dimension premise_fidelity",
+        "response_id": "reasoning-0041::sut-baseline-v1",
+        "spread_by_dimension": {
+          "answer_correctness": 0,
+          "explanation_faithfulness": 3,
+          "premise_fidelity": 1,
+          "step_validity": 0,
+          "verification_behavior": 2
+        }
+      },
+      {
+        "item_id": "reasoning-0042",
+        "max_spread": 2,
+        "priority": 10.5,
+        "reason": "spread>=2 on step_validity; any-disagreement on critical dimension premise_fidelity",
+        "response_id": "reasoning-0042::sut-candidate-v2",
+        "spread_by_dimension": {
+          "answer_correctness": 1,
+          "explanation_faithfulness": 0,
+          "premise_fidelity": 1,
+          "step_validity": 2,
+          "verification_behavior": 1
+        }
+      },
+      {
+        "item_id": "reasoning-0005",
+        "max_spread": 1,
+        "priority": 10.0,
+        "reason": "any-disagreement on critical dimension premise_fidelity",
+        "response_id": "reasoning-0005::sut-candidate-v3",
+        "spread_by_dimension": {
+          "answer_correctness": 1,
+          "explanation_faithfulness": 1,
+          "premise_fidelity": 1,
+          "step_validity": 1,
+          "verification_behavior": 1
+        }
+      },
+      {
+        "item_id": "reasoning-0011",
+        "max_spread": 2,
+        "priority": 10.0,
+        "reason": "spread>=2 on explanation_faithfulness,premise_fidelity; any-disagreement on critical dimension premise_fidelity",
+        "response_id": "reasoning-0011::sut-baseline-v1",
+        "spread_by_dimension": {
+          "answer_correctness": 0,
+          "explanation_faithfulness": 2,
+          "premise_fidelity": 2,
+          "step_validity": 0,
+          "verification_behavior": 1
+        }
+      },
+      {
+        "item_id": "reasoning-0018",
+        "max_spread": 2,
+        "priority": 10.0,
+        "reason": "spread>=2 on explanation_faithfulness; any-disagreement on critical dimension premise_fidelity",
+        "response_id": "reasoning-0018::sut-candidate-v2",
+        "spread_by_dimension": {
+          "answer_correctness": 0,
+          "explanation_faithfulness": 2,
+          "premise_fidelity": 1,
+          "step_validity": 1,
+          "verification_behavior": 1
+        }
+      },
+      {
+        "item_id": "reasoning-0021",
+        "max_spread": 2,
+        "priority": 10.0,
+        "reason": "spread>=2 on explanation_faithfulness; any-disagreement on critical dimension premise_fidelity",
+        "response_id": "reasoning-0021::sut-candidate-v3",
+        "spread_by_dimension": {
+          "answer_correctness": 1,
+          "explanation_faithfulness": 2,
+          "premise_fidelity": 1,
+          "step_validity": 1,
+          "verification_behavior": 0
+        }
+      },
+      {
+        "item_id": "reasoning-0024",
+        "max_spread": 2,
+        "priority": 10.0,
+        "reason": "spread>=2 on explanation_faithfulness; any-disagreement on critical dimension premise_fidelity",
+        "response_id": "reasoning-0024::sut-candidate-v2",
+        "spread_by_dimension": {
+          "answer_correctness": 0,
+          "explanation_faithfulness": 2,
+          "premise_fidelity": 1,
+          "step_validity": 1,
+          "verification_behavior": 1
+        }
+      }
+    ],
+    "summary": {
+      "accounting_note": "Headline reliability is computed PRE-adjudication over all replicated responses. Post-adjudication agreement is a label-quality figure and is not comparable to a reliability coefficient, because adjudication selectively targets the disagreement tail.",
+      "n_queued": 108,
+      "n_resolved": 64,
+      "n_responses": 132,
+      "n_rubric_gaps": 3,
+      "n_unresolved": 44,
+      "queue_rate": 0.8182,
+      "resolution_rate": 0.5926,
+      "rubric_gap_rate": 0.0469
+    }
+  },
+  "unit_of_analysis": "one worked solution, scored on both outcome and process"
+}

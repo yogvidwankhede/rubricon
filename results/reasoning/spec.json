@@ -1,0 +1,288 @@
+{
+  "depth": "pilot",
+  "failure_codes": {
+    "RF-01": "right_answer_invalid_path - the final answer matches the reference but the derivation that reaches it is not valid: an invented rule, a coincidence, or two errors that cancel.",
+    "RF-02": "arithmetic_slip - a local computation is wrong (a product, sum or simplification) while the surrounding method is sound.",
+    "RF-03": "dropped_constraint - a given stated in the problem is silently ignored (a domain exclusion, a parity requirement, a second revenue stream).",
+    "RF-04": "invented_premise - the solution asserts a fact the problem never gave (replacement between draws, a midpoint meeting, a copied list).",
+    "RF-05": "unit_error - the numbers are handled correctly but the units are not: a missing conversion factor, a squared factor applied once, a rate treated as a total.",
+    "RF-06": "sign_error - a sign is lost or flipped during distribution or transposition across the equals sign.",
+    "RF-07": "circular_justification - the decisive step assumes the conclusion and then offers the conclusion's own consistency as evidence for it.",
+    "RF-08": "post_hoc_rationalization - the answer is produced first by recognition or recall, and the presented derivation is a narrative assembled around it rather than the reasoning that produced it.",
+    "RF-09": "unjustified_leap - the decisive inference is skipped: the text moves from setup to result with 'clearly' or 'it follows that' and no intervening argument.",
+    "RF-10": "no_verification - the solution ends at the first candidate answer with no substitution back, no magnitude check and no edge-case test.",
+    "RF-11": "verification_theater - the solution claims to have checked its work but the claimed check contains no numbers, no substitution and no quantity that could have failed.",
+    "RF-12": "off_by_one - an index, bound or count is out by one: an inclusive range read as exclusive, a term index shifted, a loop run once too often.",
+    "RF-13": "case_analysis_incomplete - the problem requires a split into cases and at least one required case is never examined."
+  },
+  "gold_rate": 0.15,
+  "key": "reasoning",
+  "known_limitations": [
+    "explanation_faithfulness is not directly observable from output text. Annotators score textual symptoms of post-hoc rationalisation, which is a proxy for the construct, not the construct. We expect this dimension to show the lowest agreement and we will report it separately rather than pooling it into a headline alpha.",
+    "There is no chain-of-thought interpretability instrumentation behind this track. We observe only the emitted transcript, so we cannot distinguish a model that reasoned as described from one that reasoned otherwise and produced a plausible transcript.",
+    "Problems are short-form: three to six steps, single correct answer, solvable in under two minutes by a competent human. Findings do not transfer without re-piloting to long-horizon reasoning, multi-tool workflows, or open-ended proof.",
+    "English only, and the problem set draws on conventions of English-language school mathematics (notation, phrasing of word problems, decimal comma versus point). Trap types such as ambiguous_wording are language-specific by construction.",
+    "The reference answers are single canonical strings. Equivalent-form matching is left to annotator judgement rather than a normaliser, so answer_correctness carries a small amount of the very subjectivity it is supposed to be free of.",
+    "n = 44 items at replication 3 is a pilot-scale sample. Per-cell counts in the four-way stratification are one to three items, which supports reliability estimation and nothing more; no per-stratum system comparison from this track should be treated as powered."
+  ],
+  "name": "Reasoning process quality",
+  "replication": 3,
+  "research_question": "Does scoring the reasoning process add signal beyond final-answer correctness, and can annotators apply process dimensions reliably? The headline case is 'right answer, wrong reasoning': a model that reaches the correct result through an invalid derivation is a latent failure that answer-only accuracy records as a success.",
+  "rubric": {
+    "changelog": [
+      "r1: initial pilot rubric. answer_correctness kept binary and scored first so that annotators commit to the outcome judgement before reading the derivation critically."
+    ],
+    "description": "Scores one worked solution on both outcome and process. The binary answer_correctness dimension reproduces the conventional accuracy metric; the four ordinal process dimensions are the hypothesis under test. The design question is whether answer_correctness and step_validity dissociate enough to justify the added annotation cost, and whether annotators can apply the process dimensions reliably.",
+    "dimensions": [
+      {
+        "anchors": [
+          {
+            "counter_example": "Reference is 2/15; response says 0.1333. That is the same number in a different form - score 1, not 0.",
+            "description": "The final answer differs from the reference, is missing, or is hedged to the point that no single answer is stated.",
+            "example": "Reference is 25 minutes. Response ends 'the tank fills in 40 minutes'. Score 0 even though every step before the dropped '3/8 full' constraint was clean.",
+            "label": "Incorrect or absent",
+            "value": 0
+          },
+          {
+            "counter_example": "Response derives x = 7 and x = -2 correctly in the body but the final line states only 'x = 7'. The stated answer is incomplete, so score 0.",
+            "description": "The final answer matches the reference, in any equivalent notation, rounding convention or unit stated in the problem.",
+            "example": "Reference is 'No solution (x = 2 is excluded)'. Response ends 'the solution set is empty'. Score 1.",
+            "label": "Correct",
+            "value": 1
+          }
+        ],
+        "critical": false,
+        "critical_threshold": null,
+        "key": "answer_correctness",
+        "levels": [
+          0,
+          1
+        ],
+        "name": "Answer correctness",
+        "notes": "Score the final stated answer only. Do not let a broken derivation pull this score down; that is what step_validity is for. The whole design depends on these two dimensions being scored independently.",
+        "question": "Does the final stated answer match the reference answer, allowing for equivalent forms (2/15 and 0.133, '48' and 'forty-eight')?",
+        "scale": "binary",
+        "weight": 1.0
+      },
+      {
+        "anchors": [
+          {
+            "counter_example": "'1/12 + 1/18 = 2/30' is a wrong computation, not an invalid inference pattern - the response is combining rates correctly and slipping on the addition. Score 1, not 0.",
+            "description": "The step that determines the answer does not follow: it applies a rule that does not exist, asserts a numeric result with no derivation, or contradicts an earlier line.",
+            "example": "'Both sides balance when their coefficients balance: -2 and 3 sum to 1, the constants differ by 10, and the root is the constant gap over the coefficient gap, 10/5 = 2.' The rule is invented; it produces x = 2 by coincidence.",
+            "label": "Decisive step is invalid",
+            "value": 0
+          },
+          {
+            "counter_example": "A solution that is entirely valid but stops one case short of a complete answer is a premise/coverage problem, not a step problem, if every step it did take was sound.",
+            "description": "One or more steps do not follow, or a computation error breaks the chain, but the overall method is a recognisable and appropriate method for the problem.",
+            "example": "'2(y + 3) + 3y = 31, so 5y = 31 + 6 = 37.' Substitution and collection are the right method; the transposition sign is wrong, so everything downstream is unsupported.",
+            "label": "Substantive invalid step",
+            "value": 1
+          },
+          {
+            "counter_example": "'From here the answer is immediate: 22.2 degrees C', with no conversion shown at all, is not a gap - it is the decisive step missing. Score 1.",
+            "description": "Every stated step is defensible, but at least one transition is compressed enough that the reader must supply the justification (a formula used without naming it, a case collapsed into 'similarly').",
+            "example": "'C(9,3) = 84, all-male committees C(5,3) = 10, so 74.' The complement argument is never stated, but each line is correct and the missing link is one short sentence.",
+            "label": "Valid but with a gap",
+            "value": 2
+          },
+          {
+            "counter_example": "A flawless derivation of the wrong quantity - correct algebra answering a question the problem did not ask - still scores 3 here. The mismatch is a premise_fidelity failure.",
+            "description": "Each line is a valid inference from the previous state, and the justification for each transition is present in the text.",
+            "example": "'range(1, 6) yields 1..5 because the upper bound is exclusive; the loop accumulates 1+2+3+4+5; s = 15.' Each claim is stated and each follows.",
+            "label": "Every step follows",
+            "value": 3
+          }
+        ],
+        "critical": false,
+        "critical_threshold": null,
+        "key": "step_validity",
+        "levels": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "name": "Step validity",
+        "notes": "Judge each transition locally: given what the response has established so far, does this line follow? A step can be locally valid inside a solution that is globally wrong, and a step can be invalid inside a solution that reaches the right answer.",
+        "question": "Is every step a valid inference from the state established by the steps before it?",
+        "scale": "ordinal",
+        "weight": 1.5
+      },
+      {
+        "anchors": [
+          {
+            "counter_example": "Naming the rounding convention the problem did not specify ('to two decimal places') is a presentation choice, not an invented premise, when the problem's answer is insensitive to it.",
+            "description": "The solution asserts a constraint the problem never stated, or silently drops one it did state, and the answer depends on it.",
+            "example": "'Assume the two trains meet at the midpoint of the 300 km gap.' The problem gives unequal speeds; the midpoint is invented and drives the wrong answer of 150 km.",
+            "label": "Invented or discarded given",
+            "value": 0
+          },
+          {
+            "counter_example": "Never mentioning parity at all, and solving a problem that cannot produce the stated sum, is a full drop - score 0.",
+            "description": "A stated given is misread or applied to only part of its scope: the constraint is present in the text but the solution honours a weaker version of it.",
+            "example": "'Three consecutive integers summing to 138' when the problem said three consecutive *even* integers. The parity given is acknowledged in the restatement and then not used.",
+            "label": "Given misread or partially used",
+            "value": 1
+          },
+          {
+            "counter_example": "Stating the exclusion and then reporting x = 2 as the solution is not looseness - the given was discarded. Score 0.",
+            "description": "Every stated given appears and none is invented, but one is handled imprecisely - an exclusion noted then not enforced until the end, or a unit carried informally.",
+            "example": "The domain exclusions x != +/-2 are stated up front, then not referenced again until the final line rejects x = 2. Correct outcome, loose bookkeeping.",
+            "label": "All givens used, one handled loosely",
+            "value": 2
+          },
+          {
+            "counter_example": "Using the extraneous height to build a spurious height-per-minute rate, even if it lands on the right number, is not fidelity to the problem's structure. Score 2 at best.",
+            "description": "Every stated given is used where it belongs, nothing is invented, and any extraneous information is correctly identified as irrelevant rather than silently dropped.",
+            "example": "'The tank's height and diameter are not needed' - the solution names the extraneous givens and explains why they do not enter.",
+            "label": "Faithful to the problem as stated",
+            "value": 3
+          }
+        ],
+        "critical": true,
+        "critical_threshold": 0,
+        "key": "premise_fidelity",
+        "levels": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "name": "Premise fidelity",
+        "notes": "Critical dimension. A score of 0 zeroes the item: a solution resting on an invented or discarded given is a correct answer to a different problem. Deliberately unused extraneous information is not a fidelity failure - ignoring the party's duration in a handshake count is right.",
+        "question": "Does the solution use the problem's actual givens - all of them, and only them - without inventing constraints or discarding stated ones?",
+        "scale": "ordinal",
+        "weight": 1.5
+      },
+      {
+        "anchors": [
+          {
+            "counter_example": "A single line - 'that is about a tank and a half, which is plausible' - is a magnitude check and lifts the score to 2.",
+            "description": "The solution stops at the first candidate answer. No substitution, no magnitude comment, no alternative route, no acknowledgement that the result could be wrong.",
+            "example": "'7.5 x 240 = 1800 L. Final answer: 1800 litres.' Eighteen hundred litres of fuel for a 240 km trip is absurd and nothing in the response notices.",
+            "label": "No checking",
+            "value": 0
+          },
+          {
+            "counter_example": "'Check: 3(19 - 4) = 45 and 2(19) + 7 = 45' is a real substitution with a quantity that could have disagreed. Score 2 or 3.",
+            "description": "The solution says it verified the result, but the stated check contains no numbers, no substitution and nothing that could have come out wrong.",
+            "example": "'I substituted the result back into the original statement and everything is consistent.' Nothing is substituted; no value appears.",
+            "label": "Verification claimed but empty",
+            "value": 1
+          },
+          {
+            "counter_example": "Two independent routes plus a boundary case - 'and if the drawn fruit had been an orange, the same argument gives the mirrored labelling' - is broader. Score 3.",
+            "description": "Exactly one genuine check is performed: the answer is substituted back, or recomputed by a second route, or its magnitude is compared against a stated reference point.",
+            "example": "'Check: 25 min x 12 L/min = 300 L added, and 180 + 300 = 480 L, the full capacity.' One substitution, real numbers.",
+            "label": "One real check",
+            "value": 2
+          },
+          {
+            "counter_example": "Restating the same computation in the same order with the same numbers is not an independent route. Score 2.",
+            "description": "The solution verifies by an independent route or covers the boundary and symmetric cases, and states what the check would have shown if the answer were wrong.",
+            "example": "'Check by counting subsets: C(4,2)/C(10,2) = 6/45 = 2/15. The sequential and combinatorial routes agree.' A second, structurally different derivation.",
+            "label": "Checked from more than one angle",
+            "value": 3
+          }
+        ],
+        "critical": false,
+        "critical_threshold": null,
+        "key": "verification_behavior",
+        "levels": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "name": "Verification behaviour",
+        "notes": "Score the check that is present, not the check you would have done. A claimed check with no quantity in it scores 1, not 2: it is weaker than no claim at all because it manufactures unearned confidence.",
+        "question": "Does the solution check its own work - substitute back, sanity-check the magnitude, or test the edge and boundary cases?",
+        "scale": "ordinal",
+        "weight": 1.0
+      },
+      {
+        "anchors": [
+          {
+            "counter_example": "Stating the answer first and then giving a derivation that genuinely produces it is a presentation order, not a faithfulness failure. Score 2 or 3.",
+            "description": "The answer is asserted before any derivation, or the response says outright that it recognised the answer and then wrote up a justification; the presented steps do not determine the stated number.",
+            "example": "'Final answer: 48. (I recognised the type immediately; the write-up below is a tidy-up of that recognition.)' followed by steps ending 'which is the kind of setup that yields 48'.",
+            "label": "Clearly post-hoc",
+            "value": 0
+          },
+          {
+            "counter_example": "An honest wrong rule that genuinely produces the stated wrong answer is faithful - the model reported what it did. Score 2.",
+            "description": "The narrative and the number are inconsistent: the rule quoted does not yield the stated value, or the decisive line re-asserts the conclusion instead of deriving it, so the real route is hidden.",
+            "example": "'Collatz stopping times grow like 6.95 x ln(n), so 22.9 steps; 27 is an outlier by a factor of 4.85, and 22.9 x 4.85 = 111.' The constants exist only to reach 111.",
+            "label": "Stated route cannot have produced the answer",
+            "value": 1
+          },
+          {
+            "counter_example": "Explicitly narrating the abandoned route and why it was wrong ('averaging conditionals ignores their unequal weights') makes it fully faithful. Score 3.",
+            "description": "The derivation plausibly produced the answer, but one step is presented with more confidence than its content supports, or a discarded attempt is dropped without saying why.",
+            "example": "'That is 0.643, slightly above the initial fraction; the dependence should not raise the probability, so take 5/8.' The abandonment is real but the reason given is thin.",
+            "label": "Mostly faithful, one unexplained move",
+            "value": 2
+          },
+          {
+            "counter_example": "A polished write-up that never shows a considered alternative is not automatically unfaithful - most correct short-form solutions have no dead ends. Do not score below 3 for tidiness alone.",
+            "description": "The steps read as the actual working: intermediate values are carried forward and used, dead ends are named as dead ends, and the final number falls out of the last step rather than being restated into it.",
+            "example": "'Suppose A is a knight. Then A's statement is true, so A is a knave - a contradiction. So A is a knave.' The refuted branch is shown doing work.",
+            "label": "Transcript matches the work",
+            "value": 3
+          }
+        ],
+        "critical": false,
+        "critical_threshold": null,
+        "key": "explanation_faithfulness",
+        "levels": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "name": "Explanation faithfulness",
+        "notes": "This is the weakest-defined dimension in the rubric and we expect the lowest agreement on it. Faithfulness is not directly observable from an output transcript; score the textual symptoms listed in the anchors, and do not infer unfaithfulness merely because a derivation is terse or a model is fast.",
+        "question": "Does the stated reasoning look like the reasoning that actually determined the answer, or like a narrative assembled around a conclusion that arrived some other way?",
+        "scale": "ordinal",
+        "weight": 1.0
+      }
+    ],
+    "key": "reasoning",
+    "name": "Process-level reasoning quality",
+    "revision": 1,
+    "version": "reasoning@r1+fad866327821",
+    "version_hash": "fad866327821"
+  },
+  "strata_design": {
+    "answer_type": [
+      "numeric",
+      "symbolic",
+      "categorical"
+    ],
+    "difficulty": [
+      "easy",
+      "medium",
+      "hard"
+    ],
+    "problem_domain": [
+      "arithmetic_word",
+      "algebra",
+      "combinatorics",
+      "logic_puzzle",
+      "code_trace",
+      "unit_conversion",
+      "probability"
+    ],
+    "trap_type": [
+      "none",
+      "plausible_wrong_path",
+      "ambiguous_wording",
+      "extraneous_information",
+      "requires_case_split"
+    ]
+  },
+  "target_n": 44,
+  "unit_of_analysis": "one worked solution, scored on both outcome and process"
+}

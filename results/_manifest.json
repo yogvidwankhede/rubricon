@@ -1,0 +1,132 @@
+{
+  "agentic/adjudications.jsonl": {
+    "bytes": 44429,
+    "records": 70,
+    "sha256_12": "44220e7461b9"
+  },
+  "agentic/annotations.jsonl": {
+    "bytes": 215851,
+    "records": 432,
+    "sha256_12": "00b84d2ad435"
+  },
+  "agentic/items.jsonl": {
+    "bytes": 66298,
+    "records": 48,
+    "sha256_12": "a27a6e32ace5"
+  },
+  "agentic/responses.jsonl": {
+    "bytes": 282639,
+    "records": 144,
+    "sha256_12": "5cf88a4ec809"
+  },
+  "agentic/results.json": {
+    "bytes": 118868,
+    "records": 1,
+    "sha256_12": "1cae6a6ab8a8"
+  },
+  "agentic/spec.json": {
+    "bytes": 23116,
+    "records": 1,
+    "sha256_12": "ba00b5e3ed48"
+  },
+  "grounding/adjudications.jsonl": {
+    "bytes": 36002,
+    "records": 56,
+    "sha256_12": "ae87126ad90d"
+  },
+  "grounding/annotations.jsonl": {
+    "bytes": 181665,
+    "records": 360,
+    "sha256_12": "8e9ad1540d7e"
+  },
+  "grounding/items.jsonl": {
+    "bytes": 38843,
+    "records": 40,
+    "sha256_12": "0ba41efe642f"
+  },
+  "grounding/responses.jsonl": {
+    "bytes": 82952,
+    "records": 120,
+    "sha256_12": "2c7977368282"
+  },
+  "grounding/results.json": {
+    "bytes": 112136,
+    "records": 1,
+    "sha256_12": "fc39770e2b37"
+  },
+  "grounding/spec.json": {
+    "bytes": 20676,
+    "records": 1,
+    "sha256_12": "7cd2b1cefb94"
+  },
+  "portfolio.json": {
+    "bytes": 521312,
+    "records": 1,
+    "sha256_12": "c03659ae24ed"
+  },
+  "reasoning/adjudications.jsonl": {
+    "bytes": 41755,
+    "records": 64,
+    "sha256_12": "71f09564f5f8"
+  },
+  "reasoning/annotations.jsonl": {
+    "bytes": 201510,
+    "records": 396,
+    "sha256_12": "c92ef0b37e98"
+  },
+  "reasoning/items.jsonl": {
+    "bytes": 23348,
+    "records": 44,
+    "sha256_12": "b732eda873e0"
+  },
+  "reasoning/responses.jsonl": {
+    "bytes": 102875,
+    "records": 132,
+    "sha256_12": "4ac343f01cae"
+  },
+  "reasoning/results.json": {
+    "bytes": 117192,
+    "records": 1,
+    "sha256_12": "be32bfd2431c"
+  },
+  "reasoning/spec.json": {
+    "bytes": 20941,
+    "records": 1,
+    "sha256_12": "db3484fde2a3"
+  },
+  "refusal/adjudications.jsonl": {
+    "bytes": 39106,
+    "records": 55,
+    "sha256_12": "dda5d8f9612c"
+  },
+  "refusal/annotations.jsonl": {
+    "bytes": 156400,
+    "records": 324,
+    "sha256_12": "f59dc3649543"
+  },
+  "refusal/items.jsonl": {
+    "bytes": 35633,
+    "records": 36,
+    "sha256_12": "56140ae7c666"
+  },
+  "refusal/responses.jsonl": {
+    "bytes": 74556,
+    "records": 108,
+    "sha256_12": "3097882b4ffd"
+  },
+  "refusal/results.json": {
+    "bytes": 118629,
+    "records": 1,
+    "sha256_12": "0db25f80b446"
+  },
+  "refusal/spec.json": {
+    "bytes": 21426,
+    "records": 1,
+    "sha256_12": "7569276ccd03"
+  },
+  "summary.json": {
+    "bytes": 3286,
+    "records": 1,
+    "sha256_12": "f7ae26183e5d"
+  }
+}
