@@ -9,6 +9,8 @@ make sensitivity   # how much of the conclusion is the data, and how much is me?
 
 Runs offline. No API key. No third-party dependencies in the statistical core.
 
+**[Open the interactive results dashboard](https://yogvidwankhede.github.io/rubricon/results/dashboard.html)** — self-contained, no build step.
+
 > ### Read this before any number below
 > **The annotators in this repository are simulated.** No human labelled anything. Every agreement coefficient characterises the generative annotator model in `src/rubricon/annotation/pool.py`, not real annotator behaviour.
 >
@@ -121,7 +123,7 @@ scripts/audit_numbers.py          verifies every number in docs/ traces to resul
 
 ## Reproducibility
 
-`make all` regenerates every artifact from source. The pipeline is deterministic: same code, same corpus, same numbers, on any machine, with no network. A test runs the whole portfolio in two subprocesses under different `PYTHONHASHSEED` values and compares bytes — added after Python's salted string `hash()` in bootstrap seeds silently broke exactly the determinism the module docstring promised.
+`make all` regenerates every artifact from source. The pipeline is deterministic: same code, same corpus, same numbers, on any machine, with no network. Verified byte-identical across Linux x86-64 / Python 3.11 and macOS arm64 / Python 3.14: both produce `portfolio.json` at md5 `299bd4f19e03caa2cd7e33681340c294`. A test also runs the whole portfolio in two subprocesses under different `PYTHONHASHSEED` values and compares bytes — added after Python's salted string `hash()` in bootstrap seeds silently broke exactly the determinism the module docstring promised.
 
 `make audit` mechanically verifies that every number quoted in `docs/*.md` traces to `results/portfolio.json`, with an allowlist where each exemption carries a written justification. The script's own docstring documents what it *cannot* catch, which is how a wrong figure in an earlier draft of this README slipped past it.
 
