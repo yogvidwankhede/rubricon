@@ -215,6 +215,15 @@ ALLOWLIST: dict[str, str] = {
         "Reproduction of Krippendorff's published ratio alpha; asserted against "
         "the literature fixture in tests/conftest.py."
     ),
+    "3.11": (
+        "Python interpreter version of the Linux x86-64 reference run. A platform "
+        "identifier, not a measurement; sourced from the run environment."
+    ),
+    "3.14": (
+        "Python interpreter version of the macOS arm64 verification run that "
+        "reproduced portfolio.json byte-identically. A platform identifier, not a "
+        "measurement; sourced from the run environment."
+    ),
     "0.002": (
         "Test tolerance (`TOL` in tests/test_agreement.py) for the agreement "
         "implementation against the published reference values."
