@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "rubricon"
+version = "0.4.0"
+description = "Evaluation signal infrastructure: versioned rubrics, agreement statistics, a programmatic quality gate, and an invest/iterate/stop decision engine."
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+dependencies = []          # the statistical core is pure standard library, by design
+
+[project.optional-dependencies]
+# scipy and statsmodels are TEST-ONLY: they provide the independent reference
+# implementations the statistical core is validated against (normal quantiles,
+# noncentral-t power, Fleiss' kappa). The core itself stays standard-library.
+dev = ["pytest>=7", "scipy>=1.10", "statsmodels>=0.14"]
+live = ["anthropic>=0.40", "openai>=1.40"]
+
+[project.scripts]
+rubricon = "rubricon.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
