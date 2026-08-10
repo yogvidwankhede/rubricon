@@ -11,6 +11,8 @@ Runs offline. No API key. No third-party dependencies in the statistical core.
 
 **[Open the interactive results dashboard](https://yogvidwankhede.github.io/rubricon/results/dashboard.html)** — self-contained, no build step.
 
+**Applied to real annotator data:** [HateXplain label-quality audit](https://github.com/yogvidwankhede/hatexplain-label-audit) — the same statistics, pointed at real crowd annotators instead of simulated ones.
+
 > ### Read this before any number below
 > **The annotators in this repository are simulated.** No human labelled anything. Every agreement coefficient characterises the generative annotator model in `src/rubricon/annotation/pool.py`, not real annotator behaviour.
 >
