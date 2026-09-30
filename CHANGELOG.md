@@ -4,6 +4,14 @@ All notable changes to this project are documented here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project uses
 [Semantic Versioning](https://semver.org/).
 
+## [0.5.1] - 2026-09-30
+### Added
+- Property-based tests (Hypothesis) for alpha invariances and the noise model.
+- OpenSSF Scorecard workflow and badge; CI, release and licence badges; ORCID in CITATION.cff; `.zenodo.json` archive metadata.
+### Changed
+- Dependabot raises dependency ranges only when necessary.
+- No change to any statistic or result.
+
 ## [0.5.0] - 2026-09-30
 ### Added
 - `rubricon.gates.attenuation` (gate v2): claim checks that propagate gold-label noise

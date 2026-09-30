@@ -1,0 +1,9 @@
+{
+  "title": "Rubricon: evaluation-signal infrastructure with agreement statistics and claim gates",
+  "upload_type": "software",
+  "description": "Agreement statistics (Krippendorff's alpha, Fleiss' kappa, Gwet's AC1) validated against published reference values, cluster bootstrap, power analysis, and claim gates, including an attenuation-aware gate that propagates gold-label noise into system comparisons.",
+  "creators": [{"name": "Wankhede, Yogvid", "affiliation": "Independent Researcher", "orcid": "0009-0004-2258-6775"}],
+  "license": "MIT",
+  "keywords": ["annotation", "inter-annotator agreement", "Krippendorff's alpha", "evaluation", "statistical power", "LLM-as-a-judge", "reproducibility"],
+  "access_right": "open"
+}
