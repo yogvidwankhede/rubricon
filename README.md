@@ -1,6 +1,6 @@
 # Rubricon
 
-[![ci](https://github.com/yogvidwankhede/rubricon/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/yogvidwankhede/rubricon/actions/workflows/ci.yml) [![release](https://img.shields.io/github/v/release/yogvidwankhede/rubricon)](https://github.com/yogvidwankhede/rubricon/releases) [![license: MIT](https://img.shields.io/github/license/yogvidwankhede/rubricon)](LICENSE)
+[![ci](https://github.com/yogvidwankhede/rubricon/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/yogvidwankhede/rubricon/actions/workflows/ci.yml) [![release](https://img.shields.io/github/v/release/yogvidwankhede/rubricon)](https://github.com/yogvidwankhede/rubricon/releases) [![license: MIT](https://img.shields.io/github/license/yogvidwankhede/rubricon)](LICENSE) [![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/yogvidwankhede/rubricon/badge)](https://securityscorecards.dev/viewer/?uri=github.com/yogvidwankhede/rubricon)
 
 **Evaluation signal infrastructure.** A harness for building evaluations whose numbers can be defended — versioned rubrics, replicated annotation, agreement statistics validated against published reference values, a programmatic gate that *blocks* claims the evidence does not support, and a sensitivity analysis that tells you which of your own conclusions would survive being wrong about your assumptions.
 
@@ -162,7 +162,7 @@ attenuation_report(pg, rater_disagreement=0.25, k_raters=3).message
 
 `make audit` mechanically verifies that every number quoted in `docs/*.md` traces to `results/portfolio.json`, with an allowlist where each exemption carries a written justification. The script's own docstring documents what it *cannot* catch, which is how a wrong figure in an earlier draft of this README slipped past it.
 
-**229 tests.** The most important asserts Krippendorff's α against the published 2011 reference dataset for all four distance metrics — nominal 0.7434, ordinal 0.8154, interval 0.8491, ratio 0.7974, matching to within 0.0004. Others check the cluster bootstrap against a naive observation-level bootstrap, the MDE against `statsmodels`, and Fleiss' κ against `statsmodels` and `irrCAC`.
+**233 tests.** The most important asserts Krippendorff's α against the published 2011 reference dataset for all four distance metrics — nominal 0.7434, ordinal 0.8154, interval 0.8491, ratio 0.7974, matching to within 0.0004. Others check the cluster bootstrap against a naive observation-level bootstrap, the MDE against `statsmodels`, and Fleiss' κ against `statsmodels` and `irrCAC`.
 
 ---
 
