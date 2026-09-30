@@ -8,6 +8,7 @@ authors:
     orcid: "https://orcid.org/0009-0004-2258-6775"
 version: 0.5.1
 license: MIT
+doi: 10.5281/zenodo.23071898
 repository-code: "https://github.com/yogvidwankhede/rubricon"
 keywords: [annotation, inter-annotator agreement, Krippendorff's alpha, evaluation, statistical power]
 preferred-citation:
