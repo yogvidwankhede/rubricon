@@ -3,6 +3,11 @@ updates:
   - package-ecosystem: pip
     directory: /
     schedule: {interval: monthly}
+    # Library ranges in pyproject.toml are minimums; only raise one when a new
+    # release actually falls outside it. Exact versions live in the hash-pinned lockfile.
+    versioning-strategy: increase-if-necessary
+    groups:
+      python-deps: {patterns: ["*"]}
     open-pull-requests-limit: 5
   - package-ecosystem: github-actions
     directory: /
