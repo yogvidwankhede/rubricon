@@ -1,5 +1,7 @@
 # Rubricon
 
+[![ci](https://github.com/yogvidwankhede/rubricon/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/yogvidwankhede/rubricon/actions/workflows/ci.yml) [![release](https://img.shields.io/github/v/release/yogvidwankhede/rubricon)](https://github.com/yogvidwankhede/rubricon/releases) [![license: MIT](https://img.shields.io/github/license/yogvidwankhede/rubricon)](LICENSE)
+
 **Evaluation signal infrastructure.** A harness for building evaluations whose numbers can be defended — versioned rubrics, replicated annotation, agreement statistics validated against published reference values, a programmatic gate that *blocks* claims the evidence does not support, and a sensitivity analysis that tells you which of your own conclusions would survive being wrong about your assumptions.
 
 ```
