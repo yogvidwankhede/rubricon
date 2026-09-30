@@ -1,0 +1,18 @@
+name: Bug report
+description: Something computes the wrong number, crashes, or does not reproduce
+labels: [bug]
+body:
+  - type: textarea
+    id: what
+    attributes: {label: What happened, description: "Include the exact command and the output."}
+    validations: {required: true}
+  - type: textarea
+    id: expected
+    attributes: {label: What you expected, description: "If a statistic is wrong, give the reference value and its source."}
+    validations: {required: true}
+  - type: input
+    id: version
+    attributes: {label: Version / commit, placeholder: "e.g. 0.5.0 or a commit SHA"}
+  - type: input
+    id: env
+    attributes: {label: Python version and OS}

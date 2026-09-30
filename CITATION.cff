@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "If you use Rubricon, please cite the software and the accompanying paper."
+title: "Rubricon: evaluation-signal infrastructure with agreement statistics and a claim gate"
+type: software
+authors:
+  - family-names: Wankhede
+    given-names: Yogvid
+version: 0.5.0
+license: MIT
+repository-code: "https://github.com/yogvidwankhede/rubricon"
+keywords: [annotation, inter-annotator agreement, Krippendorff's alpha, evaluation, statistical power]
+preferred-citation:
+  type: article
+  title: "What can your labels support? A claim-gated reliability audit of annotation benchmarks"
+  authors:
+    - family-names: Wankhede
+      given-names: Yogvid
+  year: 2026
+  notes: "Preprint in preparation; identifier to be added when the preprint is posted."

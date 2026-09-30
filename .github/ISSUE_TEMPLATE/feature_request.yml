@@ -1,0 +1,14 @@
+name: Feature request
+description: Propose a new statistic, check, loader, or analysis
+labels: [enhancement]
+body:
+  - type: textarea
+    id: problem
+    attributes: {label: Problem, description: "What claim or analysis can you not make today?"}
+    validations: {required: true}
+  - type: textarea
+    id: proposal
+    attributes: {label: Proposal, description: "Include a reference (paper, textbook) for any statistic."}
+  - type: textarea
+    id: validation
+    attributes: {label: How would we validate it?}

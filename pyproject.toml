@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "rubricon"
-version = "0.4.0"
+version = "0.5.0"
 description = "Evaluation signal infrastructure: versioned rubrics, agreement statistics, a programmatic quality gate, and an invest/iterate/stop decision engine."
 readme = "README.md"
 requires-python = ">=3.10"

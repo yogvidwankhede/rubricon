@@ -123,13 +123,44 @@ scripts/audit_numbers.py          verifies every number in docs/ traces to resul
 
 ---
 
+## Gate v2: propagate label noise instead of blocking on reliability (0.5.0)
+
+`rubricon.gates.attenuation` adds claim checks for comparisons of two systems against
+majority-vote gold labels. The idea is old (Lam & Stork 2003; Dorner & Hardt 2024): for a
+binary label, gold-label noise does not create a gap between two systems, it shrinks the
+real one by `1 - 2 * eta_gold`, and it leaves their disagreement rate unchanged. The module:
+
+- estimates the single-rater error `eta` from the raters' own pairwise disagreement and the
+  gold-label error `eta_gold` for a k-rater majority;
+- blocks a direction claim only on a paired z-test at a pre-set `z*` (`check_direction`);
+- reports the true-scale gap and the smallest resolvable true gap, without blocking
+  (`attenuation_report`);
+- warns or blocks when the gap reverses between items raters agreed on and items they
+  split on (`check_contested_consistency`).
+
+Why it exists: in a known-truth simulation (companion repository
+[hatexplain-label-audit](https://github.com/yogvidwankhede/hatexplain-label-audit),
+`gate_sim.py`), the alpha floor in `SignalGate` published fewer real differences than a
+plain stricter significance test at the same false-claim rate. `SignalGate` is unchanged so
+that existing reports reproduce. The noise model assumes binary labels, symmetric rater
+noise and rater errors independent of the systems' errors.
+
+```python
+from rubricon.gates.attenuation import PairedGap, check_direction, attenuation_report
+pg = PairedGap.from_correctness(a_correct, b_correct)      # 0/1 per item, against gold
+check_direction(pg, z_star=2.58).verdict                    # PASS or BLOCK
+attenuation_report(pg, rater_disagreement=0.25, k_raters=3).message
+```
+
+---
+
 ## Reproducibility
 
 `make all` regenerates every artifact from source. The pipeline is deterministic: same code, same corpus, same numbers, on any machine, with no network. Verified byte-identical across Linux x86-64 / Python 3.11 and macOS arm64 / Python 3.14: both regenerate all 30 artifacts in `results/` byte-identically, with `portfolio.json` at md5 `299bd4f19e03caa2cd7e33681340c294`. A test also runs the whole portfolio in two subprocesses under different `PYTHONHASHSEED` values and compares bytes — added after Python's salted string `hash()` in bootstrap seeds silently broke exactly the determinism the module docstring promised.
 
 `make audit` mechanically verifies that every number quoted in `docs/*.md` traces to `results/portfolio.json`, with an allowlist where each exemption carries a written justification. The script's own docstring documents what it *cannot* catch, which is how a wrong figure in an earlier draft of this README slipped past it.
 
-**225 tests.** The most important asserts Krippendorff's α against the published 2011 reference dataset for all four distance metrics — nominal 0.7434, ordinal 0.8154, interval 0.8491, ratio 0.7974, matching to within 0.0004. Others check the cluster bootstrap against a naive observation-level bootstrap, the MDE against `statsmodels`, and Fleiss' κ against `statsmodels` and `irrCAC`.
+**229 tests.** The most important asserts Krippendorff's α against the published 2011 reference dataset for all four distance metrics — nominal 0.7434, ordinal 0.8154, interval 0.8491, ratio 0.7974, matching to within 0.0004. Others check the cluster bootstrap against a naive observation-level bootstrap, the MDE against `statsmodels`, and Fleiss' κ against `statsmodels` and `irrCAC`.
 
 ---
 
