@@ -481,6 +481,8 @@ _TABLE_RULE = re.compile(r"^\s*\|[\s:\-|]+\|\s*$")
 # ISO dates, masked before extraction so 2026-05-02 does not yield 2026, 5, 2.
 _ISO_DATE = re.compile(r"\b\d{4}-\d{2}-\d{2}\b")
 # ADR filenames and cross-references: 0001-versioned-rubrics.md, "ADR 0003".
+# DOIs (e.g. 10.5281/zenodo.23071898) are identifiers, never quantities.
+_DOI = re.compile(r"\b10\.\d{4,9}/[-._;()/:A-Za-z0-9]+")
 _ADR_REF = re.compile(r"\bADR[ -]?\d{4}\b|\b\d{4}-[a-z][a-z0-9-]*\.md\b")
 # Leading ordinal of a heading ("## 3. Population") or a numbered list item.
 _HEADING_ORDINAL = re.compile(r"^(#{1,6}\s+)\d+(?:\.\d+)*\.?\s")
@@ -522,6 +524,7 @@ def literals_in_line(line: str) -> list[tuple[str, float, int]]:
     text = line
     text = mask(text, _ISO_DATE)
     text = mask(text, _ADR_REF)
+    text = mask(text, _DOI)
     text = _HEADING_ORDINAL.sub(lambda m: m.group(1) + " " * (len(m.group()) - len(m.group(1))), text)
     text = _LIST_ORDINAL.sub(lambda m: m.group(1) + " " * (len(m.group()) - len(m.group(1))), text)
 
