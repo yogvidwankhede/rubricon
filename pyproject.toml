@@ -15,7 +15,7 @@ dependencies = []          # the statistical core is pure standard library, by d
 # scipy and statsmodels are TEST-ONLY: they provide the independent reference
 # implementations the statistical core is validated against (normal quantiles,
 # noncentral-t power, Fleiss' kappa). The core itself stays standard-library.
-dev = ["pytest>=7", "scipy>=1.10", "statsmodels>=0.14"]
+dev = ["pytest>=7", "scipy>=1.15.3", "statsmodels>=0.14"]
 live = ["anthropic>=0.40", "openai>=1.40"]
 
 [project.scripts]
