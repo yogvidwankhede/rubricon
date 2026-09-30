@@ -6,7 +6,7 @@ authors:
   - family-names: Wankhede
     given-names: Yogvid
     orcid: "https://orcid.org/0009-0004-2258-6775"
-version: 0.5.0
+version: 0.5.1
 license: MIT
 repository-code: "https://github.com/yogvidwankhede/rubricon"
 keywords: [annotation, inter-annotator agreement, Krippendorff's alpha, evaluation, statistical power]
