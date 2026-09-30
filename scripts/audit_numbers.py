@@ -228,7 +228,7 @@ ALLOWLIST: dict[str, str] = {
         "Test tolerance (`TOL` in tests/test_agreement.py) for the agreement "
         "implementation against the published reference values."
     ),
-    "225": (
+    "229": (
         "Size of the test suite, from pytest collection over tests/ "
         "(`python3 -m pytest tests/ -q --collect-only`). A property of the "
         "repository, not of a pipeline run; portfolio.json has no field for it."
