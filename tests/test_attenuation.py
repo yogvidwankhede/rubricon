@@ -51,3 +51,29 @@ def test_direction_and_report_and_consistency():
     down = [-1] * 60 + [0] * 340
     assert T.check_contested_consistency(up, down).verdict is Verdict.BLOCK
     assert T.check_contested_consistency(up, up).verdict is Verdict.PASS
+
+
+def test_paired_gap_from_correctness_validates_binary_input():
+    # Valid binary inputs: ints (0, 1) and bools (False, True)
+    pg_int = T.PairedGap.from_correctness([0, 1, 1], [1, 0, 1])
+    assert pg_int.n == 3
+    pg_bool = T.PairedGap.from_correctness([False, True, True], [True, False, True])
+    assert pg_bool.n == 3
+    assert pg_int.gap == pytest.approx(pg_bool.gap)
+    assert pg_int.sd == pytest.approx(pg_bool.sd)
+    assert pg_int.disagreement == pytest.approx(pg_bool.disagreement)
+
+    # Invalid values should raise ValueError
+    with pytest.raises(ValueError, match="elements must be 0/1 or bool"):
+        T.PairedGap.from_correctness([2, 1], [0, 1])
+    with pytest.raises(ValueError, match="elements must be 0/1 or bool"):
+        T.PairedGap.from_correctness([0, 1], [-1, 0])
+    with pytest.raises(ValueError, match="elements must be 0/1 or bool"):
+        T.PairedGap.from_correctness([0.5, 0.8], [0.1, 0.9])
+    with pytest.raises(ValueError, match="elements must be 0/1 or bool"):
+        T.PairedGap.from_correctness([0.0, 1.0], [1.0, 0.0])
+    with pytest.raises(ValueError, match="elements must be 0/1 or bool"):
+        T.PairedGap.from_correctness(["1", "0"], ["0", "1"])
+    with pytest.raises(ValueError, match="elements must be 0/1 or bool"):
+        T.PairedGap.from_correctness([None, 1], [0, 1])
+

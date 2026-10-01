@@ -119,10 +119,14 @@ class PairedGap:
         return self.gap / self.se if self.se > 0 else math.copysign(math.inf, self.gap)
 
     @classmethod
-    def from_correctness(cls, a: Sequence[int], b: Sequence[int]) -> "PairedGap":
+    def from_correctness(cls, a: Sequence[int | bool], b: Sequence[int | bool]) -> "PairedGap":
         if len(a) != len(b) or len(a) < 2:
             raise ValueError("need two equal-length sequences with n >= 2")
-        d = [x - y for x, y in zip(a, b)]
+        for seq in (a, b):
+            for x in seq:
+                if not isinstance(x, (int, bool)) or isinstance(x, float) or x not in (0, 1):
+                    raise ValueError(f"elements must be 0/1 or bool, got {x!r}")
+        d = [int(x) - int(y) for x, y in zip(a, b)]
         n = len(d)
         m = sum(d) / n
         sd = math.sqrt(sum((x - m) ** 2 for x in d) / (n - 1))
