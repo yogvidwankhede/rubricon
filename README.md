@@ -22,6 +22,20 @@ Runs offline. No API key. No third-party dependencies in the statistical core.
 
 ---
 
+## Results dashboard
+
+![Results dashboard · portfolio overview](docs/screenshots/rubricon-1.webp)
+
+*Results dashboard · portfolio overview.*
+
+![Signal gate ledger · 51.1% of claims blocked](docs/screenshots/rubricon-2.webp)
+
+*Signal gate ledger · 51.1% of claims blocked.*
+
+![Reliability by rubric dimension](docs/screenshots/rubricon-3.webp)
+
+*Reliability by rubric dimension.*
+
 ## The problem this attacks
 
 Most evaluation work fails at the *last* step. The data gets collected, the rubric gets written, a number comes out — and then the number escapes into a deck, a roadmap, or a customer conversation without anyone having checked whether the measurement could support the sentence built on top of it. By the time the claim is public, questioning it is a political act rather than a technical one.
