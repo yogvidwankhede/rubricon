@@ -135,14 +135,26 @@ def cmd_validate(args) -> int:
     }
     expected = {"nominal": 0.743, "ordinal": 0.815, "interval": 0.849, "ratio": 0.797}
     ok = True
-    print("Krippendorff (2011) reference dataset, 12 units x 4 observers with missing data:")
+    comparisons = []
+    if not args.json:
+        print("Krippendorff (2011) reference dataset, 12 units x 4 observers with missing data:")
     for metric, exp in expected.items():
         got = krippendorff_alpha(data, metric).value
         good = abs(got - exp) < 0.002
         ok &= good
-        print(f"  {metric:9s} computed={got:.4f}  published={exp:.3f}  "
-              f"{'OK' if good else 'MISMATCH'}")
-    print("\nPASS" if ok else "\nFAIL")
+        comparisons.append({
+            "coefficient": metric,
+            "published": exp,
+            "computed": got,
+            "absolute_error": abs(got - exp),
+        })
+        if not args.json:
+            print(f"  {metric:9s} computed={got:.4f}  published={exp:.3f}  "
+                  f"{'OK' if good else 'MISMATCH'}")
+    if args.json:
+        print(json.dumps({"passed": ok, "comparisons": comparisons}, indent=2))
+    else:
+        print("\nPASS" if ok else "\nFAIL")
     return 0 if ok else 1
 
 
@@ -170,9 +182,9 @@ def main(argv: list[str] | None = None) -> int:
     rb.add_argument("track")
     rb.set_defaults(fn=cmd_rubric)
 
-    sub.add_parser("validate", help="check stats against published values").set_defaults(
-        fn=cmd_validate
-    )
+    validate = sub.add_parser("validate", help="check stats against published values")
+    validate.add_argument("--json", action="store_true", help="print comparisons as JSON")
+    validate.set_defaults(fn=cmd_validate)
 
     args = p.parse_args(argv)
     return args.fn(args)
