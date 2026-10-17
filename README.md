@@ -11,6 +11,11 @@ make sensitivity   # how much of the conclusion is the data, and how much is me?
 
 Runs offline. No API key. No third-party dependencies in the statistical core.
 
+For machine-readable reference comparisons, run `rubricon validate --json`.
+It reports each coefficient's published and computed values and absolute error,
+plus an overall `passed` boolean. Both output formats exit 0 on success and 1
+when a comparison fails; `rubricon validate` keeps the human-readable table.
+
 **[Open the interactive results dashboard](https://yogvidwankhede.github.io/rubricon/results/dashboard.html)** — self-contained, no build step.
 
 **Applied to real annotator data:** [HateXplain label-quality audit](https://github.com/yogvidwankhede/hatexplain-label-audit) — the same statistics, pointed at real crowd annotators instead of simulated ones.
@@ -176,7 +181,7 @@ attenuation_report(pg, rater_disagreement=0.25, k_raters=3).message
 
 `make audit` mechanically verifies that every number quoted in `docs/*.md` traces to `results/portfolio.json`, with an allowlist where each exemption carries a written justification. The script's own docstring documents what it *cannot* catch, which is how a wrong figure in an earlier draft of this README slipped past it.
 
-**233 tests.** The most important asserts Krippendorff's α against the published 2011 reference dataset for all four distance metrics — nominal 0.7434, ordinal 0.8154, interval 0.8491, ratio 0.7974, matching to within 0.0004. Others check the cluster bootstrap against a naive observation-level bootstrap, the MDE against `statsmodels`, and Fleiss' κ against `statsmodels` and `irrCAC`.
+**237 tests.** The most important asserts Krippendorff's α against the published 2011 reference dataset for all four distance metrics — nominal 0.7434, ordinal 0.8154, interval 0.8491, ratio 0.7974, matching to within 0.0004. Others check the cluster bootstrap against a naive observation-level bootstrap, the MDE against `statsmodels`, and Fleiss' κ against `statsmodels` and `irrCAC`.
 
 ---
 
