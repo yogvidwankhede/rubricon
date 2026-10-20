@@ -22,6 +22,7 @@ from rubricon.stats.agreement import (
     fleiss_kappa,
     gwet_ac1,
     krippendorff_alpha,
+    pairwise_disagreement,
     percent_agreement,
     spearman_brown,
 )
@@ -126,6 +127,28 @@ def test_percent_agreement_basic():
     assert result.n_units == 3
     assert result.n_pairable == 3
     assert result.n_annotators == 3
+
+
+def test_pairwise_disagreement_averages_units_not_pairs():
+    data = {
+        "agree": {"a": "x", "b": "x"},
+        "split": {"a": "x", "b": "x", "c": "y"},
+        "single": {"a": "z"},
+        "empty": {},
+    }
+    # One unit has 0/1 disagreeing pairs, the other 2/3: mean = 1/3,
+    # not the pooled-pair rate 2/4.
+    actual = pairwise_disagreement(data)
+    assert abs(actual - 1 / 3) < 1e-12
+    assert actual == 1 - percent_agreement(data).value
+
+
+def test_pairwise_disagreement_boundaries():
+    assert pairwise_disagreement({"u": {"a": 1, "b": 1}}) == 0.0
+    assert pairwise_disagreement({"u": {"a": 1, "b": 2, "c": 3}}) == 1.0
+    for data in ({}, {"u": {}}, {"u": {"a": 1}}):
+        assert math.isnan(percent_agreement(data).value)
+        assert math.isnan(pairwise_disagreement(data))
 
 
 def test_single_annotation_units_excluded_from_pairable_but_counted():

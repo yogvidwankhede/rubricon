@@ -219,6 +219,20 @@ def percent_agreement(data: Reliability) -> AgreementResult:
     )
 
 
+def pairwise_disagreement(data: Reliability) -> float:
+    """Mean fraction of disagreeing rater pairs per unit.
+
+    Each unit with at least two ratings has equal weight, regardless of its
+    number of raters. Units with fewer ratings are excluded; if none remain,
+    returns NaN, just like :func:`percent_agreement`.
+
+    The result is ``1 - percent_agreement(data).value`` and can be passed to
+    :func:`rubricon.gates.attenuation.eta_from_disagreement` for binary labels
+    under that function's symmetric-noise assumptions.
+    """
+    return 1.0 - percent_agreement(data).value
+
+
 def _category_counts(pairable: Reliability) -> tuple[list[Value], dict[str, Counter]]:
     cats = sorted({v for vals in pairable.values() for v in vals.values()}, key=_sort_key)
     counts = {u: Counter(vals.values()) for u, vals in pairable.items()}
